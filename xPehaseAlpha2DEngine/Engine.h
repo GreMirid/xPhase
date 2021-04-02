@@ -3,11 +3,13 @@
 #include "Modules.h"
 #include "Objects.h"
 
+#include "EngineLoop.h"
+
 namespace xphase
 {
-	void createGame();
+	void createGame();	
 
-	class Game
+	class Game : public EngineLoop
 	{
 	public:
 		Game(const char initPath[127] = "game.ini");

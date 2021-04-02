@@ -17,6 +17,7 @@ namespace xphase
 		};
 
 	public:
+
 		//Getter
 		virtual v2f getPos()
 		{
@@ -30,6 +31,7 @@ namespace xphase
 		{
 			return posCen;
 		};
+
 		//Setter
 		virtual void setPos(const v2f& poS)
 		{
