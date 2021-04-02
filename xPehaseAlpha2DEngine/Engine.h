@@ -12,7 +12,7 @@ namespace xphase
 	class Game : public EngineLoop
 	{
 	public:
-		Game(const char initPath[127] = "game.ini");
+		Game(const char* initPath = "game.ini");
 
 	private:
 		void start();

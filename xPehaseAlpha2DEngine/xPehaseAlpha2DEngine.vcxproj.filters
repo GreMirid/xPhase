@@ -22,6 +22,9 @@
     <Filter Include="Файлы заголовков\Core">
       <UniqueIdentifier>{a81678e4-3ee9-4cce-adf8-d145b2af8e85}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\CoreCode">
+      <UniqueIdentifier>{4f1a87d6-fdca-4de7-8f1b-d381714c7dfd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Launcher.cpp">
@@ -73,6 +76,12 @@
     </ClInclude>
     <ClInclude Include="Entity.h">
       <Filter>Файлы заголовков\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineLoop.h">
+      <Filter>Файлы заголовков\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>Файлы заголовков\CoreCode</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

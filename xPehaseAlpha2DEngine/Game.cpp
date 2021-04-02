@@ -2,25 +2,23 @@
 
 namespace xphase
 {
-	Game::Game(const char initPath[127])
+	Game::Game(const char* initPath)
 	{
-		//ЗАДАЧА:
-		///Реализовать создание окна по указанным параметрам в ini файле 
-		auto init = initPath;
+		//EXECUTION:
+		///Create Window from params in ini file 
+		
+		//auto init = initPath;
 
-		///Запустить игру с параметрами.
+		///Create a game with Params.
 		start();
 	}
 
 	void Game::start()
 	{
-		//Load Engine data to RAM and VRAM
 		loadModules();
 
-		//Load Game data to RAM and VRAM
 		initObjects();
 
-		//and create Engine Loop
 		render();
 	}
 }
