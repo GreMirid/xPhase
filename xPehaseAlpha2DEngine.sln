@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1267
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "xPehaseAlpha2DEngine", "xPehaseAlpha2DEngine\xPehaseAlpha2DEngine.vcxproj", "{2433E8A8-7AF9-46B8-A4CD-DD1130B8A86B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2433E8A8-7AF9-46B8-A4CD-DD1130B8A86B}.Debug|x64.ActiveCfg = Debug|x64
+		{2433E8A8-7AF9-46B8-A4CD-DD1130B8A86B}.Debug|x64.Build.0 = Debug|x64
+		{2433E8A8-7AF9-46B8-A4CD-DD1130B8A86B}.Debug|x86.ActiveCfg = Debug|Win32
+		{2433E8A8-7AF9-46B8-A4CD-DD1130B8A86B}.Debug|x86.Build.0 = Debug|Win32
+		{2433E8A8-7AF9-46B8-A4CD-DD1130B8A86B}.Release|x64.ActiveCfg = Release|x64
+		{2433E8A8-7AF9-46B8-A4CD-DD1130B8A86B}.Release|x64.Build.0 = Release|x64
+		{2433E8A8-7AF9-46B8-A4CD-DD1130B8A86B}.Release|x86.ActiveCfg = Release|Win32
+		{2433E8A8-7AF9-46B8-A4CD-DD1130B8A86B}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B14AFC1C-3ABB-4018-BF4F-425C9A085CBE}
+	EndGlobalSection
+EndGlobal
