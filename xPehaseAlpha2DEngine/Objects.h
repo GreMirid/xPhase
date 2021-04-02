@@ -2,12 +2,14 @@
 #include "Player.h"
 #include "World.h"
 
+#pragma once
+
 namespace xphase
 {
-	Player player;
-	World world;
+	static Player player;
+	static World world;
 
-	void initObjects()
+	static void initObjects()
 	{
 		player.create();
 		world.create();

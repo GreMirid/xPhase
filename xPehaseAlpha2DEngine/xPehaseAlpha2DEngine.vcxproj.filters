@@ -77,9 +77,6 @@
     <ClInclude Include="Entity.h">
       <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
-    <ClInclude Include="EngineLoop.h">
-      <Filter>Файлы заголовков\Core</Filter>
-    </ClInclude>
     <ClInclude Include="Vector2.h">
       <Filter>Файлы заголовков\CoreCode</Filter>
     </ClInclude>

@@ -3,11 +3,9 @@
 #include "Modules.h"
 #include "Objects.h"
 
-#include "EngineLoop.h"
-
 namespace xphase
 {
-	void createGame();	
+	void createGame();
 
 	class Game : public EngineLoop
 	{

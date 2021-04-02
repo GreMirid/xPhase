@@ -1,11 +1,13 @@
 
 #include "Object.h"
 
+#pragma once
+
 namespace xphase
 {
 	class World : public Object
 	{
 	public:
-		int create();
+		World() {};
 	};
 }

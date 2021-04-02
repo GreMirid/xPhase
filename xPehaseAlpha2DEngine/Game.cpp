@@ -4,7 +4,7 @@ namespace xphase
 {
 	Game::Game(const char* initPath)
 	{
-		//EXECUTION:
+		//TASK:
 		///Create Window from params in ini file 
 		
 		//auto init = initPath;

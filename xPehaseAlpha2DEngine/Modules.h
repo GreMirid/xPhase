@@ -1,15 +1,19 @@
 
+
+
 #include "Scripts.h"
 #include "UserInterface.h"
 #include "Scenario.h"
 
+#pragma once
+
 namespace xphase
 {
-	Scripts scripts;
-	UserInterface UI;
-	Scenario characters;
+	static Scripts scripts;
+	static UserInterface UI;
+	static Scenario characters;
 
-	void loadModules()
+	static void loadModules()
 	{
 		scripts.load();
 		UI.load();

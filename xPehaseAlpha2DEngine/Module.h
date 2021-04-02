@@ -1,5 +1,6 @@
-
 #include "Core.h"
+
+#pragma once
 
 namespace xphase
 {
