@@ -1,7 +1,6 @@
+#pragma once
 
 #include "Module.h"
-
-#pragma once
 
 namespace xphase
 {

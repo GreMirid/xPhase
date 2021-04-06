@@ -1,8 +1,7 @@
+#pragma once
 
 #include "Player.h"
 #include "World.h"
-
-#pragma once
 
 namespace xphase
 {

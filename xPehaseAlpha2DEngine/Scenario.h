@@ -8,6 +8,9 @@ namespace xphase
 	class Scenario : public Module
 	{
 	public:
-		Scenario() {};
+		int load()
+		{
+			return EXIT_OK;
+		}
 	};
 }

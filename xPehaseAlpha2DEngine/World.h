@@ -1,13 +1,40 @@
+#pragma once
 
 #include "Object.h"
 
-#pragma once
-
 namespace xphase
 {
-	class World : public Object
+	class Door : Object
+	{
+
+	};
+
+	class Trigger : Object
+	{
+
+	};
+
+	class Collision : public Object
+	{
+
+	};
+
+	class Layer : public Object
+	{
+
+	};
+
+	class Scene : public Object
+	{
+
+	};
+
+	class World
 	{
 	public:
-		World() {};
+		int create()
+		{
+			return EXIT_OK;
+		}
 	};
 }

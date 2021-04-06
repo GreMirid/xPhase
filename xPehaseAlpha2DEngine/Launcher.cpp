@@ -1,8 +1,12 @@
+
 #include "Engine.h"
 
 int main()
 {
-	xphase::createGame();
+	//TASK:
+	///Get a name of exec file and put this name to this method:
+
+	xphase::createGame("NewGame");
 
 	return 0;
 }

@@ -2,7 +2,7 @@
 
 namespace xphase
 {
-	Game::Game(const char* initPath)
+	Game::Game(const std::string& filePath)
 	{
 		//TASK:
 		///Create Window from params in ini file 

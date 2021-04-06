@@ -6,6 +6,9 @@ namespace xphase
 	class Entity : public Object
 	{
 	public:
-		int create();
+		int create()
+		{
+			return EXIT_OK;
+		}
 	};
 }

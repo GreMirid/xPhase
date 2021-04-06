@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="EngineLoop.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Launcher.cpp" />
     <ClCompile Include="render.cpp" />
@@ -132,6 +133,7 @@
     <ClInclude Include="Core.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="Returns.h" />
     <ClInclude Include="Module.h" />
     <ClInclude Include="Modules.h" />
     <ClInclude Include="Object.h" />

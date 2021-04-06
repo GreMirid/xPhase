@@ -2,8 +2,9 @@
 
 namespace xphase
 {
-	void createGame()
+	void createGame(const std::string& filePath)
 	{
-		Game game("InLittleHillow.ini");
+		//Game is the object.
+		Game game( "./" + filePath + '/' + "config.ini");
 	}
 }

@@ -1,13 +1,15 @@
+#pragma once
 
 #include "Object.h"
-
-#pragma once
 
 namespace xphase
 {
 	class Player : public Object
 	{
 	public:
-		Player() {};
+		int create()
+		{
+			return EXIT_OK;
+		}
 	};
 }
