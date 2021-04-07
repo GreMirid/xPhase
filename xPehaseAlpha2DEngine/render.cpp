@@ -5,7 +5,9 @@ namespace xphase
 {
 	void Game::render()
 	{
-		//do staff
+		//TASK:
+		/// Just prepare a game to start.
+
 		loop();
 	}
 }

@@ -2,10 +2,14 @@
 
 //
 #include <string>
+#include <set>
 
 //
 #include "Vector2.h"
 #include "Returns.h"
+
+//TASK:
+/// Implement a ConteinerReader Class
 
 //
 #include "SFML/Graphics.hpp"
@@ -21,15 +25,18 @@ namespace xphase
 		sf::RenderWindow drawArea;
 
 	private:
-		int windStyle = sf::Style::Close | sf::Style::Titlebar;
+		char windStyle = sf::Style::Close | sf::Style::Titlebar;
 
 	public:
-		void open()
+		void open(const std::string& path)
 		{
 			//TASK:
 			///In ini file select need params and past it here
-			drawArea.create(sf::VideoMode(1280, 720), "TestWindow", windStyle);
+			std::string pathToIni = "./" + path + "/gamedata.ini";
+
+			drawArea.create(sf::VideoMode(1280, 720), path, windStyle);
 			drawArea.setFramerateLimit(120);
+			drawArea.setVerticalSyncEnabled(true);
 		}
 	};
 
@@ -37,7 +44,7 @@ namespace xphase
 	{
 	public:
 		//
-		float startFrameTime = 0, endFrameTime = 0;
+		double startFrameTime = 0, endFrameTime = 0;
 		bool isWindowOpen = false;
 
 		//
@@ -48,8 +55,8 @@ namespace xphase
 		int color = 0;
 
 		//
-		virtual void openWindow();
-		virtual void frame(float delta);
+		virtual void openWindow(const std::string& path);
+		virtual void frame(double delta);
 		virtual void loop();
 		
 		//

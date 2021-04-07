@@ -2,25 +2,29 @@
 
 namespace xphase
 {
-	void EngineLoop::openWindow()
+	void EngineLoop::openWindow(const std::string& path)
 	{
-		window.open();
+		window.open(path);
 
-		//do staff
 		isWindowOpen = true;
 	}
 
-	void EngineLoop::frame(float delta)
+	//Placeholder Frame
+	void EngineLoop::frame(double delta)
 	{
-		window.drawArea.clear(sf::Color(color, color, color, 255));
+		window.drawArea.clear(sf::Color(color, color, color));
 
-		if (itReverse)
+		switch (itReverse)
 		{
-			color--; if (color <= 0) itReverse = false;
-		}
-		else
-		{
-			color++; if (color >= 255) itReverse = true;
+		case true:
+			color--;
+			if (color <= 0) itReverse = false;
+			break;
+
+		case false:
+			color++;
+			if (color >= 255) itReverse = true;
+			break;
 		}
 
 		window.drawArea.display();
@@ -32,18 +36,23 @@ namespace xphase
 		
 		while (window.drawArea.isOpen())
 		{
-			float delta = endFrameTime - startFrameTime;
+			double delta = endFrameTime - startFrameTime;
 
 			startFrameTime = clock.getElapsedTime().asMicroseconds();
 
-			//sfml 
+			//sfml: i'm need some "event" object to interact with your window.
 			sf::Event event;
 			while (window.drawArea.pollEvent(event))
 			{
 				if (event.type == sf::Event::Closed) window.drawArea.close();
+
+				//TASK:
+				/// bind some "e" and "escape" keys to eteract with world
+
 			}
 
 			//do staff
+
 			frame(delta);
 
 			endFrameTime = clock.getElapsedTime().asMicroseconds();
@@ -56,6 +65,6 @@ namespace xphase
 
 	void EngineLoop::set()
 	{
-		//do staff
+		//do staff (just emtpty function for joke ahahah)
 	}
 }

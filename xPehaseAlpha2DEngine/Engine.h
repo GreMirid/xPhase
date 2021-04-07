@@ -15,5 +15,8 @@ namespace xphase
 	private:
 		void start();
 		void render();
+
+	private:
+		void frame(double delta);
 	};
 }

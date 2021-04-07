@@ -6,9 +6,7 @@ namespace xphase
 	{
 		//TASK:
 		///Create Window from params in ini file 
-		openWindow();
-		
-		//auto init = initPath;
+		openWindow(filePath);
 
 		///Create a game with Params.
 		start();

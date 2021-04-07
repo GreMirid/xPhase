@@ -6,7 +6,7 @@ int main()
 	//TASK:
 	///Get a name of exec file and put this name to this method:
 
-	xphase::createGame("NewGame");
+	xphase::createGame();
 
-	return 0;
+	return xphase::EXIT_OK;
 }

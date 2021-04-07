@@ -7,6 +7,11 @@ namespace xphase
 	class UserInterface : public Module
 	{
 	public:
-		UserInterface() {};
+		int load()
+		{
+			//HOW TO MAKE ANOTHER RESOLUTION TO UI WHEN YOU PLAYING IN GAME
+
+			return EXIT_OK;
+		}
 	};
 }

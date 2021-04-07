@@ -28,6 +28,9 @@
     <Filter Include="Исходные файлы\CoreCode">
       <UniqueIdentifier>{1d5e86ba-8ef3-4430-b23f-0bbdca178176}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Objects">
+      <UniqueIdentifier>{de3a5059-b333-4ce8-a191-b84deeae1a6a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Launcher.cpp">
@@ -44,6 +47,15 @@
     </ClCompile>
     <ClCompile Include="EngineLoop.cpp">
       <Filter>Исходные файлы\CoreCode</Filter>
+    </ClCompile>
+    <ClCompile Include="Frame.cpp">
+      <Filter>Исходные файлы\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>Исходные файлы\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Исходные файлы\Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -79,9 +91,6 @@
     </ClInclude>
     <ClInclude Include="Core.h">
       <Filter>Файлы заголовков\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
     <ClInclude Include="Vector2.h">
       <Filter>Файлы заголовков\CoreCode</Filter>
