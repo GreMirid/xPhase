@@ -6,7 +6,8 @@ namespace xphase
 	{
 		window.drawArea.clear(sf::Color(0,0,0));
 
-		world.update(delta, player.getLoction());
+		player.update(delta);
+		world.update(delta, player.getLocation());
 
 		window.drawArea.display();
 	}

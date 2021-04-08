@@ -40,15 +40,12 @@ namespace xphase
 
 			startFrameTime = clock.getElapsedTime().asMicroseconds();
 
-			//sfml: i'm need some "event" object to interact with your window.
-			sf::Event event;
 			while (window.drawArea.pollEvent(event))
 			{
 				if (event.type == sf::Event::Closed) window.drawArea.close();
 
 				//TASK:
 				/// bind some "e" and "escape" keys to eteract with world
-
 			}
 
 			//do staff

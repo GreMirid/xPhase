@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ConteinerReader.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="EngineLoop.cpp" />
     <ClCompile Include="Frame.cpp" />
@@ -137,6 +138,7 @@
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ConteinerReader.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="Returns.h" />

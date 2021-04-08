@@ -1,15 +1,9 @@
 #pragma once
 
 //
-#include <string>
-#include <set>
-
-//
 #include "Vector2.h"
 #include "Returns.h"
-
-//TASK:
-/// Implement a ConteinerReader Class
+#include "ConteinerReader.h"
 
 //
 #include "SFML/Graphics.hpp"
@@ -49,6 +43,9 @@ namespace xphase
 
 		//
 		Window window;
+
+		//sfml: i'm need some "event" object to interact with your window.
+		sf::Event event;
 
 		//
 		bool itReverse = false;

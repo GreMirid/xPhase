@@ -16,11 +16,17 @@ namespace xphase
 			/// Read a conteiner file and past all data to there
 			return EXIT_OK;
 		}
-
+		
 		//Getter
-		int getLoction()
+		int getLocation()
 		{
 			return location;
+		}
+
+		//Setter
+		void setLocation(int loc)
+		{
+			location = loc;
 		}
 
 	};
