@@ -20,14 +20,17 @@ namespace xphase
 		sf::RenderWindow drawArea;
 
 	private:
+		std::string windowName;
 		char windStyle = sf::Style::Close | sf::Style::Titlebar;
 		bool dFlag = false;
 
 	public:
-		bool isDebug()		 { return dFlag; }
-		void isDebug(bool d) { dFlag = d; }
+		bool isDebug()			{ return dFlag; }
+		void isDebug(bool d)	{ dFlag = d; }
 
-		void open(const std::string& path);
+		std::string getName()	{ return windowName; }
+
+		void open(const std::string& name);
 	};
 
 	class EngineLoop
