@@ -45,6 +45,13 @@ namespace xphase
 				if (event.type == sf::Event::Closed) window.drawArea.close();
 
 				//TASK:
+				/// bind keys for debug mode
+				switch (window.isDebug())
+				{
+				case true:
+					break;
+				}
+				//TASK:
 				/// bind some "e" and "escape" keys to eteract with world
 			}
 
@@ -62,6 +69,6 @@ namespace xphase
 
 	void EngineLoop::set()
 	{
-		//do staff (just emtpty function for joke ahahah)
+		/// do staff (just emtpty function for joke ahahah very fanny)
 	}
 }

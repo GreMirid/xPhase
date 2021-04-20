@@ -2,9 +2,9 @@
 
 namespace xphase
 {
-	void createGame(const std::string& filePath)
+	void createGame(bool debug, const std::string& filePath)
 	{
-		//Game is the object.
-		Game game(filePath);
+		/// Game is the object.
+		Game game(debug, filePath);
 	}
 }

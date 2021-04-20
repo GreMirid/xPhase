@@ -14,17 +14,15 @@ namespace xphase
 
 		virtual void update(double delta)			{ /*std::cout << "Object ";*/ };
 
-		virtual void enable()						{ isEnable = true; }
-		virtual void disable()						{ isEnable = false; }
-
 	public:
 		//Getter
 		virtual vec2f getPos()						{ return pos; }
 		virtual vec2f getSize()						{ return size; }
 		virtual vec2f getPosCen()					{ return posCen; }
-		virtual bool isEnabled()					{ return isEnable; }
+		virtual bool isEnabled()					{ return enableFlag; }
 
 		//Setter
+		virtual void isEnabled(bool en) { enableFlag = en; }
 		virtual void setSize(const vec2f& sizE)		{ size = sizE; }
 		virtual void setPos(const vec2f& poS)
 		{
@@ -36,7 +34,7 @@ namespace xphase
 		}
 		
 	private:
-		bool isEnable = true;
+		bool enableFlag = true;
 
 		vec2f pos;
 		vec2f size;

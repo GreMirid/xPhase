@@ -117,13 +117,17 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>D:\mixaf\Documents\SFML-2.5.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>SFML_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>D:\mixaf\Documents\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-audio.lib;sfml-graphics.lib;sfml-system.lib;sfml-window.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>UseFastLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <LargeAddressAware>false</LargeAddressAware>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -135,6 +139,7 @@
     <ClCompile Include="Launcher.cpp" />
     <ClCompile Include="render.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="Window.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +155,7 @@
     <ClInclude Include="Scenario.h" />
     <ClInclude Include="Scripts.h" />
     <ClInclude Include="UserInterface.h" />
+    <ClInclude Include="VarTrash.h" />
     <ClInclude Include="Vector2.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>

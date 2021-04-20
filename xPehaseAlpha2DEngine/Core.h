@@ -1,6 +1,7 @@
 #pragma once
 
 //
+#include "VarTrash.h"
 #include "Vector2.h"
 #include "Returns.h"
 #include "ConteinerReader.h"
@@ -20,18 +21,13 @@ namespace xphase
 
 	private:
 		char windStyle = sf::Style::Close | sf::Style::Titlebar;
+		bool dFlag = false;
 
 	public:
-		void open(const std::string& path)
-		{
-			//TASK:
-			///In ini file select need params and past it here
-			std::string pathToIni = "./" + path + "/gamedata.ini";
+		bool isDebug()		 { return dFlag; }
+		void isDebug(bool d) { dFlag = d; }
 
-			drawArea.create(sf::VideoMode(1280, 720), path, windStyle);
-			drawArea.setFramerateLimit(120);
-			drawArea.setVerticalSyncEnabled(true);
-		}
+		void open(const std::string& path);
 	};
 
 	class EngineLoop
@@ -61,3 +57,4 @@ namespace xphase
 	};
 
 }
+

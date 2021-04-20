@@ -60,6 +60,9 @@
     <ClCompile Include="ConteinerReader.cpp">
       <Filter>Исходные файлы\CoreCode</Filter>
     </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Исходные файлы\CoreCode</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -103,6 +106,9 @@
     </ClInclude>
     <ClInclude Include="ConteinerReader.h">
       <Filter>Файлы заголовков\CoreCode</Filter>
+    </ClInclude>
+    <ClInclude Include="VarTrash.h">
+      <Filter>Файлы заголовков\Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

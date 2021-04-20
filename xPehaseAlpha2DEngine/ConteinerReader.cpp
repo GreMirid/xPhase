@@ -13,21 +13,25 @@ ConteinerReader::ConteinerReader(const char& type)
 	switch (type)
 	{
 	case CHARACTER:
-		path = characterPath;
+		path += characterPath;
 		break;
 	case SCENE:
-		path = scenesPath;
+		path += scenesPath;
 		break;
 	case DIALOGSCRIPT:
-		path = dialogScriptPath;
+		path += dialogScriptPath;
 		break;
 	case SCRIPT:
-		path = scriptPath;
+		path += scriptPath;
 		break;
 	case PLAYERCONFIG:
-		path = playerConfigPath;
+		path += playerConfigPath;
 		break;
 	}
+
+	//TASK:
+
+	/// JUST READ THE DIRECTORY AND READ FILES IN EXCO
 
 	headerFile.open(path + dataEnd);
 

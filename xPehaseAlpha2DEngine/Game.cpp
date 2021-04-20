@@ -2,10 +2,12 @@
 
 namespace xphase
 {
-	Game::Game(const std::string& filePath)
+	Game::Game(bool debug, const std::string& filePath)
 	{
 		//TASK:
-		///Create Window from params in ini file 
+		///Create Window from params in ini file and params from command line
+		window.isDebug(debug);
+
 		openWindow(filePath);
 
 		///Create a game with Params.
