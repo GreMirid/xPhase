@@ -9,8 +9,6 @@ namespace xphase
 	public:
 		int load()
 		{
-			//HOW TO MAKE ANOTHER RESOLUTION UI WHEN YOU PLAYING IN GAME
-
 			return EXIT_OK;
 		}
 	};

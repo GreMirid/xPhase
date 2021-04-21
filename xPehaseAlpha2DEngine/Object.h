@@ -2,8 +2,6 @@
 
 #include "Core.h"
 
-//#include <iostream>
-
 namespace xphase
 {
 	class Object
@@ -12,7 +10,7 @@ namespace xphase
 		virtual int create()						{ return EXIT_NULL; }
 		virtual void destroy()						{ delete this; }
 
-		virtual void update(double delta)			{ /*std::cout << "Object ";*/ };
+		virtual void update(double delta)			{ };
 
 	public:
 		//Getter
@@ -22,7 +20,7 @@ namespace xphase
 		virtual bool isEnabled()					{ return enableFlag; }
 
 		//Setter
-		virtual void isEnabled(bool en) { enableFlag = en; }
+		virtual void isEnabled(bool en)				{ enableFlag = en; }
 		virtual void setSize(const vec2f& sizE)		{ size = sizE; }
 		virtual void setPos(const vec2f& poS)
 		{

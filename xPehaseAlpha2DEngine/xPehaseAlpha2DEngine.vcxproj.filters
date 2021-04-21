@@ -31,6 +31,12 @@
     <Filter Include="Исходные файлы\Objects">
       <UniqueIdentifier>{de3a5059-b333-4ce8-a191-b84deeae1a6a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\inih">
+      <UniqueIdentifier>{49d82c2e-0d8f-4eb2-86a8-c93e34f1a85d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\inih">
+      <UniqueIdentifier>{c5d800cc-02f4-4ac1-b3cf-0bb385f9630b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Launcher.cpp">
@@ -62,6 +68,12 @@
     </ClCompile>
     <ClCompile Include="Window.cpp">
       <Filter>Исходные файлы\CoreCode</Filter>
+    </ClCompile>
+    <ClCompile Include="INI\ini.c">
+      <Filter>Исходные файлы\inih</Filter>
+    </ClCompile>
+    <ClCompile Include="INI\INIReader.cpp">
+      <Filter>Исходные файлы\inih</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +121,15 @@
     </ClInclude>
     <ClInclude Include="VarTrash.h">
       <Filter>Файлы заголовков\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
+      <Filter>Файлы заголовков\CoreCode</Filter>
+    </ClInclude>
+    <ClInclude Include="INI\ini.h">
+      <Filter>Файлы заголовков\inih</Filter>
+    </ClInclude>
+    <ClInclude Include="INI\INIReader.h">
+      <Filter>Файлы заголовков\inih</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

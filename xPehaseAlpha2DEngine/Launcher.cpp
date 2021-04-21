@@ -1,6 +1,11 @@
 
 #include "Engine.h"
 
+void itParametrExist(bool &param, char* str, const char* nameParam)
+{
+	if (strcmp(str, '/' + nameParam) == 0) param = true;
+}
+
 int main(int argc, char** argv)
 {	
 	//TASK:
@@ -9,7 +14,7 @@ int main(int argc, char** argv)
 
 	for (int count = 0; count < argc; count++)
 	{
-		if (strcmp(argv[count],"+debug") == 0) debug = true; //set debug mode
+		itParametrExist(debug, argv[count], "debug");
 	}
 
 	//TASK:
@@ -21,8 +26,7 @@ int main(int argc, char** argv)
 	{
 		if (path[letter] == '\\')
 		{
-			name.assign(path, letter + 1, namCount);
-			break;
+			name.assign(path, letter + 1, namCount); break;
 		}
 		namCount++;
 	}

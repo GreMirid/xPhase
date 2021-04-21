@@ -1,8 +1,15 @@
 #pragma once
 
+/*
+The Inih Project
+Simple INI Parser
+GitHub: https://github.com/benhoyt/inih
+*/
+#include "INI/INIReader.h"
+
 //
 #include "VarTrash.h"
-#include "Vector2.h"
+#include "Matrix.h"
 #include "Returns.h"
 #include "ConteinerReader.h"
 
@@ -18,6 +25,7 @@ namespace xphase
 	{
 	public:
 		sf::RenderWindow drawArea;
+		ScreenMatrix screenMatrix;
 
 	private:
 		std::string windowName;
