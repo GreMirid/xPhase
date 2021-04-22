@@ -36,6 +36,8 @@ namespace xphase
 		bool isDebug()			{ return dFlag; }
 		void isDebug(bool d)	{ dFlag = d; }
 
+		std::string getPathtoGame() { return "./" + windowName + "/"; }
+
 		std::string getName()	{ return windowName; }
 
 		void open(const std::string& name);
@@ -44,6 +46,19 @@ namespace xphase
 	class EngineLoop
 	{
 	public:
+		//
+		enum statuses
+		{
+			StartingSequnce,
+			LoadingSequnce,
+			MainMenuSequnce,
+			GameSequnce,
+			ExitSequence
+		};
+
+		//
+		int statusFlag = StartingSequnce;
+
 		//
 		double startFrameTime = 0, endFrameTime = 0;
 		bool isWindowOpen = false;
@@ -65,6 +80,7 @@ namespace xphase
 		
 		//
 		virtual void set();
+		virtual void setStatus(int status);
 	};
 
 }

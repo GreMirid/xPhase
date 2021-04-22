@@ -37,6 +37,12 @@
     <Filter Include="Файлы заголовков\inih">
       <UniqueIdentifier>{c5d800cc-02f4-4ac1-b3cf-0bb385f9630b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Frames">
+      <UniqueIdentifier>{b8f598dc-ff59-4aa0-90ad-58c2a8b2ac50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Game\res_load">
+      <UniqueIdentifier>{38b92d98-8839-4865-94a6-9f4f263d8f75}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Launcher.cpp">
@@ -74,6 +80,21 @@
     </ClCompile>
     <ClCompile Include="INI\INIReader.cpp">
       <Filter>Исходные файлы\inih</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFrame.cpp">
+      <Filter>Исходные файлы\Frames</Filter>
+    </ClCompile>
+    <ClCompile Include="ExitFrame.cpp">
+      <Filter>Исходные файлы\Frames</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuFrame.cpp">
+      <Filter>Исходные файлы\Frames</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadingFrame.cpp">
+      <Filter>Исходные файлы\Frames</Filter>
+    </ClCompile>
+    <ClCompile Include="Res_Sc_Load.cpp">
+      <Filter>Исходные файлы\Game\res_load</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

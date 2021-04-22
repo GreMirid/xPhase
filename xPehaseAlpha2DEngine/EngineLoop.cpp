@@ -12,6 +12,11 @@ namespace xphase
 	//Placeholder Frame
 	void EngineLoop::frame(double delta)
 	{
+		while (window.drawArea.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed) window.drawArea.close();
+		}
+
 		window.drawArea.clear(sf::Color(color, color, color));
 
 		switch (itReverse)
@@ -40,21 +45,6 @@ namespace xphase
 
 			startFrameTime = clock.getElapsedTime().asMicroseconds();
 
-			while (window.drawArea.pollEvent(event))
-			{
-				if (event.type == sf::Event::Closed) window.drawArea.close();
-
-				//TASK:
-				/// bind keys for debug mode
-				switch (window.isDebug())
-				{
-				case true:
-					break;
-				}
-				//TASK:
-				/// bind some "e" and "escape" keys to eteract with world
-			}
-
 			//do staff
 
 			frame(delta);
@@ -70,5 +60,10 @@ namespace xphase
 	void EngineLoop::set()
 	{
 		/// do staff (just emtpty function for joke ahahah very fanny)
+	}
+
+	void EngineLoop::setStatus(int status)
+	{
+		statusFlag = status;
 	}
 }

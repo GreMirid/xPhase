@@ -3,7 +3,7 @@
 
 void itParametrExist(bool &param, char* str, const char* nameParam)
 {
-	if (strcmp(str, '/' + nameParam) == 0) param = true;
+	if (strcmp(str, nameParam) == 0) param = true;
 }
 
 int main(int argc, char** argv)
@@ -14,7 +14,7 @@ int main(int argc, char** argv)
 
 	for (int count = 0; count < argc; count++)
 	{
-		itParametrExist(debug, argv[count], "debug");
+		itParametrExist(debug, argv[count], "/debug");
 	}
 
 	//TASK:

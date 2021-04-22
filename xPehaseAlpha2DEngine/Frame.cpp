@@ -4,11 +4,35 @@ namespace xphase
 {
 	void Game::frame(double delta)
 	{
-		window.drawArea.clear(sf::Color(0,0,0));
+		while (window.drawArea.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed) window.drawArea.close();
 
-		player.update(delta);
-		world.update(delta, player.getLocation());
+			//TASK:
+			/// bind keys for debug mode
+			switch (window.isDebug())
+			{
+			case true:
+				break;
+			}
 
-		window.drawArea.display();
+			//TASK:
+			/// bind some "e" and "escape" keys to eteract with world
+			switch (statusFlag)
+			{
+			case MainMenuSequnce:
+				break;
+			case GameSequnce:
+				break;
+			}
+		}
+
+		switch (statusFlag)
+		{
+		case LoadingSequnce: loadingFrame(delta); break;
+		case MainMenuSequnce: mainMenuFrame(delta); break;
+		case GameSequnce: gameFrame(delta); break;
+		case ExitSequence: endingFrame(delta); break;
+		}
 	}
 }

@@ -10,8 +10,7 @@ namespace xphase
 
 		openWindow(filePath);
 
-		///Create a game with Params.
-		start();
+		render();
 	}
 
 	void Game::start()
@@ -19,7 +18,5 @@ namespace xphase
 		loadModules();
 
 		initObjects();
-
-		render();
 	}
 }
