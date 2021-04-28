@@ -2,12 +2,12 @@
 
 namespace xphase
 {
-	ConteinerReader::ConteinerReader(const std::string &game, char type)
+	ConteinerReader::ConteinerReader(const std::string &pathToGameFolder, char type)
 	{
 		std::ifstream headerFile;
 		std::wifstream tempFile;
 
-		std::string path = game + '/' + sc;
+		std::string path = pathToGameFolder + TO_SCRIPTS;
 
 		switch (type)
 		{
@@ -40,7 +40,7 @@ namespace xphase
 		{
 			std::cout << tempPath << "\n";
 
-			tempFile.open(path + '/' + tempPath + dataEnd);
+			tempFile.open(path + '\\' + tempPath + dataEnd);
 
 			if (!tempFile.is_open()) continue; //if it do dosen't open, it just skip
 

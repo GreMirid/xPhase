@@ -17,21 +17,10 @@ int main(int argc, char** argv)
 		itParametrExist(debug, argv[count], "/debug");
 	}
 
-	//TASK:
-	/// Get a name of exec file and put this in name of window:
-	std::string name, path = argv[0];
-	short namCount = -5;
+	std::string path = argv[0];
 
-	for (size_t letter = path.size();  letter > 0; letter--)
-	{
-		if (path[letter] == '\\')
-		{
-			name.assign(path, letter + 1, namCount); break;
-		}
-		namCount++;
-	}
-
-	xphase::createGame(debug, name);
+	//
+	xphase::createGame(debug, path);
 
 	return xphase::EXIT_OK;
 }

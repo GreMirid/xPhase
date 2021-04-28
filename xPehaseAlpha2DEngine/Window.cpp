@@ -2,13 +2,27 @@
 
 namespace xphase
 {
-	void Window::open(const std::string& name)
+	void Window::open(const std::string& path)
 	{
-		windowName = name; //set name
+		//TASK:
+		/// Get a name of exec file and put this in name of window:
+		pathTo.assign(path, 0, path.size() - 4);
+
+		short namCount = -5;
+
+		for (size_t letter = path.size(); letter > 0; letter--)
+		{
+			if (path[letter] == '\\')
+			{
+				windowName.assign(path, letter + 1, namCount);
+				break;
+			}
+			namCount++;
+		}
 
 		//TASK:
 		///In ini file select need params and past it here
-		INIReader reader("./" + name + "/config.ini");
+		INIReader reader( pathTo + TO_CFG + "config.ini" );
 
 		vec2f res = { 1024, 480 };
 
@@ -23,9 +37,8 @@ namespace xphase
 
 		screenMatrix.create(res);
 
-		drawArea.create(sf::VideoMode(res.x , res.y), isDebug() ? name + " Debug Mode" : name, windStyle);
+		drawArea.create(sf::VideoMode(res.x , res.y), isDebug() ? windowName + " Debug Mode" : windowName, windStyle);
 		drawArea.setFramerateLimit(120);
 		drawArea.setVerticalSyncEnabled(reader.GetBoolean("Game", "Vsync", true));
-
 	}
 }

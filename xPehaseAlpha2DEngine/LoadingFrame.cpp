@@ -6,14 +6,12 @@ namespace xphase
 	{
 		window.drawArea.clear(sf::Color(0, 0, 0));
 
-		window.drawArea.draw(ld.panel);
-		window.drawArea.draw(ld.loaingText);
+		ld.draw(window.drawArea);
 
 		window.drawArea.display();
 
-		///Create a game with Params.
-		start();
+		start(); /// Create a game with Params.
 
-		setStatus(GameSequnce); // TO MAIN MENU 
+		setStatus(MainMenuSequnce); // TO MAIN MENU 
 	}
 }

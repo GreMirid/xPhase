@@ -11,7 +11,8 @@ namespace xphase
 	{
 		for (size_t objects = 0; objects < collisions.size(); objects++)
 		{
-			if (collisions[objects].isEnabled()) collisions[objects].update(delta);
+			if (collisions[objects].isEnabled())
+				collisions[objects].update(delta);
 		}
 	}
 }

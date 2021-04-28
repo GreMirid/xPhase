@@ -117,6 +117,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>D:\mixaf\Documents\SFML-2.5.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,6 +131,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="ConteinerReader.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="EngineLoop.cpp" />
@@ -141,6 +143,7 @@
     <ClCompile Include="INI\INIReader.cpp" />
     <ClCompile Include="Launcher.cpp" />
     <ClCompile Include="LoadingFrame.cpp" />
+    <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="MainMenuFrame.cpp" />
     <ClCompile Include="render.cpp" />
     <ClCompile Include="Res_Sc_Load.cpp" />
@@ -157,9 +160,7 @@
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="Returns.h" />
     <ClInclude Include="Module.h" />
-    <ClInclude Include="Modules.h" />
     <ClInclude Include="Object.h" />
-    <ClInclude Include="Objects.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Scenario.h" />
     <ClInclude Include="Scripts.h" />

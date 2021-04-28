@@ -4,7 +4,9 @@ namespace xphase
 {
 	void Game::mainMenuFrame(double delta)
 	{
-		window.drawArea.clear(sf::Color(0, 0, 0));
+		window.drawArea.clear();
+
+		setStatus(UI.mM.draw(window));
 
 		window.drawArea.display();
 	}

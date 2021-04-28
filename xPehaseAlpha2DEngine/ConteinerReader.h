@@ -8,6 +8,10 @@
 
 #define WSTRMAS std::vector<std::wstring>
 
+#define TO_CFG "\\cfg\\"
+#define TO_RES "\\res\\"
+#define TO_SCRIPTS "\\scripts\\"
+
 namespace xphase
 {
 	class ConteinerReader
@@ -21,8 +25,6 @@ namespace xphase
 			SCRIPT,
 			PLAYERCONFIG
 		};
-
-		const std::string sc = "/scripts/";
 
 		const std::string characterPath = "characters";
 		const std::string scenesPath = "scenes";

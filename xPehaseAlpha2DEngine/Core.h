@@ -14,6 +14,9 @@ GitHub: https://github.com/benhoyt/inih
 #include "ConteinerReader.h"
 
 //
+#include <functional>
+
+//
 #include "SFML/Graphics.hpp"
 
 //
@@ -28,7 +31,7 @@ namespace xphase
 		ScreenMatrix screenMatrix;
 
 	private:
-		std::string windowName;
+		std::string windowName, pathTo;
 		char windStyle = sf::Style::Close | sf::Style::Titlebar;
 		bool dFlag = false;
 
@@ -36,11 +39,11 @@ namespace xphase
 		bool isDebug()			{ return dFlag; }
 		void isDebug(bool d)	{ dFlag = d; }
 
-		std::string getPathtoGame() { return "./" + windowName + "/"; }
+		std::string getPathtoGame() { return pathTo; }
 
 		std::string getName()	{ return windowName; }
 
-		void open(const std::string& name);
+		void open(const std::string& path);
 	};
 
 	class EngineLoop

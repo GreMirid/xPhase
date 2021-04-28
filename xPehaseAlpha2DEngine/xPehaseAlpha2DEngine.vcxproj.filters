@@ -43,6 +43,9 @@
     <Filter Include="Исходные файлы\Game\res_load">
       <UniqueIdentifier>{38b92d98-8839-4865-94a6-9f4f263d8f75}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\UI">
+      <UniqueIdentifier>{66a5adb9-c33a-46b5-aa85-7495c6cc28f4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Launcher.cpp">
@@ -96,6 +99,12 @@
     <ClCompile Include="Res_Sc_Load.cpp">
       <Filter>Исходные файлы\Game\res_load</Filter>
     </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Исходные файлы\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>Исходные файлы\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -119,13 +128,7 @@
     <ClInclude Include="Module.h">
       <Filter>Файлы заголовков\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Modules.h">
-      <Filter>Файлы заголовков\Core</Filter>
-    </ClInclude>
     <ClInclude Include="Object.h">
-      <Filter>Файлы заголовков\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Objects.h">
       <Filter>Файлы заголовков\Core</Filter>
     </ClInclude>
     <ClInclude Include="Core.h">

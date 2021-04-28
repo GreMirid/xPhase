@@ -12,18 +12,15 @@ namespace xphase
 			/// bind keys for debug mode
 			switch (window.isDebug())
 			{
-			case true:
-				break;
+			case true: /* do staff */ break;
 			}
 
 			//TASK:
 			/// bind some "e" and "escape" keys to eteract with world
 			switch (statusFlag)
 			{
-			case MainMenuSequnce:
-				break;
-			case GameSequnce:
-				break;
+			case MainMenuSequnce: /* do staff */ break;
+			case GameSequnce: /* do staff */ break;
 			}
 		}
 
