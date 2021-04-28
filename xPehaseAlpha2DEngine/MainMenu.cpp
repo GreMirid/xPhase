@@ -150,4 +150,10 @@ namespace xphase
 
 		return isMainMenuSequence();
 	}
+
+	void UserInterface::MainMenu::update(Window & window, float delta)
+	{
+		for (size_t unit = 0; unit < buttons.size(); unit++)
+			buttons[unit].isButtonUnderCursor( window.drawArea, { 0, 0 } );
+	}
 }

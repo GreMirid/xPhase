@@ -59,6 +59,8 @@ namespace xphase
 
 			int draw(Window& window);
 
+			void update(Window& window, float delta);
+
 		public:
 			bool isJustOnlyColor()					{ return snglClrFlag; }
 			void isJustOnlyColor(bool boolean)		{ snglClrFlag = boolean; }
