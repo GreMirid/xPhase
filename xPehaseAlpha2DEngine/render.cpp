@@ -7,9 +7,9 @@ namespace xphase
 	{
 		//TASK:
 		/// Just prepare a game to start.
-		setStatus(LoadingSequnce);
+		ld.create(window);
 
-		ld.create(window.screenMatrix.getRealScreenSize(), window.getPathtoGame());
+		setStatus(LoadingSequnce);
 
 		loop();
 	}

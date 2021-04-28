@@ -42,7 +42,7 @@ namespace xphase
 			sf::Font font; sf::Text loaingText; sf::ConvexShape panel;
 
 		public:
-			void create(const vec2f &screen, const std::string &path);
+			void create(Window &window);
 			void draw(sf::RenderWindow &window);
 
 		} /* Create a object of loading graphics */ ld;

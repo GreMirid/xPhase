@@ -8,26 +8,25 @@ namespace xphase
 	{
 	public:
 		bool itButtonPressed = false;
+		int roleFlag = DoNotExec;
 		vec2f pc, pos, size;
 
 		sf::Color backgraundColor, selectedColor, pressedColor;
 		sf::ConvexShape buttonBody;
 		sf::Text buttonText;
-		
-		std::function<void(void)> func;
 
-		void set(const vec2f& pos_, const vec2f& size_);
-		void setColors(const sf::Color& backColor);
-		void setText(const std::wstring& text, const sf::Font& font, const sf::Color& textColor, const char& letterSize);
+		void set(const vec2f& pos_, const vec2f& size_, int flag);
+		void setColors(const sf::Color& backColor, bool light);
+		void setText(std::string& text, sf::Font& font, sf::Color& textColor, int letterSize);
 		void setPosition(const vec2f& pos_);
+
+		void drawButton(sf::RenderWindow& window);
 
 		//TASK:
 		/// Create getter
 
-		void isButtonUnderCursor(const sf::RenderWindow& window, const vec2f& nowZeroPosition, const bool& rej);
-		void isButtonPressed(const bool& rej);
-
-		void drawButton(sf::RenderWindow& window);
+		void isButtonUnderCursor(const sf::RenderWindow& window, const vec2f& nowZeroPosition);
+		void isButtonPressed();
 	};
 
 	class UserInterface : public Module
@@ -44,7 +43,13 @@ namespace xphase
 			sf::Sprite backgraundSprite;
 
 			bool snglClrFlag = false;
-			int mmsqsFlag = 2;
+			int mmsqsFlag = MainMenuSequnce;
+
+		private:
+			sf::Font fontB;
+			sf::Color colorB;
+			std::string buttonNum = "";
+			int role = DoNotExec;
 
 		private:
 			std::vector<Button> buttons;
@@ -61,7 +66,7 @@ namespace xphase
 			int isMainMenuSequence()				{ return mmsqsFlag; }
 			void isMainMenuSequence(int flag)	{ mmsqsFlag = flag; }
 
-		} mM /*moo moo*/;
+		} mM;
 
 		int load(Window& window)
 		{

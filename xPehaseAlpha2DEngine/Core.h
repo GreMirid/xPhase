@@ -14,9 +14,6 @@ GitHub: https://github.com/benhoyt/inih
 #include "ConteinerReader.h"
 
 //
-#include <functional>
-
-//
 #include "SFML/Graphics.hpp"
 
 //
@@ -50,16 +47,6 @@ namespace xphase
 	{
 	public:
 		//
-		enum statuses
-		{
-			StartingSequnce,
-			LoadingSequnce,
-			MainMenuSequnce,
-			GameSequnce,
-			ExitSequence
-		};
-
-		//
 		int statusFlag = StartingSequnce;
 
 		//
@@ -85,6 +72,4 @@ namespace xphase
 		virtual void set();
 		virtual void setStatus(int status);
 	};
-
 }
-

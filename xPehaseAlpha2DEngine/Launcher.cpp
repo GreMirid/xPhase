@@ -7,7 +7,9 @@ void itParametrExist(bool &param, char* str, const char* nameParam)
 }
 
 int main(int argc, char** argv)
-{	
+{
+	setlocale(LC_ALL, "UTF-8");
+
 	//TASK:
 	/// Get params from exec path and do changes in execution code
 	bool debug = false;

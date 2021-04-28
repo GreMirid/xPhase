@@ -21,15 +21,9 @@ namespace xphase
 
 		switch (itReverse)
 		{
-		case true:
-			color--;
-			if (color <= 0) itReverse = false;
-			break;
+		case true: color--; if (color <= 0) itReverse = false; break;
 
-		case false:
-			color++;
-			if (color >= 255) itReverse = true;
-			break;
+		case false: color++; if (color >= 255) itReverse = true; break;
 		}
 
 		window.drawArea.display();

@@ -4,7 +4,7 @@ namespace xphase
 {
 	void Game::loadingFrame(double delta)
 	{
-		window.drawArea.clear(sf::Color(0, 0, 0));
+		window.drawArea.clear();
 
 		ld.draw(window.drawArea);
 

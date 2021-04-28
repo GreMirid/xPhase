@@ -2,15 +2,15 @@
 
 namespace xphase
 {
-	void Game::LoadingResources::create(const vec2f &screen, const std::string &path)
+	void Game::LoadingResources::create(Window &window)
 	{
-		font.loadFromFile(path + TO_RES + "fonts\\mainfont.ttf");
+		font.loadFromFile(window.getPathtoGame() + TO_RES + "fonts\\mainfont.ttf");
 
 		loaingText.setFont(font);
 
 		loaingText.setFillColor(sf::Color(255, 255, 255));
 		loaingText.setCharacterSize(20);
-		loaingText.setPosition((screen.x / 2) - 33, (screen.y / 2) - 13);
+		loaingText.setPosition((window.screenMatrix.getRealScreenSize().x / 2) - 33, (window.screenMatrix.getRealScreenSize().y / 2) - 13);
 
 		loaingText.setString(L"Loading");
 
@@ -23,7 +23,7 @@ namespace xphase
 
 		panel.setFillColor(sf::Color(45, 45, 45, 125));
 
-		panel.setPosition((screen.x / 2) - 50, (screen.y / 2) - 20);
+		panel.setPosition((window.screenMatrix.getRealScreenSize().x / 2) - 50, (window.screenMatrix.getRealScreenSize().y / 2) - 20);
 	}
 
 	void Game::LoadingResources::draw(sf::RenderWindow & window)

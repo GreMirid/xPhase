@@ -93,13 +93,20 @@ namespace xphase
 		return tempMas;
 	}
 
-	std::string ConteinerReader::toString(const std::wstring& data)
+	std::string toString(const std::wstring& data)
 	{
 		const std::string toreturn(data.begin(), data.end());
 		return toreturn;
 	}
 
-	int ConteinerReader::toInt(const std::wstring& data)
+	std::wstring toWstring(std::string& data, const std::locale& loc)
+	{
+		std::vector<wchar_t> buf(data.size());
+		std::use_facet<std::ctype<wchar_t>>(loc).widen(data.data(), data.data() + data.size(), buf.data());
+		return std::wstring(buf.data(), buf.size());
+	}
+
+	int toInt(const std::wstring& data)
 	{
 		return std::stoi(data);
 	}

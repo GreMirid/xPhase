@@ -21,10 +21,7 @@ namespace xphase
 
 		case false:
 			// Spagetti
-			if (!backgraundTexture.loadFromFile(window.getPathtoGame() + TO_RES + reader.GetString("Image", "path", "")))
-			{
-				isJustOnlyColor(true); return EXIT_ERROR;
-			}
+			if (!backgraundTexture.loadFromFile(window.getPathtoGame() + TO_RES + reader.GetString("Image", "path", ""))) return EXIT_ERROR;
 
 			//TASK:
 			/// Get Loaded Texture and Shrink it to all Window
@@ -38,15 +35,109 @@ namespace xphase
 		//TASK:
 		/// Get params about buttons from INI and calculate size of buttons block
 
-		int count = reader.GetInteger("Main", "buttons_count", 0);
+		int count = reader.GetInteger("Main", "buttons_count", 0) - 1;
 
-		vec2f buttonsBlockSize = { reader.GetInteger("Buttons", "buttons_size_x", 0), (reader.GetInteger("Buttons", "buttons_size_y", 0) * count) + count};
+		/// get the size of full block and get central position to move all block on screen
+		vec2f buttonsBlockSize =
+		{
+			reader.GetInteger("Buttons", "buttons_size_x", 0),
+			(reader.GetInteger("Buttons", "buttons_size_y", 0) * count) + count
+		};
 
-		//i'm do this late
+		vec2f buttonsSize =
+		{
+			reader.GetInteger("Buttons", "buttons_size_x", 0),
+			reader.GetInteger("Buttons", "buttons_size_y", 0)
+		};
+
+		vec2f buttonsBlockPos = { 0, 0 };
+
+		vec2f buttonsPosFromIni = { reader.GetInteger("Buttons", "buttons_x", 0) , reader.GetInteger("Buttons", "buttons_y", 0) };
+
+		/// x
+		if (reader.GetString("Buttons", "buttons_x", "") == "SC_A")
+			buttonsBlockPos.x = (window.screenMatrix.getRealScreenSize().x / 2) - (buttonsBlockSize.x / 2);
+		else
+			buttonsBlockPos.x = window.screenMatrix.getRealPoint(buttonsPosFromIni).x;
+
+		/// y
+		if (reader.GetString("Buttons", "buttons_y", "") == "SC_A")
+			buttonsBlockPos.y = (window.screenMatrix.getRealScreenSize().y / 2) - (buttonsBlockSize.y / 2);
+		else
+			buttonsBlockPos.y = window.screenMatrix.getRealPoint(buttonsPosFromIni).y;
+
+		/// create buttons
+		/// set font
+		fontB.loadFromFile(window.getPathtoGame() + TO_RES + reader.GetString("Buttons", "buttons_font", ""));
+
+		colorB.r = reader.GetInteger("Buttons", "buttons_clr_t_r", 0);
+		colorB.g = reader.GetInteger("Buttons", "buttons_clr_t_g", 0);
+		colorB.b = reader.GetInteger("Buttons", "buttons_clr_t_b", 0);
+
+		for (int unit = 0; unit < (count + 1); unit++)
+		{
+			/// Choose Button
+			switch (unit)
+			{
+			case 0: buttonNum = "FirstButton"; break;
+			case 1: buttonNum = "SecondButton"; break;
+			case 2: buttonNum = "ThirdButton"; break;
+			case 3: buttonNum = "FourButton"; break;
+			default: return EXIT_OK;
+			}
+
+			/// Choose role
+			if (reader.Get(buttonNum, "role", "") == "play") role = Play;
+			else if (reader.Get(buttonNum, "role", "") == "configure") role = Configure;
+			else if (reader.Get(buttonNum, "role", "") == "exit") role = Quit;
+			else if (reader.Get(buttonNum, "role", "") == "extra") role = Extra;
+			else role = DoNotExec;
+
+			/// Create a temp Button
+			Button temp;
+
+			/// Set Colors for Buttons
+			temp.setColors
+			(
+				sf::Color
+				(
+					reader.GetInteger("Buttons", "buttons_color_r", 255),
+					reader.GetInteger("Buttons", "buttons_color_g", 255),
+					reader.GetInteger("Buttons", "buttons_color_b", 255)
+				),
+				reader.GetBoolean("Buttons", "buttons_is_light", true)
+			);
+
+			/// Give to Button other data
+			temp.set
+			(
+				buttonsBlockPos,
+				buttonsSize,
+				role
+			);
+
+			/// Set Next Y pos for button
+			buttonsBlockPos.y += reader.GetInteger("Buttons", "buttons_size_y", 0) + 1;
+
+			/// Get Text for Button from ini
+			std::string textB = reader.GetString(buttonNum, "text", "");
+
+			temp.setText
+			(
+				textB,
+				fontB,
+				colorB,
+				reader.GetInteger("Buttons", "buttons_f_size", 0)
+			);
+
+			/// Add buttons to Objects
+			buttons.emplace_back(temp);
+		}
 
 		return EXIT_OK;
 	}
-	int UserInterface::MainMenu::draw(Window & window)
+
+	int UserInterface::MainMenu::draw( Window &window )
 	{
 		switch (isJustOnlyColor())
 		{

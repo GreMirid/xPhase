@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <locale>
 
 #include <vector>
 #include <string>
@@ -44,8 +45,10 @@ namespace xphase
 		size_t getNumberFilesInConteiner();
 
 		WSTRMAS separateData(std::wstring data, wchar_t separator);
-
-		std::string toString(const std::wstring& data);
-		int toInt(const std::wstring& data);
 	};
+
+	std::string toString(const std::wstring& data);
+	std::wstring toWstring(std::string& data, const std::locale& loc = std::locale());
+
+	int toInt(const std::wstring& data);
 }
