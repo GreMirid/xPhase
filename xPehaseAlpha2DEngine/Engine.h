@@ -34,8 +34,10 @@ namespace xphase
 		void mainMenuFrame(double delta);
 		void gameFrame(double delta);
 		void endingFrame(double delta);
+		void settingsFrame(double delta);
 
 	private:
+		//Create a object of loading graphics
 		class LoadingResources
 		{
 		private:
@@ -45,7 +47,7 @@ namespace xphase
 			void create(Window &window);
 			void draw(sf::RenderWindow &window);
 
-		} /* Create a object of loading graphics */ ld;
+		} ld;
 
 	private:
 		//Modules

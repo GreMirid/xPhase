@@ -29,40 +29,28 @@ namespace xphase
 		switch (light)
 		{
 		case true:
-			bColor.r += difference;
-			bColor.g += difference;
-			bColor.b += difference;
-
-			selectedColor.r = bColor.r;
-			selectedColor.g = bColor.g;
-			selectedColor.b = bColor.b;
-
-			bColor.r += difference;
-			bColor.g += difference;
-			bColor.b += difference;
-
-			pressedColor.r = bColor.r;
-			pressedColor.g = bColor.g;
-			pressedColor.b = bColor.b;
-			break;
-
-		case false:
-			bColor.r -= difference;
-			bColor.g -= difference;
-			bColor.b -= difference;
+			bColor.r += difference; bColor.g += difference; bColor.b += difference;
 
 			selectedColor = bColor;
 
-			bColor.r -= difference;
-			bColor.g -= difference;
-			bColor.b -= difference;
+			bColor.r += difference; bColor.g += difference; bColor.b += difference;
+
+			pressedColor = bColor;
+			break;
+
+		case false:
+			bColor.r -= difference; bColor.g -= difference; bColor.b -= difference;
+
+			selectedColor = bColor;
+
+			bColor.r -= difference; bColor.g -= difference; bColor.b -= difference;
 
 			pressedColor = bColor;
 			break;
 		}
 	}
 
-	void Button::setText(std::string& text, sf::Font& txtFnt, sf::Color& txtClr, int letterSize)
+	void Button::setText(sf::String& text, sf::Font& txtFnt, sf::Color& txtClr, int letterSize)
 	{
 		buttonText.setFont(txtFnt);
 
@@ -80,30 +68,68 @@ namespace xphase
 		window.draw(buttonText);
 	}
 
-	void Button::setPosition(const vec2f& pos_)
+	void Button::setPosition(const vec2f &pos_)
 	{
 		vec2f pos = pos_;
 		buttonBody.setPosition(pos.x, pos.y);
 		buttonText.setPosition(pos.x + 5, (pc.y + pos.y) - (buttonText.getCharacterSize() / 1.5f));
 	}
 
+	void Button::reSetText(sf::String &text)
+	{
+		buttonText.setString(text);
+	}
+
+	int Button::getRole()
+	{
+		return roleFlag;
+	}
+
 	void Button::isButtonUnderCursor(const sf::RenderWindow& window, const vec2f& nowZeroPosition)
 	{
-		if ((((sf::Mouse::getPosition(window).x + nowZeroPosition.x) > buttonBody.getPosition().x) && (sf::Mouse::getPosition(window).x + nowZeroPosition.x < (buttonBody.getPosition().x + size.x))) && ((sf::Mouse::getPosition(window).y + nowZeroPosition.y > buttonBody.getPosition().y) && (sf::Mouse::getPosition(window).y + nowZeroPosition.y < (buttonBody.getPosition().y + size.y))))
+		switch
+		(
+			(
+				(sf::Mouse::getPosition(window).x + nowZeroPosition.x > buttonBody.getPosition().x)
+					&
+				(sf::Mouse::getPosition(window).x + nowZeroPosition.x < buttonBody.getPosition().x + size.x)
+			)
+			&
+			(
+				(sf::Mouse::getPosition(window).y + nowZeroPosition.y > buttonBody.getPosition().y)
+					&
+				(sf::Mouse::getPosition(window).y + nowZeroPosition.y < buttonBody.getPosition().y + size.y)
+			)
+		)
 		{
-			if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) isButtonPressed();
-			else buttonBody.setFillColor(selectedColor);
-		}
-		else
-		{
+		case true:
+			switch (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+			{
+			case true:  ButtonPressed(); break;
+			case false: buttonBody.setFillColor(selectedColor); break;
+			}
+			break;
+
+		case false:
 			buttonBody.setFillColor(backgraundColor);
-			itButtonPressed = false;
+			isButtonPressed(false);
+			break;
 		}
 	}
 
-	void Button::isButtonPressed()
+	void Button::ButtonPressed()
 	{
 		buttonBody.setFillColor(pressedColor);
-		itButtonPressed = true;
+		isButtonPressed(true);
+	}
+
+	void Button::isButtonPressed(bool boolean)
+	{
+		itButtonPressed = boolean;
+	}
+
+	bool Button::isButtonPressed()
+	{
+		return itButtonPressed;
 	}
 }

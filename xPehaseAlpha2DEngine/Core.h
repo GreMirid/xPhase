@@ -48,6 +48,7 @@ namespace xphase
 	public:
 		//
 		int statusFlag = StartingSequnce;
+		int fromScene = StartingSequnce;
 
 		//
 		double startFrameTime = 0, endFrameTime = 0;
@@ -71,5 +72,6 @@ namespace xphase
 		//
 		virtual void set();
 		virtual void setStatus(int status);
+		virtual void setScene(int scene);
 	};
 }

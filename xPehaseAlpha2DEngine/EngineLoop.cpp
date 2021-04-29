@@ -60,4 +60,9 @@ namespace xphase
 	{
 		statusFlag = status;
 	}
+
+	void EngineLoop::setScene(int scene)
+	{
+		fromScene = scene;
+	}
 }

@@ -18,6 +18,7 @@ namespace xphase
 		LoadingSequnce,
 		MainMenuSequnce,
 		GameSequnce,
+		SettingsSequence,
 		ExitSequence
 	};
 

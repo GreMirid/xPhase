@@ -120,7 +120,10 @@ namespace xphase
 			buttonsBlockPos.y += reader.GetInteger("Buttons", "buttons_size_y", 0) + 1;
 
 			/// Get Text for Button from ini
-			std::string textB = reader.GetString(buttonNum, "text", "");
+			sf::String textB = reader.GetString(buttonNum, "text", "");
+
+			/// to unf**k with other languages
+			textB = sf::String::fromUtf8(textB.begin(), textB.end());
 
 			temp.setText
 			(
@@ -151,9 +154,26 @@ namespace xphase
 		return isMainMenuSequence();
 	}
 
-	void UserInterface::MainMenu::update(Window & window, float delta)
+	void UserInterface::MainMenu::update(Window &window, float delta)
 	{
+		isMainMenuSequence(MainMenuSequnce);
+
 		for (size_t unit = 0; unit < buttons.size(); unit++)
-			buttons[unit].isButtonUnderCursor( window.drawArea, { 0, 0 } );
+		{
+			/// Activate buttons
+			buttons[unit].isButtonUnderCursor(window.drawArea, { 0, 0 });
+
+			/// 
+			if (buttons[unit].isButtonPressed())
+			{
+				switch (buttons[unit].getRole())
+				{
+				case Play: isMainMenuSequence(GameSequnce); break;
+				case Configure: isMainMenuSequence(SettingsSequence); break;
+				case Quit: isMainMenuSequence(ExitSequence); break;
+				case Extra: /*isMainMenuSequence(777);*/ break;
+				}
+			}
+		}
 	}
 }

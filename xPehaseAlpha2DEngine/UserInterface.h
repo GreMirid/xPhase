@@ -6,7 +6,7 @@ namespace xphase
 {
 	class Button
 	{
-	public:
+	private:
 		bool itButtonPressed = false;
 		int roleFlag = DoNotExec;
 		vec2f pc, pos, size;
@@ -15,18 +15,29 @@ namespace xphase
 		sf::ConvexShape buttonBody;
 		sf::Text buttonText;
 
+	public:
+		//create
 		void set(const vec2f& pos_, const vec2f& size_, int flag);
 		void setColors(const sf::Color& backColor, bool light);
-		void setText(std::string& text, sf::Font& font, sf::Color& textColor, int letterSize);
+		void setText(sf::String& text, sf::Font& font, sf::Color& textColor, int letterSize);
+
+		//sets
 		void setPosition(const vec2f& pos_);
+		void reSetText(sf::String& text);
 
 		void drawButton(sf::RenderWindow& window);
 
+		void isButtonUnderCursor(const sf::RenderWindow& window, const vec2f& nowZeroPosition);
+
 		//TASK:
 		/// Create getter
+		int getRole();
 
-		void isButtonUnderCursor(const sf::RenderWindow& window, const vec2f& nowZeroPosition);
-		void isButtonPressed();
+		void isButtonPressed(bool boolean);
+		bool isButtonPressed();
+
+	private:
+		void ButtonPressed();
 	};
 
 	class UserInterface : public Module
@@ -70,11 +81,22 @@ namespace xphase
 
 		} mM;
 
-		int load(Window& window)
+		class Settings
 		{
-			mM.create(window);
+		private:
+			int statFlag = SettingsSequence;
+			int from = 0;
+			sf::Font font;
+			Button button;
 
-			return EXIT_OK;
-		}
+		public:
+			int create(Window &window);
+			int draw(Window &window);
+
+			void update(int status, Window &window, float delta);
+
+		} st;
+
+		int load(Window& window);
 	};
 }

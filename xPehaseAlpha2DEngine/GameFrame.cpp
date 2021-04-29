@@ -4,7 +4,9 @@ namespace xphase
 {
 	void Game::gameFrame(double delta)
 	{
-		window.drawArea.clear(sf::Color(0, 0, 0));
+		setScene(GameSequnce);
+
+		window.drawArea.clear();
 
 		player.update(delta);
 		world.update(delta, player.getLocation());

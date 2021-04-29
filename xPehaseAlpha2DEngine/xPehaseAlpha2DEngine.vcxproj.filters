@@ -46,12 +46,12 @@
     <Filter Include="Исходные файлы\UI">
       <UniqueIdentifier>{66a5adb9-c33a-46b5-aa85-7495c6cc28f4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Modules">
+      <UniqueIdentifier>{141d9917-fc40-4870-93da-269d51a56d20}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Launcher.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
@@ -104,6 +104,18 @@
     </ClCompile>
     <ClCompile Include="MainMenu.cpp">
       <Filter>Исходные файлы\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Исходные файлы\CoreCode</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsFrame.cpp">
+      <Filter>Исходные файлы\Frames</Filter>
+    </ClCompile>
+    <ClCompile Include="Settings.cpp">
+      <Filter>Исходные файлы\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI.cpp">
+      <Filter>Исходные файлы\Modules</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

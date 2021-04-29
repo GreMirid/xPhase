@@ -21,6 +21,7 @@ namespace xphase
 			{
 			case MainMenuSequnce: /* do staff */ break;
 			case GameSequnce: /* do staff */ break;
+			case SettingsSequence: /* do staff */ break;
 			}
 		}
 
@@ -29,6 +30,7 @@ namespace xphase
 		case LoadingSequnce: loadingFrame(delta); break;
 		case MainMenuSequnce: mainMenuFrame(delta); break;
 		case GameSequnce: gameFrame(delta); break;
+		case SettingsSequence: settingsFrame(delta); break;
 		case ExitSequence: endingFrame(delta); break;
 		}
 	}

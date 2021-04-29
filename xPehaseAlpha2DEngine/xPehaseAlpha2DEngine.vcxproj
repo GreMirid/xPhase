@@ -148,6 +148,9 @@
     <ClCompile Include="render.cpp" />
     <ClCompile Include="Res_Sc_Load.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="Settings.cpp" />
+    <ClCompile Include="SettingsFrame.cpp" />
+    <ClCompile Include="UI.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
