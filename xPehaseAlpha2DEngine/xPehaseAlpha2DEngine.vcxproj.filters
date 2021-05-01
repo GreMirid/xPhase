@@ -117,15 +117,15 @@
     <ClCompile Include="UI.cpp">
       <Filter>Исходные файлы\Modules</Filter>
     </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>Исходные файлы\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="World.h">
-      <Filter>Файлы заголовков\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
       <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
     <ClInclude Include="Scenario.h">
@@ -166,6 +166,15 @@
     </ClInclude>
     <ClInclude Include="INI\INIReader.h">
       <Filter>Файлы заголовков\inih</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>Файлы заголовков\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Characters.h">
+      <Filter>Файлы заголовков\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Файлы заголовков\Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

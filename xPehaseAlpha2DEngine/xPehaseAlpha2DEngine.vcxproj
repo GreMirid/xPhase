@@ -118,6 +118,10 @@
       <AdditionalIncludeDirectories>D:\mixaf\Documents\SFML-2.5.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessKeepComments>false</PreprocessKeepComments>
+      <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+      <PreprocessToFile>false</PreprocessToFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,9 +132,12 @@
       <LinkTimeCodeGeneration>UseFastLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <LargeAddressAware>false</LargeAddressAware>
       <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <Version>
+      </Version>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Actor.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="ConteinerReader.cpp" />
     <ClCompile Include="Engine.cpp" />
@@ -155,16 +162,18 @@
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Characters.h" />
     <ClInclude Include="ConteinerReader.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="INI\ini.h" />
     <ClInclude Include="INI\INIReader.h" />
     <ClInclude Include="Matrix.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Returns.h" />
     <ClInclude Include="Module.h" />
     <ClInclude Include="Object.h" />
-    <ClInclude Include="Player.h" />
+    <ClInclude Include="Actor.h" />
     <ClInclude Include="Scenario.h" />
     <ClInclude Include="Scripts.h" />
     <ClInclude Include="UserInterface.h" />

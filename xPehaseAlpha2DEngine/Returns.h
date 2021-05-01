@@ -5,9 +5,13 @@ namespace xphase
 	//for functions
 	enum Returns
 	{
+		//Exit of function
 		EXIT_NULL,
+		//Exit of function was success
 		EXIT_OK,
+		//Exit of function was with problems
 		EXIT_WARNING,
+		//Exit of function was unsuccess
 		EXIT_ERROR
 	};
 
