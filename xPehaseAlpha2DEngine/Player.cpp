@@ -55,6 +55,29 @@ namespace xphase
 
 		setActorSpeed(reader.GetReal("Set", "speed", 0.0f) * ((window.screenMatrix.getMatrixScale().x + window.screenMatrix.getMatrixScale().y) / 2) );
 
+		/// TEXT
+		font.loadFromFile(window.getPathtoGame() + TO_RES + reader.Get("Text", "font_path", ""));
+
+		sf::String txt = reader.GetString("Text", "text", "");
+
+		/// 
+		txt = sf::String::fromUtf8(txt.begin(), txt.end());
+
+		sf::Color textColor = sf::Color
+		(
+			reader.GetInteger("Text", "color_r", 0),
+			reader.GetInteger("Text", "color_g", 0),
+			reader.GetInteger("Text", "color_b", 0)
+		);
+
+		setTextData
+		(
+			txt,
+			font,
+			textColor,
+			reader.GetInteger("Text","character_size", 0)
+		);
+
 		return EXIT_OK;
 	}
 
@@ -84,10 +107,33 @@ namespace xphase
 			break;
 		case false: resetToZeroFrame(); break;
 		}
+
+		//Move With Text
+		updateText();
 	}
 
 	void Player::draw(Window &window)
 	{
-		window.drawArea.draw(actorSprite);
+		window.drawArea.draw(getActorSprite());
+		window.drawArea.draw(text);
+	}
+
+	void Player::setText(sf::String &intext)
+	{
+		text.setString(intext);
+	}
+
+	void Player::updateText()
+	{
+		text.setPosition(getPosCen().x - (text.getString().getSize() * (text.getCharacterSize() / 5)), getPos().y - (text.getCharacterSize() + 2));
+	}
+
+	void Player::setTextData(sf::String &intext, sf::Font &infont, sf::Color &color, int characterSize)
+	{
+		text.setString(intext);
+		text.setCharacterSize(characterSize);
+		text.setFont(font);
+		text.setFillColor(color);
+		text.setPosition(0, 0);
 	}
 }

@@ -146,6 +146,7 @@
     <ClCompile Include="Frame.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameFrame.cpp" />
+    <ClCompile Include="GameFrameAction.cpp" />
     <ClCompile Include="INI\ini.c" />
     <ClCompile Include="INI\INIReader.cpp" />
     <ClCompile Include="Launcher.cpp" />

@@ -20,7 +20,7 @@ namespace xphase
 			switch (statusFlag)
 			{
 			case MainMenuSequnce: /* do staff */ break;
-			case GameSequnce: /* do staff */ break;
+			case GameSequnce: gameFrameAction(); break;
 			case SettingsSequence: /* do staff */ break;
 			}
 		}

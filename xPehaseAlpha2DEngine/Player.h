@@ -13,6 +13,10 @@ namespace xphase
 	private:
 		bool up, down, left, right;
 
+	private:
+		sf::Font font;
+		sf::Text text;
+
 	public:
 		int create(Window &window);
 
@@ -25,5 +29,10 @@ namespace xphase
 
 		//Setter
 		void setLocation(int loc) { location = loc; }
+		void setText(sf::String &intext);
+
+	private:
+		void updateText();
+		void setTextData(sf::String &intext, sf::Font &infont, sf::Color &color, int characterSize);
 	};
 }

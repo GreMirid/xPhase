@@ -37,6 +37,9 @@ namespace xphase
 		void settingsFrame(double delta);
 
 	private:
+		void gameFrameAction();
+
+	private:
 		//Create a object of loading graphics
 		class LoadingResources
 		{

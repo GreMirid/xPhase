@@ -49,6 +49,9 @@
     <Filter Include="Исходные файлы\Modules">
       <UniqueIdentifier>{141d9917-fc40-4870-93da-269d51a56d20}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\FrameActions">
+      <UniqueIdentifier>{3cc6cefe-6333-4e22-916d-cf9dd4de734b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Launcher.cpp">
@@ -122,6 +125,9 @@
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Исходные файлы\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFrameAction.cpp">
+      <Filter>Исходные файлы\FrameActions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
