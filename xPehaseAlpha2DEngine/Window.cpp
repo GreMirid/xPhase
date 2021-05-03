@@ -28,7 +28,6 @@ namespace xphase
 
 		std::string sobj = reader.Get("Game", "Resolution", "Dev"); 
 
-		//std::map cumming soon
 		//why sw-case don't work with std::string?
 		if (sobj == "Dev") { res = { 1280, 720 }; }
 		else if (sobj == "User_1") { res = { 1024, 480 }; }

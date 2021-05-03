@@ -23,15 +23,13 @@ namespace xphase
 			CHARACTER,
 			SCENE,
 			DIALOGSCRIPT,
-			SCRIPT,
-			PLAYERCONFIG
+			SCRIPT
 		};
 
 		const std::string characterPath = "characters";
 		const std::string scenesPath = "scenes";
 		const std::string dialogScriptPath = "dialog_script";
 		const std::string scriptPath = "script";
-		const std::string playerConfigPath = "player_config";
 
 		const std::string textEnd = ".txt";
 		const std::string dataEnd = ".dat";
@@ -50,5 +48,5 @@ namespace xphase
 	std::string toString(const std::wstring& data);
 	std::wstring toWstring(std::string& data, const std::locale& loc = std::locale());
 
-	int toInt(const std::wstring& data);
+	int toIntFromWstr(const std::wstring& data);
 }

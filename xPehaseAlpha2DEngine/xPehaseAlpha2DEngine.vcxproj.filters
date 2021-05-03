@@ -120,6 +120,9 @@
     <ClCompile Include="Actor.cpp">
       <Filter>Исходные файлы\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Исходные файлы\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">

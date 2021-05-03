@@ -2,6 +2,49 @@
 
 namespace xphase
 {
+	void Actor::setActorPos(const vec2f &pos)
+	{
+		setPos(pos);
+
+		actorSprite.setPosition(pos.x, pos.y);
+	}
+
+	void Actor::setActorCenPos(const vec2f &pos)
+	{
+		setCenPos(pos);
+
+		actorSprite.setPosition(getPos().x, getPos().y);
+	}
+
+	void Actor::setActorRect(int direction, int spriteStage)
+	{
+		actorSprite.setTextureRect(getRectForCharacter(direction, spriteStage));
+	}
+
+	void Actor::setActorSpeed(float speed)
+	{
+		speedOfActor = speed;
+	}
+
+	void Actor::setActorScale(const vec2f &scale)
+	{
+		setScale(scale);
+
+		actorSprite.setScale(scale.x, scale.y);
+	}
+
+	void Actor::setSprite()
+	{
+		actorTexture.loadFromFile(pathToAtlas);
+
+		actorSprite.setTexture(actorTexture);
+	}
+
+	sf::Sprite &Actor::getActorSprite()
+	{
+		return actorSprite;
+	}
+
 	void Actor::move(int direction, float delta, float move)
 	{
 		float gameDT = speedOfActor * delta;
@@ -11,14 +54,14 @@ namespace xphase
 		//character move machina
 		switch (direction)
 		{
-		case Up:		setCenPos({ currentPos.x, currentPos.y - move + gameDT }); break;
-		case Down:		setCenPos({ currentPos.x, currentPos.y + move + gameDT }); break;
-		case Left:		setCenPos({ currentPos.x - move + gameDT, currentPos.y }); break;
-		case Right:		setCenPos({ currentPos.x - move + gameDT, currentPos.y }); break;
-		case LeftUp:	setCenPos({ currentPos.x - move + gameDT, currentPos.y - move + gameDT }); break;
-		case UpRight:	setCenPos({ currentPos.x + move + gameDT, currentPos.y - move + gameDT }); break;
-		case LeftDown:	setCenPos({ currentPos.x - move + gameDT, currentPos.y + move + gameDT }); break;
-		case DownRight:	setCenPos({ currentPos.x + move + gameDT, currentPos.y + move + gameDT }); break;
+		case Up:		setCenPos({ currentPos.x, currentPos.y - (move + gameDT) }); break;
+		case Down:		setCenPos({ currentPos.x, currentPos.y + (move + gameDT) }); break;
+		case Left:		setCenPos({ currentPos.x - (move + gameDT), currentPos.y }); break;
+		case Right:		setCenPos({ currentPos.x + (move + gameDT), currentPos.y }); break;
+		case LeftUp:	setCenPos({ currentPos.x - (move + gameDT), currentPos.y - (move + gameDT) }); break;
+		case UpRight:	setCenPos({ currentPos.x + (move + gameDT), currentPos.y - (move + gameDT) }); break;
+		case LeftDown:	setCenPos({ currentPos.x - (move + gameDT), currentPos.y + (move + gameDT) }); break;
+		case DownRight:	setCenPos({ currentPos.x + (move + gameDT), currentPos.y + (move + gameDT) }); break;
 		}
 
 		//sprite chages machina
@@ -26,7 +69,7 @@ namespace xphase
 		{
 		case true:
 			frameDelay = 0;
-			switch (spriteStage == 2)
+			switch ((spriteStage == 2))
 			{
 			case true: spriteStage = 0; break; case false: spriteStage++; break;
 			}
@@ -35,14 +78,13 @@ namespace xphase
 		case false: frameDelay++; break;
 		}
 
-		actorSprite.setPosition(getPos().x, getPos().y);
+		setActorPos(getPos());
 
-		actorSprite.setTextureRect(getRectForCharacter(direction, spriteStage));
+		setActorRect(direction, spriteStage);
 	}
 
 	void Actor::calculatePointsForAtlas()
 	{
-		vec2f sizeOfCharacter = getSize();
 
 		for (int direction = Idle; direction < DownRight + 1; direction++)
 		{
@@ -52,36 +94,36 @@ namespace xphase
 
 			if (direction == Idle)
 			{
-				posAt = { sizeOfCharacter.x * 3, sizeOfCharacter.x * 3 };
+				posAt = { getSize().x * 3, getSize().y * 3 };
 				localPos.emplace_back(posAt); spritesCoords.emplace_back(localPos);
 				continue;
 			}
 
-			vec2f dirTo = { sizeOfCharacter.x * 3, sizeOfCharacter.x * 3 };
+			vec2f dirTo = { getSize().x * 3, getSize().y * 3 };
 
 			for (int pos = 0; pos < 3; pos++)
 			{
 				switch (direction)
 				{
-				case Up:	dirTo.y -= sizeOfCharacter.y; break;
-				case Down:	dirTo.y += sizeOfCharacter.y; break;
-				case Left:	dirTo.x -= sizeOfCharacter.x; break;
-				case Right:	dirTo.x += sizeOfCharacter.x; break;
+				case Up:	dirTo.y -= getSize().y; break;
+				case Down:	dirTo.y += getSize().y; break;
+				case Left:	dirTo.x -= getSize().x; break;
+				case Right:	dirTo.x += getSize().x; break;
 				case LeftUp:
-					dirTo.y -= sizeOfCharacter.y;
-					dirTo.x -= sizeOfCharacter.x;
+					dirTo.y -= getSize().y;
+					dirTo.x -= getSize().x;
 					break;
 				case UpRight:
-					dirTo.y -= sizeOfCharacter.y;
-					dirTo.x += sizeOfCharacter.x;
+					dirTo.y -= getSize().y;
+					dirTo.x += getSize().x;
 					break;
 				case LeftDown:
-					dirTo.y += sizeOfCharacter.y;
-					dirTo.x -= sizeOfCharacter.x;
+					dirTo.y += getSize().y;
+					dirTo.x -= getSize().x;
 					break;
 				case DownRight:
-					dirTo.y += sizeOfCharacter.y;
-					dirTo.x += sizeOfCharacter.x;
+					dirTo.y += getSize().y;
+					dirTo.x += getSize().x;
 					break;
 				}
 
@@ -104,5 +146,11 @@ namespace xphase
 			getSize().x,
 			getSize().y
 		);
+	}
+	void Actor::resetToZeroFrame()
+	{
+		frameDelay = 0;
+		spriteStage = 0;
+		setActorRect(0, 0);
 	}
 }

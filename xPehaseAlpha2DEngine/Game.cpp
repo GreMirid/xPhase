@@ -15,7 +15,7 @@ namespace xphase
 
 	void Game::initObjects()
 	{
-		player.create();
+		player.create(window);
 		world.create();
 	}
 

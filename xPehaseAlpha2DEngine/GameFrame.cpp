@@ -6,10 +6,12 @@ namespace xphase
 	{
 		setScene(GameSequnce);
 
-		window.drawArea.clear();
+		window.drawArea.clear(sf::Color::White);
 
-		player.update(delta);
+		player.update(window, delta);
 		world.update(delta, player.getLocation());
+		
+		player.draw(window);
 
 		window.drawArea.display();
 	}

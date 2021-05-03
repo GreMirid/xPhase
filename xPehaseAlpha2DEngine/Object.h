@@ -17,11 +17,13 @@ namespace xphase
 		virtual vec2f getPos()						{ return pos; }
 		virtual vec2f getSize()						{ return size; }
 		virtual vec2f getPosCen()					{ return posCen; }
+		virtual vec2f getScale()					{ return scale; }
 		virtual bool isEnabled()					{ return enableFlag; }
 
 		//Setter
 		virtual void isEnabled(bool en)				{ enableFlag = en; }
 		virtual void setSize(const vec2f& sizE)		{ size = sizE; }
+		virtual void setScale(const vec2f& scalE)		{ scale = scalE; }
 		virtual void setPos(const vec2f& poS)
 		{
 			pos = poS; posCen = { pos.x + (size.x / 2), pos.y + (size.y / 2) };
@@ -37,5 +39,6 @@ namespace xphase
 		vec2f pos;
 		vec2f size;
 		vec2f posCen;
+		vec2f scale;
 	};
 }

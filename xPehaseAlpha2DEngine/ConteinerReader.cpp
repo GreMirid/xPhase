@@ -23,9 +23,6 @@ namespace xphase
 		case SCRIPT:
 			path += scriptPath;
 			break;
-		case PLAYERCONFIG:
-			path += playerConfigPath;
-			break;
 		}
 
 		//TASK:
@@ -106,7 +103,7 @@ namespace xphase
 		return std::wstring(buf.data(), buf.size());
 	}
 
-	int toInt(const std::wstring& data)
+	int toIntFromWstr(const std::wstring& data)
 	{
 		return std::stoi(data);
 	}

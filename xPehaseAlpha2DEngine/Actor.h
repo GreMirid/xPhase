@@ -24,9 +24,11 @@ namespace xphase
 
 		short spriteStage = 0,
 			frameDelay = 0,
-			delayConst = 30;
+			delayConst = 10;
 
 		sf::Texture actorTexture;
+
+	public:
 		sf::Sprite actorSprite;
 
 	public:
@@ -36,16 +38,27 @@ namespace xphase
 		void setSpeed(float speed)				{ speedOfActor = speed; }
 		void setDelay(short delay)				{ delayConst = delay; }
 
+		virtual void setActorPos(const vec2f &pos);
+		virtual void setActorCenPos(const vec2f &pos);
+		virtual void setActorRect(int direction, int spriteStage);
+		virtual void setActorSpeed(float speed);
+		virtual void setActorScale(const vec2f &scale);
+
 		void setPathToAtlas(std::string path)	{ pathToAtlas = path; }
+
+		void setSprite();
 
 		float getAngle()						{ return pseudoCameraAngle; }
 		float getSpeed()						{ return speedOfActor; }
 		float getDelay()						{ return delayConst; }
+
+		sf::Sprite &getActorSprite();
 
 		virtual void move(int direction, float delta, float move);
 
 	public:
 		void calculatePointsForAtlas();
 		sf::IntRect getRectForCharacter(int direction, int stage);
+		void resetToZeroFrame();
 	};
 }
