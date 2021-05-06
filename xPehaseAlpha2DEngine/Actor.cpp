@@ -64,6 +64,8 @@ namespace xphase
 		case DownRight:	setCenPos({ currentPos.x + (move + gameDT), currentPos.y + (move + gameDT) }); break;
 		}
 
+		setActorPos(getPos());
+
 		//sprite chages machina
 		switch ((frameDelay == delayConst))
 		{
@@ -77,8 +79,6 @@ namespace xphase
 
 		case false: frameDelay++; break;
 		}
-
-		setActorPos(getPos());
 
 		setActorRect(direction, spriteStage);
 	}

@@ -4,12 +4,18 @@
 
 namespace xphase
 {
+	//DOOR FOR SCENE OBJECT CLASS
 	class Door : Object
 	{
 	private:
-		int toDoor = 0;
+		int toDoor = 0, toLocation = 0;
+
+	public:
+		int create(vec2f &pos, int to_door, int to_location);
+		void update(Player &player);
 	};
 
+	//TRIGGER FOR SCENE OBJECT CLASS
 	class Trigger : Object
 	{
 	public:
@@ -21,34 +27,38 @@ namespace xphase
 		};
 	private:
 		int type = EMPTY;
-		int characterNum;
 
 	public:
-		void setType() {}
+		int create(vec2f &pos, vec2f &size, int type);
+		void update(Player &player, float delta);
 	};
 
+	//COLISIION FOR SCENE OBJECT CLASS
 	class Collision : public Object
 	{
 	public:
-		int create() { return EXIT_OK; }
+		int create(vec2f &pos, vec2f &size);
+		void update(Player &player, float delta);
 	};
 
+	//LAYER FOR SCENE OBJECT CLASS
 	class Layer : public Object
 	{
 	private:
 		sf::Texture texture;
-	
+
 	public:
 		sf::Sprite sprite;
 
 	public:
-		int create() { return EXIT_OK; }
+		int create(vec2f &pos, vec2f &scale, const std::string &path_to_texture);
+		void draw(Window &window);
 	};
 
+	//SCENE OBJECT CLASS FOR WORLD CLASS
 	class Scene : public Object
 	{
 	private:
-		//All objects
 		std::vector<Door> doors;
 		std::vector<Trigger> triggers;
 		std::vector<Collision> collisions;
@@ -58,10 +68,23 @@ namespace xphase
 		std::string pathToTexture = "";
 
 	public:
-		int create();
-		void update(double delta);
+		int create(vec2f &cenpos, vec2f &scale, vec2f &size, const std::string &path);
+
+		void update(Window &window, double delta, Player &player);
+
+		void drawLayers(Window &window);
+
+	public:
+		void addDoor(vec2f &pos, int to_door, int to_location);
+		void addTrigger(vec2f &pos, vec2f &size, int type);
+		void addCollision(vec2f &pos, vec2f &size);
+		void addLayer(vec2f &pos, vec2f &scale, const std::string &path_to_texture);
+
+	public:
+		void clear();
 	};
 
+	//MAIN WORLD CLASS
 	class World
 	{
 	private:
@@ -72,7 +95,7 @@ namespace xphase
 		sf::Sprite scSprite;
 
 	public:
-		int create();
-		void update(double delta, int playerLocation);
+		int create(Window &window);
+		void update(Window &window, double delta, Player &player);
 	};
 }

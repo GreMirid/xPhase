@@ -52,6 +52,9 @@
     <Filter Include="Исходные файлы\FrameActions">
       <UniqueIdentifier>{3cc6cefe-6333-4e22-916d-cf9dd4de734b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\World">
+      <UniqueIdentifier>{2a6bad56-bd3f-4b12-8708-8e9e12896511}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Launcher.cpp">
@@ -70,9 +73,6 @@
       <Filter>Исходные файлы\Game</Filter>
     </ClCompile>
     <ClCompile Include="World.cpp">
-      <Filter>Исходные файлы\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene.cpp">
       <Filter>Исходные файлы\Objects</Filter>
     </ClCompile>
     <ClCompile Include="ConteinerReader.cpp">
@@ -128,6 +128,24 @@
     </ClCompile>
     <ClCompile Include="GameFrameAction.cpp">
       <Filter>Исходные файлы\FrameActions</Filter>
+    </ClCompile>
+    <ClCompile Include="Door.cpp">
+      <Filter>Исходные файлы\World</Filter>
+    </ClCompile>
+    <ClCompile Include="Trigger.cpp">
+      <Filter>Исходные файлы\World</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Исходные файлы\World</Filter>
+    </ClCompile>
+    <ClCompile Include="Layer.cpp">
+      <Filter>Исходные файлы\World</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Исходные файлы\World</Filter>
+    </ClCompile>
+    <ClCompile Include="vrtrash.cpp">
+      <Filter>Исходные файлы\CoreCode</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -103,8 +103,13 @@ namespace xphase
 		return std::wstring(buf.data(), buf.size());
 	}
 
-	int toIntFromWstr(const std::wstring& data)
+	int toIFrmWS(const std::wstring& data)
 	{
 		return std::stoi(data);
+	}
+
+	float toFlFrmWS(const std::wstring& data)
+	{
+		return std::atof(toString(data).c_str());
 	}
 }

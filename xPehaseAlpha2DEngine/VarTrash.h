@@ -2,6 +2,5 @@
 
 namespace xphase
 {
-	//debug var
-	
+	float fast_sqrt(float x);
 }

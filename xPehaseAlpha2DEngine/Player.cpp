@@ -53,7 +53,7 @@ namespace xphase
 
 		setActorScale({ scale * window.screenMatrix.getMatrixScale().x,  scale * window.screenMatrix.getMatrixScale().y });
 
-		setActorSpeed(reader.GetReal("Set", "speed", 0.0f) * ((window.screenMatrix.getMatrixScale().x + window.screenMatrix.getMatrixScale().y) / 2) );
+		setActorSpeed(reader.GetReal("Set", "speed", 0.0f) * ((window.screenMatrix.getMatrixScale().x + window.screenMatrix.getMatrixScale().y) / 2));
 
 		/// TEXT
 		font.loadFromFile(window.getPathtoGame() + TO_RES + reader.Get("Text", "font_path", ""));
@@ -75,18 +75,17 @@ namespace xphase
 			txt,
 			font,
 			textColor,
-			reader.GetInteger("Text","character_size", 0)
-		);
+			reader.GetInteger("Text","character_size", 0) * ((window.screenMatrix.getMatrixScale().x + window.screenMatrix.getMatrixScale().y) / 2));
 
 		return EXIT_OK;
 	}
 
 	void Player::update(Window &window, float delta)
 	{
-		up = sf::Keyboard::isKeyPressed(sf::Keyboard::W);
-		down = sf::Keyboard::isKeyPressed(sf::Keyboard::S);
-		left = sf::Keyboard::isKeyPressed(sf::Keyboard::A);
-		right = sf::Keyboard::isKeyPressed(sf::Keyboard::D);
+		up = sf::Keyboard::isKeyPressed(sf::Keyboard::W) && !blockUpFlag;
+		down = sf::Keyboard::isKeyPressed(sf::Keyboard::S) && !blockDownFlag;
+		left = sf::Keyboard::isKeyPressed(sf::Keyboard::A) && !blockLeftFlag;
+		right = sf::Keyboard::isKeyPressed(sf::Keyboard::D) && !blockRightFlag;
 
 		itMoveFlag = up || down || left || right;
 
@@ -99,6 +98,8 @@ namespace xphase
 			else if (up & right) move(UpRight, delta, 1);
 			else if (left & down) move(LeftDown, delta, 1);
 			else if (down & right) move(DownRight, delta, 1);
+			else if (left & right) resetToZeroFrame();
+			else if (up & down) resetToZeroFrame();
 			else if (up) move(Up, delta, 1);
 			else if (down) move(Down, delta, 1);
 			else if (left) move(Left, delta, 1);
@@ -125,7 +126,7 @@ namespace xphase
 
 	void Player::updateText()
 	{
-		text.setPosition(getPosCen().x - (text.getString().getSize() * (text.getCharacterSize() / 5)), getPos().y - (text.getCharacterSize() + 2));
+		text.setPosition(getPosCen().x - (text.getString().getSize() * fast_sqrt(text.getCharacterSize())), getPos().y - (text.getCharacterSize() + 2));
 	}
 
 	void Player::setTextData(sf::String &intext, sf::Font &infont, sf::Color &color, int characterSize)

@@ -13,12 +13,6 @@ namespace xphase
 		render();
 	}
 
-	void Game::initObjects()
-	{
-		player.create(window);
-		world.create();
-	}
-
 	void Game::loadModules()
 	{
 		scripts.load();
@@ -26,8 +20,15 @@ namespace xphase
 		characters.load();
 	}
 
+	void Game::initObjects()
+	{
+		player.create(window);
+		world.create(window);
+	}
+
 	void Game::start()
 	{
-		loadModules(); initObjects();
+		loadModules();
+		initObjects();
 	}
 }

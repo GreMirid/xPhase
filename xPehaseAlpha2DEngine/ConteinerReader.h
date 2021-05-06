@@ -17,7 +17,7 @@ namespace xphase
 {
 	class ConteinerReader
 	{
-	private:
+	public:
 		enum Types
 		{
 			CHARACTER,
@@ -26,6 +26,7 @@ namespace xphase
 			SCRIPT
 		};
 
+	private:
 		const std::string characterPath = "characters";
 		const std::string scenesPath = "scenes";
 		const std::string dialogScriptPath = "dialog_script";
@@ -45,8 +46,15 @@ namespace xphase
 		WSTRMAS separateData(std::wstring data, wchar_t separator);
 	};
 
+	//From std::wstring to std::string
 	std::string toString(const std::wstring& data);
+
+	//From std::string to std::wstring
 	std::wstring toWstring(std::string& data, const std::locale& loc = std::locale());
 
-	int toIntFromWstr(const std::wstring& data);
+	//From std::wstring to int
+	int toIFrmWS(const std::wstring& data);
+
+	//From std::wstring to Float
+	float toFlFrmWS(const std::wstring& data);
 }

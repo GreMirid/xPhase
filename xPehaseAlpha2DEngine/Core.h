@@ -31,14 +31,18 @@ namespace xphase
 		std::string windowName, pathTo;
 		char windStyle = sf::Style::Close | sf::Style::Titlebar;
 		bool dFlag = false;
+		bool drawBordersInDebugFlag = false;
 
 	public:
-		bool isDebug()			{ return dFlag; }
-		void isDebug(bool d)	{ dFlag = d; }
+		bool isDebug()				{ return dFlag; }
+		void isDebug(bool d)		{ dFlag = d; }
+
+		bool isDrawBorders()		{ return drawBordersInDebugFlag; }
+		void isDrawBorders(bool d)	{ drawBordersInDebugFlag = d; }
 
 		std::string getPathtoGame() { return pathTo; }
 
-		std::string getName()	{ return windowName; }
+		std::string getName()		{ return windowName; }
 
 		void open(const std::string& path);
 	};

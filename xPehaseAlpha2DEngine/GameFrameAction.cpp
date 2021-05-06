@@ -4,9 +4,24 @@ namespace xphase
 {
 	void Game::gameFrameAction()
 	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::H))
+
+		switch (window.isDebug())
 		{
-			/*sf::String text = L"И вот этот текст мы сейчас сменили!"; player.setText(text);*/
+		case true:
+			//Show borders of 
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::O))
+			{
+				window.isDrawBorders(true);
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::L))
+			{
+				window.isDrawBorders(false);
+			}
+			break;
+
+		case false:
+
+			break;
 		}
 	}
 }

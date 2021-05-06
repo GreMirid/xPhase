@@ -9,7 +9,7 @@ namespace xphase
 		window.drawArea.clear(sf::Color::White);
 
 		player.update(window, delta);
-		world.update(delta, player.getLocation());
+		world.update(window, delta, player);
 		
 		player.draw(window);
 

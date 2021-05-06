@@ -23,7 +23,7 @@ namespace xphase
 		//Setter
 		virtual void isEnabled(bool en)				{ enableFlag = en; }
 		virtual void setSize(const vec2f& sizE)		{ size = sizE; }
-		virtual void setScale(const vec2f& scalE)		{ scale = scalE; }
+		virtual void setScale(const vec2f& scalE)	{ scale = scalE; }
 		virtual void setPos(const vec2f& poS)
 		{
 			pos = poS; posCen = { pos.x + (size.x / 2), pos.y + (size.y / 2) };

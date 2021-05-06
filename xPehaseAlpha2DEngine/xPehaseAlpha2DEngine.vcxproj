@@ -139,7 +139,9 @@
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Collision.cpp" />
     <ClCompile Include="ConteinerReader.cpp" />
+    <ClCompile Include="Door.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="EngineLoop.cpp" />
     <ClCompile Include="ExitFrame.cpp" />
@@ -150,6 +152,7 @@
     <ClCompile Include="INI\ini.c" />
     <ClCompile Include="INI\INIReader.cpp" />
     <ClCompile Include="Launcher.cpp" />
+    <ClCompile Include="Layer.cpp" />
     <ClCompile Include="LoadingFrame.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="MainMenuFrame.cpp" />
@@ -159,7 +162,9 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Settings.cpp" />
     <ClCompile Include="SettingsFrame.cpp" />
+    <ClCompile Include="Trigger.cpp" />
     <ClCompile Include="UI.cpp" />
+    <ClCompile Include="vrtrash.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
