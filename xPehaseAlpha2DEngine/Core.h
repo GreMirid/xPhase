@@ -27,6 +27,9 @@ namespace xphase
 		sf::RenderWindow drawArea;
 		ScreenMatrix screenMatrix;
 
+	public:
+		sf::View camera;
+
 	private:
 		std::string windowName, pathTo;
 		char windStyle = sf::Style::Close | sf::Style::Titlebar;

@@ -65,14 +65,25 @@ namespace xphase
 		std::vector<Layer> layers;
 
 	private:
+		sf::Texture texture;
+
+	public:
+		sf::Sprite sprite;
+
+	private:
 		std::string pathToTexture = "";
 
 	public:
-		int create(vec2f &cenpos, vec2f &scale, vec2f &size, const std::string &path);
+		int create(vec2f cenpos, vec2f scale, vec2f size, const std::string &path);
 
 		void update(Window &window, double delta, Player &player);
 
+		void draw(Window &window);
+
 		void drawLayers(Window &window);
+
+	public:
+		std::string &getPathToTexture() { return pathToTexture; }
 
 	public:
 		void addDoor(vec2f &pos, int to_door, int to_location);
@@ -90,12 +101,14 @@ namespace xphase
 	private:
 		std::vector<Scene> scenes;
 
-	private:
-		sf::Texture scTexture;
-		sf::Sprite scSprite;
-
 	public:
 		int create(Window &window);
+
 		void update(Window &window, double delta, Player &player);
+
+		void draw(Window &window, Player &player);
+
+	public:
+		void reSetScene(int player_location);
 	};
 }

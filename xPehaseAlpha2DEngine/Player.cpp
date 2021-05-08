@@ -89,6 +89,10 @@ namespace xphase
 
 		itMoveFlag = up || down || left || right;
 
+		sf::String text = "x:" + std::to_string(getPos().x) + " y:" + std::to_string(getPos().y);
+
+		setText(text);
+
 		switch (itMoveFlag)
 		{
 		case true:
@@ -111,6 +115,9 @@ namespace xphase
 
 		//Move With Text
 		updateText();
+
+		//Move Camera to Player
+		window.camera.setCenter(getPosCen().x, getPosCen().y);
 	}
 
 	void Player::draw(Window &window)

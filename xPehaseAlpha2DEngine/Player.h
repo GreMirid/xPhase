@@ -24,7 +24,7 @@ namespace xphase
 	public:
 		int create(Window &window);
 
-		void update(Window & window, float delta);
+		void update(Window &window, float delta);
 
 		void draw(Window &window);
 

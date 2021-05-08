@@ -2,27 +2,47 @@
 
 namespace xphase
 {
-	int Scene::create(vec2f &cenpos, vec2f &scale, vec2f &size, const std::string &path)
+	int Scene::create(vec2f cenpos, vec2f scale, vec2f size, const std::string &path)
 	{
 		//TASK:
 		/// USE CONTEINER READER FOR LOAD FILE AND PAST ALL OBJECT IN CLASS SCENE
 
-		setCenPos(cenpos);
-		setSize(size);
 		setScale(scale);
 
 		pathToTexture = path;
+
+		texture.loadFromFile(pathToTexture);
+
+		sprite.setTexture(texture);
+		sprite.setScale(scale.x, scale.y);
+
+		setSize({ size.x * scale.x, size.y * scale.y });
+
+		setCenPos(cenpos);
+
+		sprite.setPosition(getPos().x, getPos().y);
 
 		return EXIT_OK;
 	}
 
 	void Scene::update(Window &window, double delta, Player &player)
 	{
+		player.setBlockedUp(player.getPos().y < getPos().y + player.getAngle());
+		player.setBlockedDown(player.getPos().y > getPos().y + (getSize().y - player.getSize().y));
+
+		player.setBlockedLeft(player.getPos().x < getPos().x + player.getAngle());
+		player.setBlockedRight(player.getPos().x > getPos().x + getScale().x + (getSize().x - player.getSize().x));
+
 		for (size_t objects = 0; objects < collisions.size(); objects++)
 		{
 			if (collisions[objects].isEnabled())
 				collisions[objects].update(player, delta);
 		}
+	}
+
+	void Scene::draw(Window &window)
+	{
+		window.drawArea.draw(sprite);
 	}
 
 	void Scene::drawLayers(Window &window)
@@ -76,7 +96,7 @@ namespace xphase
 		collisions.clear();
 		layers.clear();
 
-		setCenPos({ 0, 0 });
+		setPos({ 0, 0 });
 		setSize({ 0, 0 });
 		setScale({ 0, 0});
 

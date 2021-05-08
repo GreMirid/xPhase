@@ -36,6 +36,9 @@ namespace xphase
 
 		screenMatrix.create(res);
 
+		camera.setSize(res.x, res.y);
+		camera.setCenter(res.x / 2,  res.y / 2);
+
 		drawArea.create(sf::VideoMode(res.x , res.y), isDebug() ? windowName + " Debug Mode" : windowName, windStyle);
 		drawArea.setFramerateLimit(120);
 		drawArea.setVerticalSyncEnabled(reader.GetBoolean("Game", "Vsync", true));
