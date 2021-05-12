@@ -2,25 +2,26 @@
 
 namespace xphase
 {
-	int Scene::create(vec2f cenpos, vec2f scale, vec2f size, const std::string &path)
+	int Scene::create(vec2f cenpos, vec2f scale, const std::string &path)
 	{
 		//TASK:
 		/// USE CONTEINER READER FOR LOAD FILE AND PAST ALL OBJECT IN CLASS SCENE
+		pathToTexture = path;
+
+		if (!texture.loadFromFile(pathToTexture)) return EXIT_ERROR;
+
+		/* DON'T WORK */
+		sceneSprite.setTexture(texture);
+		/* SFML BUG */
 
 		setScale(scale);
 
-		pathToTexture = path;
+		sceneSprite.setScale(scale.x, scale.y);
 
-		texture.loadFromFile(pathToTexture);
-
-		sprite.setTexture(texture);
-		sprite.setScale(scale.x, scale.y);
-
-		setSize({ size.x * scale.x, size.y * scale.y });
-
+		setSize({ texture.getSize().x * scale.x, texture.getSize().y * scale.y });
 		setCenPos(cenpos);
 
-		sprite.setPosition(getPos().x, getPos().y);
+		sceneSprite.setPosition(getPos().x, getPos().y);
 
 		return EXIT_OK;
 	}
@@ -28,10 +29,18 @@ namespace xphase
 	void Scene::update(Window &window, double delta, Player &player)
 	{
 		player.setBlockedUp(player.getPos().y < getPos().y + player.getAngle());
-		player.setBlockedDown(player.getPos().y > getPos().y + (getSize().y - player.getSize().y));
+		player.setBlockedDown(player.getPos().y > (getPos().y + getSize().y) - (player.getSize().y * player.getScale().y));
 
-		player.setBlockedLeft(player.getPos().x < getPos().x + player.getAngle());
-		player.setBlockedRight(player.getPos().x > getPos().x + getScale().x + (getSize().x - player.getSize().x));
+		player.setBlockedLeft(player.getPos().x < getPos().x);
+		player.setBlockedRight(player.getPos().x > (getPos().x + getSize().x) - (player.getSize().x * player.getScale().x));
+
+		/*
+		COLISSIONS OF SCENE
+		UP (PLAYER POS Y < POS SCENE Y + PLAYER ANGLE)
+		DOWN (PLAYER POS Y > (POS SCENE Y + SCENE SIZE Y) - PLAYER SIZE Y)
+		LEFT (PLAYER POS X < POS SCENE X)
+		RIGHT (PLAYER POS X > (POS SCENE X + SCENE SIZE X) - PLAYER SIZE X)
+		*/
 
 		for (size_t objects = 0; objects < collisions.size(); objects++)
 		{
@@ -42,7 +51,7 @@ namespace xphase
 
 	void Scene::draw(Window &window)
 	{
-		window.drawArea.draw(sprite);
+		window.drawArea.draw(sceneSprite);
 	}
 
 	void Scene::drawLayers(Window &window)

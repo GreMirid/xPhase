@@ -49,11 +49,19 @@ namespace xphase
 
 		setActorCenPos(playerPos);
 
+		/// SET SCALE
 		float scale = reader.GetInteger("Set", "scale", 1);
 
 		setActorScale({ scale * window.screenMatrix.getMatrixScale().x,  scale * window.screenMatrix.getMatrixScale().y });
 
-		setActorSpeed(reader.GetReal("Set", "speed", 0.0f) * ((window.screenMatrix.getMatrixScale().x + window.screenMatrix.getMatrixScale().y) / 2));
+		/// 
+		setActorSpeed
+		(
+			reader.GetReal("Set", "speed", 0.0f) * 
+			(
+				(window.screenMatrix.getMatrixScale().x + window.screenMatrix.getMatrixScale().y) / 2
+			)
+		);
 
 		/// TEXT
 		font.loadFromFile(window.getPathtoGame() + TO_RES + reader.Get("Text", "font_path", ""));
@@ -75,7 +83,11 @@ namespace xphase
 			txt,
 			font,
 			textColor,
-			reader.GetInteger("Text","character_size", 0) * ((window.screenMatrix.getMatrixScale().x + window.screenMatrix.getMatrixScale().y) / 2));
+			reader.GetInteger("Text","character_size", 0) * ((window.screenMatrix.getMatrixScale().x + window.screenMatrix.getMatrixScale().y) / 2)
+		);
+		
+		/// 
+		setAngle(-((getSize().y * getScale().y) - reader.GetInteger("Main", "angle", 0)));
 
 		return EXIT_OK;
 	}

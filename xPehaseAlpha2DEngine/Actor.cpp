@@ -35,6 +35,7 @@ namespace xphase
 
 	void Actor::setSprite()
 	{
+		//Load file
 		actorTexture.loadFromFile(pathToAtlas);
 
 		actorSprite.setTexture(actorTexture);

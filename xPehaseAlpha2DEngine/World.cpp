@@ -45,14 +45,8 @@ namespace xphase
 
 						scaleScene =
 						{
-							toFlFrmWS(tempRawMassive[3]) * window.screenMatrix.getMatrixScale().x,
-							toFlFrmWS(tempRawMassive[4]) * window.screenMatrix.getMatrixScale().y
-						};
-
-						sizeScene =
-						{
-							toFlFrmWS(tempRawMassive[1]),
-							toFlFrmWS(tempRawMassive[2])
+							toFlFrmWS(tempRawMassive[1]) * window.screenMatrix.getMatrixScale().x,
+							toFlFrmWS(tempRawMassive[2]) * window.screenMatrix.getMatrixScale().y
 						};
 
 						cenPos =
@@ -63,7 +57,7 @@ namespace xphase
 
 						std::string path_to_texture = window.getPathtoGame() + TO_RES + toString(tempRawMassive[0]);
 
-						tempScene.create(cenPos, scaleScene, sizeScene, path_to_texture);
+						tempScene.create(cenPos, scaleScene, path_to_texture);
 					}
 
 					//ADD DOOR FUNCTION

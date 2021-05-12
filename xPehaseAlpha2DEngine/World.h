@@ -66,15 +66,13 @@ namespace xphase
 
 	private:
 		sf::Texture texture;
-
-	public:
-		sf::Sprite sprite;
+		sf::Sprite sceneSprite;
 
 	private:
 		std::string pathToTexture = "";
 
 	public:
-		int create(vec2f cenpos, vec2f scale, vec2f size, const std::string &path);
+		int create(vec2f cenpos, vec2f scale, const std::string &path);
 
 		void update(Window &window, double delta, Player &player);
 

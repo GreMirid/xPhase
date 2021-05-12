@@ -8,7 +8,7 @@ namespace xphase
 
 		window.drawArea.setView(window.camera);
 
-		window.drawArea.clear(sf::Color::White);
+		window.drawArea.clear();
 
 		world.update(window, delta, player);
 		player.update(window, delta);
