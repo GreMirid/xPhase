@@ -152,6 +152,7 @@ namespace xphase
 
 		//TASK:
 		/// Load file from first scene of path in and draw it
+		reSetScene(0);
 
 		return EXIT_OK;
 	}
@@ -163,11 +164,25 @@ namespace xphase
 
 	void World::draw(Window &window, Player &player)
 	{
-		scenes[player.getLocation()].draw(window);
+		window.drawArea.draw(sceneSprite);
 	}
 
 	void World::reSetScene(int player_location)
 	{
-		//empty
+		sceneTexture.loadFromFile(scenes[player_location].getPathToTexture());
+
+		sceneSprite.setTexture(sceneTexture);
+
+		sceneSprite.setScale
+		(
+			scenes[player_location].getScale().x,
+			scenes[player_location].getScale().y
+		);
+
+		sceneSprite.setPosition
+		(
+			scenes[player_location].getPos().x,
+			scenes[player_location].getPos().y
+		);
 	}
 }

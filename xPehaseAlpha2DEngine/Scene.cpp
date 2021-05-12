@@ -8,20 +8,19 @@ namespace xphase
 		/// USE CONTEINER READER FOR LOAD FILE AND PAST ALL OBJECT IN CLASS SCENE
 		pathToTexture = path;
 
-		if (!texture.loadFromFile(pathToTexture)) return EXIT_ERROR;
+		//FIX:
+		/// In std::vector, sf::Texture lost his memory adress and texture is not drawning
+		/// Solution: don't write and texture and sprite in Scene class
+		/// Write this in World class
 
-		/* DON'T WORK */
-		sceneSprite.setTexture(texture);
-		/* SFML BUG */
+		sf::Texture sceneTexture;
+
+		if (!sceneTexture.loadFromFile(pathToTexture)) return EXIT_ERROR;
 
 		setScale(scale);
 
-		sceneSprite.setScale(scale.x, scale.y);
-
-		setSize({ texture.getSize().x * scale.x, texture.getSize().y * scale.y });
+		setSize({ sceneTexture.getSize().x * scale.x, sceneTexture.getSize().y * scale.y });
 		setCenPos(cenpos);
-
-		sceneSprite.setPosition(getPos().x, getPos().y);
 
 		return EXIT_OK;
 	}
@@ -47,11 +46,6 @@ namespace xphase
 			if (collisions[objects].isEnabled())
 				collisions[objects].update(player, delta);
 		}
-	}
-
-	void Scene::draw(Window &window)
-	{
-		window.drawArea.draw(sceneSprite);
 	}
 
 	void Scene::drawLayers(Window &window)

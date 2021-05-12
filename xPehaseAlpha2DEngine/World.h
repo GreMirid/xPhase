@@ -65,18 +65,12 @@ namespace xphase
 		std::vector<Layer> layers;
 
 	private:
-		sf::Texture texture;
-		sf::Sprite sceneSprite;
-
-	private:
 		std::string pathToTexture = "";
 
 	public:
 		int create(vec2f cenpos, vec2f scale, const std::string &path);
 
 		void update(Window &window, double delta, Player &player);
-
-		void draw(Window &window);
 
 		void drawLayers(Window &window);
 
@@ -105,6 +99,10 @@ namespace xphase
 		void update(Window &window, double delta, Player &player);
 
 		void draw(Window &window, Player &player);
+
+	private:
+		sf::Texture sceneTexture;
+		sf::Sprite sceneSprite;
 
 	public:
 		void reSetScene(int player_location);
