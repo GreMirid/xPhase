@@ -2,6 +2,12 @@
 
 namespace xphase
 {
+	//Set DrawArea Framerate Limit
+	void Window::setWindowFPS(float fps)
+	{
+		drawArea.setFramerateLimit(fps);
+	}
+
 	void Window::open(const std::string& path)
 	{
 		//TASK:
@@ -40,7 +46,7 @@ namespace xphase
 		camera.setCenter(res.x / 2,  res.y / 2);
 
 		drawArea.create(sf::VideoMode(res.x , res.y), isDebug() ? windowName + " Debug Mode" : windowName, windStyle);
-		drawArea.setFramerateLimit(120);
+		setWindowFPS(65);
 		drawArea.setVerticalSyncEnabled(reader.GetBoolean("Game", "Vsync", true));
 	}
 }

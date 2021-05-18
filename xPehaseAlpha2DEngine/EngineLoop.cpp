@@ -39,11 +39,12 @@ namespace xphase
 
 			startFrameTime = clock.getElapsedTime().asMicroseconds();
 
-			//do staff
-
-			frame(delta);
+			frame(delta); //do staff
 
 			endFrameTime = clock.getElapsedTime().asMicroseconds();
+
+			//write fps count in varible to display it
+			window.setCurrentFPS(1 / (float)clock.getElapsedTime().asSeconds());
 
 			clock.restart();
 		}
@@ -53,7 +54,7 @@ namespace xphase
 
 	void EngineLoop::set()
 	{
-		/// do staff (just emtpty function for joke ahahah very fanny)
+		///
 	}
 
 	void EngineLoop::setStatus(int status)

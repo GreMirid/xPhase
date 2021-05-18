@@ -18,7 +18,6 @@ namespace xphase
 		if (!sceneTexture.loadFromFile(pathToTexture)) return EXIT_ERROR;
 
 		setScale(scale);
-
 		setSize({ sceneTexture.getSize().x * scale.x, sceneTexture.getSize().y * scale.y });
 		setCenPos(cenpos);
 
@@ -48,6 +47,23 @@ namespace xphase
 		}
 	}
 
+	void Scene::draw(Window &window)
+	{
+		switch (window.isDrawBorders())
+		{
+		case true:
+			for (size_t unit = 0; unit < doors.size(); unit++)
+				window.drawArea.draw(doors[unit].visual);
+
+			for (size_t unit = 0; unit < triggers.size(); unit++)
+				window.drawArea.draw(triggers[unit].visual);
+
+			for (size_t unit = 0; unit < collisions.size(); unit++)
+				window.drawArea.draw(collisions[unit].visual);
+			break;
+		}
+	}
+
 	void Scene::drawLayers(Window &window)
 	{
 		for (size_t unit = 0; unit < layers.size(); unit++)
@@ -56,11 +72,11 @@ namespace xphase
 		}
 	}
 
-	void Scene::addDoor(vec2f &pos, int to_door, int to_location)
+	void Scene::addDoor(vec2f &pos, int to_door, int to_location, float scale)
 	{
 		Door tempd;
 
-		tempd.create(pos, to_door, to_location);
+		tempd.create(pos, to_door, to_location, scale);
 
 		doors.emplace_back(tempd);
 	}

@@ -7,17 +7,23 @@ namespace xphase
 	//DOOR FOR SCENE OBJECT CLASS
 	class Door : Object
 	{
+	public:
+		sf::ConvexShape visual;
+
 	private:
 		int toDoor = 0, toLocation = 0;
 
 	public:
-		int create(vec2f &pos, int to_door, int to_location);
-		void update(Player &player);
+		int create(vec2f &pos, int to_door, int to_location, float scale);
+		int update(Player &player);
 	};
 
 	//TRIGGER FOR SCENE OBJECT CLASS
 	class Trigger : Object
 	{
+	public:
+		sf::ConvexShape visual;
+
 	public:
 		enum typeUse
 		{
@@ -37,6 +43,9 @@ namespace xphase
 	class Collision : public Object
 	{
 	public:
+		sf::ConvexShape visual;
+
+	public:
 		int create(vec2f &pos, vec2f &size);
 		void update(Player &player, float delta);
 	};
@@ -45,6 +54,7 @@ namespace xphase
 	class Layer : public Object
 	{
 	private:
+		//it's not will load
 		sf::Texture texture;
 
 	public:
@@ -72,13 +82,15 @@ namespace xphase
 
 		void update(Window &window, double delta, Player &player);
 
+		void draw(Window &window);
+
 		void drawLayers(Window &window);
 
 	public:
 		std::string &getPathToTexture() { return pathToTexture; }
 
 	public:
-		void addDoor(vec2f &pos, int to_door, int to_location);
+		void addDoor(vec2f &pos, int to_door, int to_location, float scale);
 		void addTrigger(vec2f &pos, vec2f &size, int type);
 		void addCollision(vec2f &pos, vec2f &size);
 		void addLayer(vec2f &pos, vec2f &scale, const std::string &path_to_texture);

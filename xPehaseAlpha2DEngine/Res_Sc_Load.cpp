@@ -21,7 +21,11 @@ namespace xphase
 		panel.setPoint(2, sf::Vector2f(100, 40));
 		panel.setPoint(3, sf::Vector2f(0, 40));
 
-		panel.setFillColor(sf::Color(45, 45, 45, 125));
+		panel.setOutlineColor(sf::Color(50, 50, 50, 200));
+
+		panel.setFillColor(sf::Color::Black);
+
+		panel.setOutlineThickness(5);
 
 		panel.setPosition((window.screenMatrix.getRealScreenSize().x / 2) - 50, (window.screenMatrix.getRealScreenSize().y / 2) - 20);
 	}

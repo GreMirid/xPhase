@@ -33,19 +33,25 @@ namespace xphase
 	private:
 		std::string windowName, pathTo;
 		char windStyle = sf::Style::Close | sf::Style::Titlebar;
+		float fps = 0;
 		bool dFlag = false;
 		bool drawBordersInDebugFlag = false;
 
 	public:
-		bool isDebug()				{ return dFlag; }
-		void isDebug(bool d)		{ dFlag = d; }
+		bool isDebug()					{ return dFlag; }
+		void isDebug(bool d)			{ dFlag = d; }
 
-		bool isDrawBorders()		{ return drawBordersInDebugFlag; }
-		void isDrawBorders(bool d)	{ drawBordersInDebugFlag = d; }
+		bool isDrawBorders()			{ return drawBordersInDebugFlag; }
+		void isDrawBorders(bool d)		{ drawBordersInDebugFlag = d; }
 
-		std::string getPathtoGame() { return pathTo; }
+		std::string getPathtoGame()		{ return pathTo; }
+		std::string getName()			{ return windowName; }
+		float getCurrentFPS()			{ return fps; }
 
-		std::string getName()		{ return windowName; }
+		//Only for Engine Loop Class
+		void setCurrentFPS(float FPS)	{ fps = FPS; }
+
+		void setWindowFPS(float fps);
 
 		void open(const std::string& path);
 	};

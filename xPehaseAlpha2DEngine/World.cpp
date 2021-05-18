@@ -15,7 +15,9 @@ namespace xphase
 		std::wstring temp = L"";
 		std::vector<std::wstring> tempRawData, tempRawMassive;
 
-		vec2f sizeScene, scaleScene, cenPos = { 0, 0 };
+		vec2f scaleScene, cenPos = { 0, 0 };
+
+		float scaleCubicObject = (window.screenMatrix.getMatrixScale().x + window.screenMatrix.getMatrixScale().y) / 2;
 
 		for (size_t f = 0; f < reader.getNumberFilesInConteiner(); f++)
 		{
@@ -74,7 +76,7 @@ namespace xphase
 							}
 						);
 
-						tempScene.addDoor(pos, toIFrmWS(tempRawMassive[2]), toIFrmWS(tempRawMassive[3]));
+						tempScene.addDoor(pos, toIFrmWS(tempRawMassive[2]), toIFrmWS(tempRawMassive[3]), scaleCubicObject);
 					}
 
 					//ADD COLLISION FUNCTION
@@ -165,6 +167,8 @@ namespace xphase
 	void World::draw(Window &window, Player &player)
 	{
 		window.drawArea.draw(sceneSprite);
+
+		scenes[player.getLocation()].draw(window);
 	}
 
 	void World::reSetScene(int player_location)
