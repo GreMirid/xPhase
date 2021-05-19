@@ -10,6 +10,9 @@ namespace xphase
 		int location = 0;
 		bool itMoveFlag = false;
 
+		//pos + size coords
+		vec2f dub = {0, 0};
+
 	private:
 		bool up, down, left, right,
 			blockUpFlag = false,
@@ -30,6 +33,7 @@ namespace xphase
 
 		//Getter
 		int getLocation()					{ return location; }
+		vec2f &getDub()						{ return dub; }
 
 		//Setter
 		void setLocation(int loc)			{ location = loc; }
@@ -41,8 +45,14 @@ namespace xphase
 		void setBlockedLeft(bool block)		{ blockLeftFlag = block; }
 		void setBlockedRight(bool block)	{ blockRightFlag = block; }
 
+		bool getAlreadyBlockedUp()			{ return blockUpFlag; }
+		bool getAlreadyBlockedDown()		{ return blockDownFlag; }
+		bool getAlreadyBlockedLeft()		{ return blockLeftFlag; }
+		bool getAlreadyBlockedRight()		{ return blockRightFlag; }
+
 	private:
 		void updateText();
+		void updateDub();
 		void setTextData(sf::String &intext, sf::Font &infont, sf::Color &color, int characterSize);
 	};
 }

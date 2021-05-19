@@ -80,7 +80,7 @@ namespace xphase
 					}
 
 					//ADD COLLISION FUNCTION
-					if (tempRawMassive[0].substr(0, 10) == L"collission")
+					if (tempRawMassive[0].substr(0, 9) == L"collision")
 					{
 						/// erase name
 						tempRawMassive.erase(tempRawMassive.begin());

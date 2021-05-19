@@ -45,6 +45,20 @@ namespace xphase
 	public:
 		sf::ConvexShape visual;
 
+	private:
+		float promoAngleSize = 0,
+			promoAnglePos = 0;
+
+		bool upSide = 0,
+			downSide = 0,
+			leftSide = 0,
+			rightSide = 0;
+		
+		bool vertical = false,
+			horizontal = false;
+
+		vec2f dub = { 0, 0 };
+
 	public:
 		int create(vec2f &pos, vec2f &size);
 		void update(Player &player, float delta);

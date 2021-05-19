@@ -40,10 +40,10 @@ namespace xphase
 		RIGHT (PLAYER POS X > (POS SCENE X + SCENE SIZE X) - PLAYER SIZE X)
 		*/
 
-		for (size_t objects = 0; objects < collisions.size(); objects++)
+		for (size_t unit = 0; unit < collisions.size(); unit++)
 		{
-			if (collisions[objects].isEnabled())
-				collisions[objects].update(player, delta);
+			if (collisions[unit].isEnabled())
+				collisions[unit].update(player, delta);
 		}
 	}
 

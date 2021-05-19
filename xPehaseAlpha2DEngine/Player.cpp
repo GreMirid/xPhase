@@ -105,6 +105,25 @@ namespace xphase
 
 		setText(text);
 
+		switch ((blockUpFlag && blockDownFlag && blockLeftFlag && blockRightFlag))
+		{
+		case true: move(Down, delta, 0.1);
+		case false:
+			if ((blockRightFlag && blockUpFlag) || (blockUpFlag && blockLeftFlag))
+				move(Down, delta, 0.001);
+
+			if ((blockRightFlag && blockDownFlag) || (blockDownFlag && blockLeftFlag))
+				move(Up, delta, 0.001);
+
+			if ((blockDownFlag && blockRightFlag) || (blockRightFlag && blockUpFlag))
+				move(Right, delta, 0.001);
+
+			if ((blockDownFlag && blockLeftFlag) || (blockLeftFlag && blockUpFlag))
+				move(Left, delta, 0.001);
+			break;
+		}
+		
+
 		switch (itMoveFlag)
 		{
 		case true:
@@ -128,6 +147,9 @@ namespace xphase
 		//Move With Text
 		updateText();
 
+		//Calculate collission
+		updateDub();
+
 		//Move Camera to Player
 		window.camera.setCenter(getPosCen().x, getPosCen().y);
 	}
@@ -146,6 +168,12 @@ namespace xphase
 	void Player::updateText()
 	{
 		text.setPosition(getPosCen().x - (text.getString().getSize() * fast_sqrt(text.getCharacterSize())), getPos().y - (text.getCharacterSize() + 2));
+	}
+
+	void Player::updateDub()
+	{
+		dub.x = getPos().x + (getSize().x * getScale().x);
+		dub.y = getPos().y + (getSize().y * getScale().y);
 	}
 
 	void Player::setTextData(sf::String &intext, sf::Font &infont, sf::Color &color, int characterSize)
