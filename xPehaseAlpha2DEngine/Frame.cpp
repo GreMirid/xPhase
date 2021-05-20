@@ -9,13 +9,6 @@ namespace xphase
 			if (event.type == sf::Event::Closed) window.drawArea.close();
 
 			//TASK:
-			/// bind keys for debug mode
-			switch (window.isDebug())
-			{
-			case true: /* do staff */ break;
-			}
-
-			//TASK:
 			/// bind some "e" and "escape" keys to eteract with world
 			switch (statusFlag)
 			{

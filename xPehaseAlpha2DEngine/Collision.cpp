@@ -36,24 +36,23 @@ namespace xphase
 
 		upSide = ((player.getPos().y < (getPos().y + promoAngleSize)) && (player.getPos().y > promoAnglePos));
 		downSide = ((player.getDub().y > getPos().y) && (player.getDub().y < dub.y));
-		leftSide = ((player.getDub().x > getPos().x) && (player.getDub().x < dub.x));
-		rightSide = ((player.getPos().x < dub.x) && (player.getPos().x > getPos().x));
+		leftSide = ((player.getPos().x > getPos().x) && (player.getPos().x < dub.x));
+		rightSide = ((player.getDub().x < dub.x) && (player.getDub().x > getPos().x));
 
 		vertical = 
 			(
-				((getPos().x < player.getPos().x) & (dub.x > player.getPos().x))
-				||
-				((getPos().x < player.getDub().x) & (dub.x > player.getDub().x))
+				((getPos().x < player.getPos().x) & (dub.x > player.getPos().x)) /// left point
+					||
+				((getPos().x < player.getDub().x) & (dub.x > player.getDub().x)) /// right point
 			);
-
 
 		horizontal = 
 			(
-				((getPos().y < player.getDub().y) && (player.getDub().y < dub.y))
-				||
-				((promoAnglePos < player.getPos().y) && (player.getPos().y < (getPos().y + promoAngleSize)))
-				||
-				((player.getPosCen().y > getPos().y) && (player.getPosCen().y < (getPos().y + promoAngleSize)))
+				((promoAnglePos < player.getPos().y) && (player.getPos().y < (getPos().y + promoAngleSize))) /// up point
+					||
+				((player.getPosCen().y > getPos().y) && (player.getPosCen().y < (getPos().y + promoAngleSize))) /// middle point
+					||
+				((getPos().y < player.getDub().y) && (player.getDub().y < dub.y)) /// down point
 			);
 
 		/*
@@ -65,29 +64,13 @@ namespace xphase
 
 			UP SIDE = ((PLAYER POS Y < (COL POS Y + PROMO ANGLE SiZE)) && (PLAYER POS Y > PROMO ANGLE POS));
 			DOWN SIDE = ((DUB PLAYER Y > COL POS Y) && (DUB PLAYER Y < DUB POS Y));
-			LEFT SIDE = ((DUB PLAYER X > COL POS X) && DUB PLAYER X < DUB POS X);
-			RIGHT SIDE = ((PLAYER POS X < DUB POS X) && (PLAYER POS X > COL POS X));
+			RIGHT SIDE = ((DUB PLAYER X > COL POS X) && DUB PLAYER X < DUB POS X);
+			LEFT SIDE = ((PLAYER POS X < DUB POS X) && (PLAYER POS X > COL POS X));
 		*/
 
-
-		player.setBlockedUp
-		(
-			vertical && upSide || player.getAlreadyBlockedUp()
-		);
-
-		player.setBlockedDown
-		(
-			vertical && downSide || player.getAlreadyBlockedDown()
-		);
-
-		player.setBlockedLeft
-		(
-			horizontal && leftSide || player.getAlreadyBlockedLeft()
-		);
-
-		player.setBlockedRight
-		(
-			horizontal && rightSide || player.getAlreadyBlockedRight()
-		);
+		player.setBlockedUp(vertical && upSide || player.getAlreadyBlockedUp());
+		player.setBlockedDown(vertical && downSide || player.getAlreadyBlockedDown());
+		player.setBlockedLeft(horizontal && leftSide || player.getAlreadyBlockedLeft());
+		player.setBlockedRight(horizontal && rightSide || player.getAlreadyBlockedRight());
 	}
 }

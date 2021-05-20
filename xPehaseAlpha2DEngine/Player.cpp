@@ -101,29 +101,6 @@ namespace xphase
 
 		itMoveFlag = up || down || left || right;
 
-		sf::String text = "x:" + std::to_string(getPos().x) + " y:" + std::to_string(getPos().y);
-
-		setText(text);
-
-		switch ((blockUpFlag && blockDownFlag && blockLeftFlag && blockRightFlag))
-		{
-		case true: move(Down, delta, 0.1);
-		case false:
-			if ((blockRightFlag && blockUpFlag) || (blockUpFlag && blockLeftFlag))
-				move(Down, delta, 0.001);
-
-			if ((blockRightFlag && blockDownFlag) || (blockDownFlag && blockLeftFlag))
-				move(Up, delta, 0.001);
-
-			if ((blockDownFlag && blockRightFlag) || (blockRightFlag && blockUpFlag))
-				move(Right, delta, 0.001);
-
-			if ((blockDownFlag && blockLeftFlag) || (blockLeftFlag && blockUpFlag))
-				move(Left, delta, 0.001);
-			break;
-		}
-		
-
 		switch (itMoveFlag)
 		{
 		case true:
@@ -141,11 +118,37 @@ namespace xphase
 			else if (right) move(Right, delta, 1);
 
 			break;
-		case false: resetToZeroFrame(); break;
+
+		case false:
+			//if it in colission
+			switch ((blockUpFlag && blockDownFlag && blockLeftFlag && blockRightFlag))
+			{
+			case true:
+				move(Down, delta, 1);
+				break;
+			case false:
+				//set idle frame (anti-cyclopus)
+				resetToZeroFrame();
+
+				for(int limmitter = 0; (blockUpFlag || blockDownFlag || blockLeftFlag || blockRightFlag) && (limmitter < 100); limmitter++)
+				{
+					//if it in only in all, minwhile it not in all, where it will be do nothing
+					if ((blockRightFlag && blockUpFlag) || (blockUpFlag && blockLeftFlag)) move(Down, delta, 0.001);
+					if ((blockRightFlag && blockDownFlag) || (blockDownFlag && blockLeftFlag)) move(Up, delta, 0.001);
+					if ((blockDownFlag && blockRightFlag) || (blockRightFlag && blockUpFlag)) move(Left, delta, 0.001);
+					if ((blockDownFlag && blockLeftFlag) || (blockLeftFlag && blockUpFlag)) move(Right, delta, 0.001);
+				}
+				break;
+			}
+			break;
 		}
 
 		//Move With Text
 		updateText();
+
+		sf::String text = "x:" + std::to_string(getPos().x) + " y:" + std::to_string(getPos().y);
+
+		setText(text);
 
 		//Calculate collission
 		updateDub();

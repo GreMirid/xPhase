@@ -55,14 +55,14 @@ namespace xphase
 		//character move machina
 		switch (direction)
 		{
-		case Up:		setCenPos({ currentPos.x, currentPos.y - (move + gameDT) }); break;
-		case Down:		setCenPos({ currentPos.x, currentPos.y + (move + gameDT) }); break;
-		case Left:		setCenPos({ currentPos.x - (move + gameDT), currentPos.y }); break;
-		case Right:		setCenPos({ currentPos.x + (move + gameDT), currentPos.y }); break;
-		case LeftUp:	setCenPos({ currentPos.x - (move + gameDT), currentPos.y - (move + gameDT) }); break;
-		case UpRight:	setCenPos({ currentPos.x + (move + gameDT), currentPos.y - (move + gameDT) }); break;
-		case LeftDown:	setCenPos({ currentPos.x - (move + gameDT), currentPos.y + (move + gameDT) }); break;
-		case DownRight:	setCenPos({ currentPos.x + (move + gameDT), currentPos.y + (move + gameDT) }); break;
+		case Up:		setCenPos({ currentPos.x, currentPos.y - (move * gameDT) }); break;
+		case Down:		setCenPos({ currentPos.x, currentPos.y + (move * gameDT) }); break;
+		case Left:		setCenPos({ currentPos.x - (move * gameDT), currentPos.y }); break;
+		case Right:		setCenPos({ currentPos.x + (move * gameDT), currentPos.y }); break;
+		case LeftUp:	setCenPos({ currentPos.x - (move * gameDT), currentPos.y - (move * gameDT) }); break;
+		case UpRight:	setCenPos({ currentPos.x + (move * gameDT), currentPos.y - (move * gameDT) }); break;
+		case LeftDown:	setCenPos({ currentPos.x - (move * gameDT), currentPos.y + (move * gameDT) }); break;
+		case DownRight:	setCenPos({ currentPos.x + (move * gameDT), currentPos.y + (move * gameDT) }); break;
 		}
 
 		setActorPos(getPos());
@@ -106,10 +106,18 @@ namespace xphase
 			{
 				switch (direction)
 				{
-				case Up:	dirTo.y -= getSize().y; break;
-				case Down:	dirTo.y += getSize().y; break;
-				case Left:	dirTo.x -= getSize().x; break;
-				case Right:	dirTo.x += getSize().x; break;
+				case Up:
+					dirTo.y -= getSize().y;
+					break;
+				case Down:
+					dirTo.y += getSize().y;
+					break;
+				case Left:
+					dirTo.x -= getSize().x;
+					break;
+				case Right:
+					dirTo.x += getSize().x;
+					break;
 				case LeftUp:
 					dirTo.y -= getSize().y;
 					dirTo.x -= getSize().x;
