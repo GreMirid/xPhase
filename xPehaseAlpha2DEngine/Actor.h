@@ -26,8 +26,6 @@ namespace xphase
 			frameDelay = 0,
 			delayConst = 10;
 
-		sf::Texture actorTexture;
-
 	public:
 		sf::Sprite actorSprite;
 

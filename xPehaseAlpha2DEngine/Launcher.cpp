@@ -15,9 +15,7 @@ int main(int argc, char** argv)
 	bool debug = false;
 
 	for (int count = 0; count < argc; count++)
-	{
 		itParametrExist(debug, argv[count], "/debug");
-	}
 
 	std::string path = argv[0];
 

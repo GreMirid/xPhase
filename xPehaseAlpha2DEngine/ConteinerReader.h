@@ -7,6 +7,8 @@
 #include <vector>
 #include <string>
 
+#include <unordered_map>
+
 #define WSTRMAS std::vector<std::wstring>
 
 #define TO_CFG "\\cfg\\"

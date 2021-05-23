@@ -17,9 +17,6 @@ GitHub: https://github.com/benhoyt/inih
 #include "SFML/Graphics.hpp"
 
 //
-#include <unordered_map>
-
-//
 namespace xphase
 {
 	//Functions and Classes for Game itself
@@ -104,6 +101,7 @@ namespace xphase
 	class TextureManager
 	{
 	private:
+		//emo
 		sf::Texture *nullTexture;
 
 	private:

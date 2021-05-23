@@ -35,18 +35,18 @@ namespace xphase
 
 		while (getline(headerFile, tempPath, ';'))
 		{
-			std::cout << tempPath << "\n";
-
 			tempFile.open(path + '\\' + tempPath + dataEnd);
 
-			if (!tempFile.is_open()) continue; //if it do dosen't open, it just skip
+			//if it do dosen't open, it just skip
+			if (!tempFile.is_open()) continue;
 
 			tempFile.imbue(std::locale(".1251"));
 
 			//it's just way better than std::getline(tempFile, tempFile_S);
-			tempFile_S.assign(std::istreambuf_iterator<wchar_t>(tempFile), std::istreambuf_iterator<wchar_t>());
-
-			std::wcout << tempFile.is_open() << L", Inside: " << tempFile_S << "\n";
+			tempFile_S.assign
+			(
+				std::istreambuf_iterator<wchar_t>(tempFile), std::istreambuf_iterator<wchar_t>()
+			);
 
 			for (int i = 0; i < tempFile_S.length();)
 				if (tempFile_S[i] == '\n' || tempFile_S[i] + tempFile_S[i + 1] == ' ' + ' ') tempFile_S.erase(i, 1); else i++;

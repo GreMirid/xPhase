@@ -7,11 +7,13 @@ namespace xphase
 	{
 		nullTexture = new sf::Texture();
 
+		nullTexture->setRepeated(true);
+
 		INIReader reader(window.getPathtoGame() + TO_CFG + "config.ini");
 
 		std::string path = window.getPathtoGame() + TO_RES + reader.Get("Texture", "path", "standart.png");
 
-		if ( nullTexture->loadFromFile(path) == 0 ) return EXIT_ERROR;
+		if (!nullTexture->loadFromFile(path)) return EXIT_ERROR;
 
 		else return EXIT_OK;
 	}
@@ -21,7 +23,10 @@ namespace xphase
 		//Load Texture
 		sf::Texture* texture = new sf::Texture();
 
-		if (texture->loadFromFile(path_to) == 0) return nullTexture;
+		if (!texture->loadFromFile(path_to)) return nullTexture;
+
+		//set standrt params to texture
+		texture->setRepeated(true);
 
 		//Check on created file
 		for (TexIter it = g_Textures.begin(); it != g_Textures.end(); it++)

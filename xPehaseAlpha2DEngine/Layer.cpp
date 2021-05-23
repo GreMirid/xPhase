@@ -3,15 +3,15 @@
 
 namespace xphase
 {
-	int Layer::create(vec2f &pos, vec2f &size, std::string &path_to_texture)
+	int Layer::create(vec2f &pos, vec2f &scale, std::string &path_to_texture)
 	{
-		setSize(size);
+		setScale(scale);
 		setPos(pos);
 
-		sprite.setTexture
-		(
-			*m_Textures.loadTexture(path_to_texture)
-		);
+		sprite.setScale(scale.x, scale.y);
+		sprite.setPosition(pos.x, pos.y);
+
+		sprite.setTexture( *m_Textures.loadTexture(path_to_texture) );
 
 		return EXIT_OK;
 	}

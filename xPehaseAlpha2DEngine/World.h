@@ -90,11 +90,9 @@ namespace xphase
 
 	public:
 		int create(vec2f cenpos, vec2f scale, const std::string &path);
-
 		void update(Window &window, double delta, Player &player);
 
 		void draw(Window &window);
-
 		void drawLayers(Window &window);
 
 	public:

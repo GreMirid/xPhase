@@ -13,9 +13,7 @@ namespace xphase
 		/// Solution: don't write and texture and sprite in Scene class
 		/// Write this in World class
 
-		sf::Texture sceneTexture;
-
-		if (!sceneTexture.loadFromFile(pathToTexture)) return EXIT_ERROR;
+		sf::Texture sceneTexture = *m_Textures.loadTexture(pathToTexture);
 
 		setScale(scale);
 		setSize({ sceneTexture.getSize().x * scale.x, sceneTexture.getSize().y * scale.y });

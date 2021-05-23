@@ -2,8 +2,6 @@
 
 namespace xphase
 {
-	//Loader for Texture
-
 	int World::create(Window &window)
 	{
 		//TASK:
@@ -215,6 +213,12 @@ namespace xphase
 		(
 			scenes[player_location].getScale().x,
 			scenes[player_location].getScale().y
+		);
+
+		//set size sprite by texture
+		sceneSprite.setTextureRect
+		(
+			sf::IntRect(0, 0, (sceneSprite.getTexture()->getSize().x), (sceneSprite.getTexture()->getSize().y))
 		);
 
 		sceneSprite.setPosition
