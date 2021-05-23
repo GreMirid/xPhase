@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Module.h"
+#include "Player.h"
 
 namespace xphase
 {
@@ -49,8 +50,8 @@ namespace xphase
 		{
 		private:
 			sf::Color backgraundColor;
-
 			sf::Sprite backgraundSprite;
+			sf::Sprite gameLogo;
 
 			bool snglClrFlag = false;
 			int mmsqsFlag = MainMenuSequnce;
@@ -95,6 +96,21 @@ namespace xphase
 			void update(int status, Window &window, float delta);
 
 		} st;
+
+		class GameMenu
+		{
+		private:
+			sf::Font font;
+			Button buttons[3];
+
+			bool isGameMenuSequenceFlag = false;
+
+		public:
+			int create(Window &window) { return EXIT_OK; }
+			bool update(Window &window, Player &player) { return isGameMenuSequenceFlag; }
+
+			void draw(Window &window) {};
+		};
 
 		int load(Window& window);
 	};

@@ -24,10 +24,7 @@ namespace xphase
 
 			//TASK:
 			/// Get Loaded Texture and Shrink it to all Window
-			backgraundSprite.setTexture
-			(
-				*m_Textures.loadTexture(path)
-			);
+			backgraundSprite.setTexture(*m_Textures.loadTexture(path));
 			backgraundSprite.setPosition(0, 0);
 
 			backgraundSprite.setScale
@@ -144,6 +141,40 @@ namespace xphase
 			buttons.emplace_back(temp);
 		}
 
+		/// Game Logo
+
+		std::string path_to_logo = window.getPathtoGame() + TO_RES + reader.Get("Logo", "path", "ui/logo.png");
+
+		gameLogo.setTexture(*m_Textures.loadTexture(path_to_logo));
+		gameLogo.setScale
+		(
+			reader.GetReal("Logo", "scale_x", 0),
+			reader.GetReal("Logo", "scale_y", 0)
+
+		);
+
+		vec2f logoPos = { 0, 0 };
+
+		vec2f logoPosFromIni =
+		{
+			reader.GetReal("Logo", "pos_x", 0),
+			reader.GetReal("Logo", "pos_y", 0)
+		};
+
+		/// x
+		if (reader.GetString("Logo", "pos_x", "") == "SC_A")
+			logoPos.x = (window.screenMatrix.getRealScreenSize().x / 2) - ((gameLogo.getTexture()->getSize().x * gameLogo.getScale().x)/ 2);
+		else
+			logoPos.x = window.screenMatrix.getRealPoint(logoPosFromIni).x;
+
+		/// y
+		if (reader.GetString("Logo", "pos_y", "") == "SC_A")
+			logoPos.y = (window.screenMatrix.getRealScreenSize().y / 2) - ((gameLogo.getTexture()->getSize().y * gameLogo.getScale().y) / 2);
+		else
+			logoPos.y = window.screenMatrix.getRealPoint(logoPosFromIni).y;
+
+		gameLogo.setPosition(logoPos.x, logoPos.y);
+
 		return EXIT_OK;
 	}
 
@@ -154,6 +185,8 @@ namespace xphase
 		case true: window.drawArea.clear(backgraundColor); break;
 		case false: window.drawArea.draw(backgraundSprite); break;
 		}
+
+		window.drawArea.draw(gameLogo);
 
 		for (size_t unit = 0; unit < buttons.size(); unit++)
 			buttons[unit].drawButton(window.drawArea);
