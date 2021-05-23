@@ -20,14 +20,21 @@ namespace xphase
 			break;
 
 		case false:
-			// Spagetti
-			if (!backgraundTexture.loadFromFile(window.getPathtoGame() + TO_RES + reader.GetString("Image", "path", ""))) return EXIT_ERROR;
+			std::string path = window.getPathtoGame() + TO_RES + reader.GetString("Image", "path", "");
 
 			//TASK:
 			/// Get Loaded Texture and Shrink it to all Window
-			backgraundSprite.setTexture(backgraundTexture);
+			backgraundSprite.setTexture
+			(
+				*m_Textures.loadTexture(path)
+			);
 			backgraundSprite.setPosition(0, 0);
-			backgraundSprite.setScale(window.screenMatrix.getRealScreenSize().x / backgraundTexture.getSize().x, window.screenMatrix.getRealScreenSize().y / backgraundTexture.getSize().y);
+
+			backgraundSprite.setScale
+			(
+				window.screenMatrix.getRealScreenSize().x / backgraundSprite.getTexture()->getSize().x,
+				window.screenMatrix.getRealScreenSize().y / backgraundSprite.getTexture()->getSize().y
+			);
 
 			break;
 		}

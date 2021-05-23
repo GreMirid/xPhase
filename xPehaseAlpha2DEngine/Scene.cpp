@@ -99,7 +99,7 @@ namespace xphase
 		collisions.emplace_back(tempc);
 	}
 
-	void Scene::addLayer(vec2f &pos, vec2f &scale, const std::string &path_to_texture)
+	void Scene::addLayer(vec2f &pos, vec2f &scale, std::string &path_to_texture)
 	{
 		Layer templ;
 

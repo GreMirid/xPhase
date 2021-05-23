@@ -21,8 +21,5 @@ int main(int argc, char** argv)
 
 	std::string path = argv[0];
 
-	//
-	xphase::createGame(debug, path);
-
-	return xphase::EXIT_OK;
+	return xphase::createGame(debug, path);
 }

@@ -2,6 +2,8 @@
 
 namespace xphase
 {
+	//Loader for Texture
+
 	int World::create(Window &window)
 	{
 		//TASK:
@@ -145,7 +147,9 @@ namespace xphase
 							toFlFrmWS(tempRawMassive[3]) * window.screenMatrix.getMatrixScale().y
 						};
 
-						tempScene.addLayer(pos, scale, toString(tempRawMassive[4]));
+						std::string path = toString(tempRawMassive[4]);
+
+						tempScene.addLayer(pos, scale, path);
 					}
 				}
 				scenes.emplace_back(tempScene);
@@ -162,6 +166,35 @@ namespace xphase
 	void World::update(Window &window, double delta, Player &player)
 	{
 		scenes[player.getLocation()].update(window, delta, player);
+		doorUpdate(player);
+	}
+
+	void World::doorUpdate(Player &player)
+	{
+		for (size_t unit = 0; unit < scenes[player.getLocation()].doors.size(); unit++)
+		{
+			vec2f someval = scenes[player.getLocation()].doors[unit].update(player);
+
+			if (someval.x != NoZero) //Some NULL to Use In This
+			{
+				// Set Scene to
+				player.setLocation(someval.x);
+
+				//Set Door to
+				player.setActorCenPos
+				(
+					{
+						scenes[someval.x].doors[someval.y].getPos().x + scenes[someval.x].doors[someval.y].getSize().x / 4,
+						scenes[someval.x].doors[someval.y].getPos().y +
+						(scenes[someval.x].doors[someval.y].getSize().x - (player.getSize().y * player.getScale().y))
+					}
+				);
+
+				reSetScene(someval.x);
+
+				break;
+			}
+		}
 	}
 
 	void World::draw(Window &window, Player &player)
@@ -173,9 +206,10 @@ namespace xphase
 
 	void World::reSetScene(int player_location)
 	{
-		sceneTexture.loadFromFile(scenes[player_location].getPathToTexture());
-
-		sceneSprite.setTexture(sceneTexture);
+		sceneSprite.setTexture
+		(
+			*m_Textures.loadTexture(scenes[player_location].getPathToTexture())
+		);
 
 		sceneSprite.setScale
 		(

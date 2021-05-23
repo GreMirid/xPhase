@@ -50,7 +50,6 @@ namespace xphase
 		private:
 			sf::Color backgraundColor;
 
-			sf::Texture backgraundTexture;
 			sf::Sprite backgraundSprite;
 
 			bool snglClrFlag = false;

@@ -162,6 +162,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Settings.cpp" />
     <ClCompile Include="SettingsFrame.cpp" />
+    <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Trigger.cpp" />
     <ClCompile Include="UI.cpp" />
     <ClCompile Include="vrtrash.cpp" />

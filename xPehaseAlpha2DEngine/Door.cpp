@@ -7,6 +7,8 @@ namespace xphase
 	{
 		setSize({ 100 * scale, 100 * scale });
 
+		setScale({ scale, scale });
+
 		setPos(pos);
 
 		toDoor = to_door;
@@ -28,9 +30,30 @@ namespace xphase
 		return EXIT_OK;
 	}
 
-	int Door::update(Player &player)
+	vec2f Door::update(Player &player)
 	{
-		// if player pressed key E and he placed on door
-		//return toDoor;
+		switch
+			(
+				(
+					(player.getPosCen().x + player.getSize().x > getPos().x) && (player.getPosCen().x + player.getSize().x < getPos().x + getSize().x)
+				)
+					&&
+				(
+					(player.getPosCen().y > getPos().y) && (player.getPosCen().y < getPos().y + getSize().y)
+				)
+			)
+		{
+		case true:
+
+			switch ((sf::Keyboard::isKeyPressed(sf::Keyboard::E)))
+			{
+			case true: return { float(toDoor), float(toLocation) }; break;
+			default: break;
+			}
+		
+			break;
+		default: break;
+		}
+		return { NoZero, 0 };
 	}
 }

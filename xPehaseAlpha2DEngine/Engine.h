@@ -10,7 +10,7 @@
 
 namespace xphase
 {
-	void createGame(bool debug, const std::string& filePath = "platform");
+	int createGame(bool debug, const std::string& filePath = "platform");
 
 	class Game : public EngineLoop
 	{

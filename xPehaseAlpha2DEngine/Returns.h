@@ -12,7 +12,9 @@ namespace xphase
 		//Exit of function was with problems
 		EXIT_WARNING,
 		//Exit of function was unsuccess
-		EXIT_ERROR
+		EXIT_ERROR,
+		//Null but is not zero
+		NoZero = 30303030
 	};
 
 	//for game

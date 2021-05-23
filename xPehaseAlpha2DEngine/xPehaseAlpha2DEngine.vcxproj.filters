@@ -147,6 +147,9 @@
     <ClCompile Include="vrtrash.cpp">
       <Filter>Исходные файлы\CoreCode</Filter>
     </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Исходные файлы\CoreCode</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">

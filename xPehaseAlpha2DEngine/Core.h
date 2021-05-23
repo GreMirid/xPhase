@@ -17,10 +17,14 @@ GitHub: https://github.com/benhoyt/inih
 #include "SFML/Graphics.hpp"
 
 //
+#include <unordered_map>
+
+//
 namespace xphase
 {
 	//Functions and Classes for Game itself
 
+	//
 	class Window
 	{
 	public:
@@ -56,6 +60,7 @@ namespace xphase
 		void open(const std::string& path);
 	};
 
+	//
 	class EngineLoop
 	{
 	public:
@@ -87,4 +92,29 @@ namespace xphase
 		virtual void setStatus(int status);
 		virtual void setScene(int scene);
 	};
+
+	/*
+	We have some problems with std::vector and sf::Textures
+	So there the solution:
+	Create a Global Texture Manager to load all texture to use they
+	*/
+
+	typedef std::unordered_map<std::string, sf::Texture*>::iterator TexIter;
+
+	class TextureManager
+	{
+	private:
+		sf::Texture *nullTexture;
+
+	private:
+		//main mas
+		std::unordered_map<std::string, sf::Texture*> g_Textures;
+
+	public:
+		int create(Window &window);
+
+		sf::Texture* loadTexture(std::string &path_to);
+ 	};
+
+	extern TextureManager m_Textures;
 }

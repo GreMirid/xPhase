@@ -5,7 +5,7 @@
 namespace xphase
 {
 	//DOOR FOR SCENE OBJECT CLASS
-	class Door : Object
+	class Door : public Object
 	{
 	public:
 		sf::ConvexShape visual;
@@ -15,7 +15,7 @@ namespace xphase
 
 	public:
 		int create(vec2f &pos, int to_door, int to_location, float scale);
-		int update(Player &player);
+		vec2f update(Player &player);
 	};
 
 	//TRIGGER FOR SCENE OBJECT CLASS
@@ -67,23 +67,20 @@ namespace xphase
 	//LAYER FOR SCENE OBJECT CLASS
 	class Layer : public Object
 	{
-	private:
-		//it's not will load
-		sf::Texture texture;
-
 	public:
 		sf::Sprite sprite;
 
 	public:
-		int create(vec2f &pos, vec2f &scale, const std::string &path_to_texture);
+		int create(vec2f &pos, vec2f &scale, std::string &path_to_texture);
 		void draw(Window &window);
 	};
 
 	//SCENE OBJECT CLASS FOR WORLD CLASS
 	class Scene : public Object
 	{
-	private:
+	public:
 		std::vector<Door> doors;
+	private:
 		std::vector<Trigger> triggers;
 		std::vector<Collision> collisions;
 		std::vector<Layer> layers;
@@ -107,7 +104,7 @@ namespace xphase
 		void addDoor(vec2f &pos, int to_door, int to_location, float scale);
 		void addTrigger(vec2f &pos, vec2f &size, int type);
 		void addCollision(vec2f &pos, vec2f &size);
-		void addLayer(vec2f &pos, vec2f &scale, const std::string &path_to_texture);
+		void addLayer(vec2f &pos, vec2f &scale, std::string &path_to_texture);
 
 	public:
 		void clear();
@@ -124,11 +121,15 @@ namespace xphase
 
 		void update(Window &window, double delta, Player &player);
 
+		void doorUpdate(Player &player);
+
 		void draw(Window &window, Player &player);
 
 	private:
-		sf::Texture sceneTexture;
 		sf::Sprite sceneSprite;
+
+	private:
+		vec2f nextPlace = { 0, 0 };
 
 	public:
 		void reSetScene(int player_location);
