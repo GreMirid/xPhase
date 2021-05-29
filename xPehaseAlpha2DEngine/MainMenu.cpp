@@ -42,16 +42,16 @@ namespace xphase
 		int count = reader.GetInteger("Main", "buttons_count", 0) - 1;
 
 		/// get the size of full block and get central position to move all block on screen
-		vec2f buttonsBlockSize =
-		{
-			reader.GetInteger("Buttons", "buttons_size_x", 0),
-			(reader.GetInteger("Buttons", "buttons_size_y", 0) * count) + count
-		};
-
 		vec2f buttonsSize =
 		{
-			reader.GetInteger("Buttons", "buttons_size_x", 0),
-			reader.GetInteger("Buttons", "buttons_size_y", 0)
+			reader.GetInteger("Buttons", "buttons_size_x", 0) * window.screenMatrix.getMatrixScale().x,
+			reader.GetInteger("Buttons", "buttons_size_y", 0) * window.screenMatrix.getMatrixScale().y
+		};
+
+		vec2f buttonsBlockSize =
+		{
+			buttonsSize.x,
+			(buttonsSize.y * count) + count
 		};
 
 		vec2f buttonsBlockPos = { 0, 0 };
@@ -121,7 +121,7 @@ namespace xphase
 			);
 
 			/// Set Next Y pos for button
-			buttonsBlockPos.y += reader.GetInteger("Buttons", "buttons_size_y", 0) + 1;
+			buttonsBlockPos.y += buttonsSize.y + 1;
 
 			/// Get Text for Button from ini
 			sf::String textB = reader.GetString(buttonNum, "text", "");
@@ -134,7 +134,7 @@ namespace xphase
 				textB,
 				*m_Font.loadFont(font_path),
 				colorB,
-				reader.GetInteger("Buttons", "buttons_f_size", 0)
+				reader.GetInteger("Buttons", "buttons_f_size", 0) * ( (window.screenMatrix.getMatrixScale().x + window.screenMatrix.getMatrixScale().y) / 2)
 			);
 
 			/// Add buttons to Objects
@@ -148,8 +148,8 @@ namespace xphase
 		gameLogo.setTexture(*m_Textures.loadTexture(path_to_logo));
 		gameLogo.setScale
 		(
-			reader.GetReal("Logo", "scale_x", 0),
-			reader.GetReal("Logo", "scale_y", 0)
+			reader.GetReal("Logo", "scale_x", 0) * window.screenMatrix.getMatrixScale().x,
+			reader.GetReal("Logo", "scale_y", 0) * window.screenMatrix.getMatrixScale().y
 
 		);
 
@@ -157,8 +157,8 @@ namespace xphase
 
 		vec2f logoPosFromIni =
 		{
-			reader.GetReal("Logo", "pos_x", 0),
-			reader.GetReal("Logo", "pos_y", 0)
+				reader.GetReal("Logo", "pos_x", 0),
+				reader.GetReal("Logo", "pos_y", 0)
 		};
 
 		/// x
