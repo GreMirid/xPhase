@@ -6,7 +6,6 @@
 //
 #include "Scripts.h"
 #include "UserInterface.h"
-#include "Scenario.h"
 
 namespace xphase
 {
@@ -53,9 +52,7 @@ namespace xphase
 
 	private:
 		//Modules
-		Scripts scripts;
 		UserInterface UI;
-		Scenario characters;
 
 		//Objects
 		Player player;

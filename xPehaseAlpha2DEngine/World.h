@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Player.h"
+#include "Characters.h"
 
 namespace xphase
 {

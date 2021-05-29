@@ -4,15 +4,12 @@
 
 namespace xphase
 {
+	//Code for Triggers
 	class Scripts : public Module
 	{
 	public:
-		int load()
-		{
-			//TASK:
-			/// Read all scripts and wite to RAM to use.
-
-			return EXIT_OK;
-		}
+		int load(Window &window);
 	};
+
+	extern Scripts scripts;
 }

@@ -4,12 +4,12 @@
 
 namespace xphase
 {
+	//Load all xphase_sripts by directory
 	class Scenario : public Module
 	{
 	public:
-		int load()
-		{
-			return EXIT_OK;
-		}
+		int load(Window &window);
 	};
+
+	extern Scenario dialogScripts;
 }

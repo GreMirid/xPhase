@@ -19,9 +19,9 @@ namespace xphase
 
 	void Game::loadModules()
 	{
-		scripts.load();
+		scripts.load(window);
 		UI.load(window);
-		characters.load();
+		dialogScripts.load(window);
 	}
 
 	void Game::initObjects()
