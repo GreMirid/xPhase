@@ -35,6 +35,7 @@ namespace xphase
 		Play,
 		Configure,
 		Quit,
-		Extra
+		Extra,
+		toMainMenu
 	};
 }

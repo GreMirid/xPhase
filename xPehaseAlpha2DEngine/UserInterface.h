@@ -33,6 +33,7 @@ namespace xphase
 		//TASK:
 		/// Create getter
 		int getRole();
+		vec2f &getSize() { return size; }
 
 		void isButtonPressed(bool boolean);
 		bool isButtonPressed();
@@ -111,7 +112,7 @@ namespace xphase
 
 		public:
 			int create(Window &window);
-			bool update(Window &window, Player &player);
+			bool update(Window &window, Player &player, float delta);
 
 			void draw(Window &window);
 
@@ -119,7 +120,7 @@ namespace xphase
 			void isGameMenuSequence(bool var)	{ isGameMenuSequenceFlag = var; }
 
 		private:
-			void animation();
+			void animation(float delta);
 		} igme;
 
 		int load(Window& window);

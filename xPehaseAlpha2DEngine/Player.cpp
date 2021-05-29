@@ -146,7 +146,7 @@ namespace xphase
 		//Move With Text
 		updateText();
 
-		sf::String text = "x:" + std::to_string(getPos().x) + " y:" + std::to_string(getPos().y);
+		sf::String text = "x:" + std::to_string(int(getPos().x)) + " y:" + std::to_string(int(getPos().y));
 
 		setText(text);
 
@@ -170,7 +170,7 @@ namespace xphase
 
 	void Player::updateText()
 	{
-		text.setPosition(getPosCen().x - (text.getString().getSize() * fast_sqrt(text.getCharacterSize())), getPos().y - (text.getCharacterSize() + 2));
+		text.setPosition(( getPos().x + (getSize().x * getScale().x) / 2) - text.getLocalBounds().width / 2, getPos().y - (text.getCharacterSize() + 2));
 	}
 
 	void Player::updateDub()
