@@ -43,7 +43,7 @@ namespace xphase
 		class LoadingResources
 		{
 		private:
-			sf::Font font; sf::Text loaingText; sf::ConvexShape panel;
+			sf::Text loaingText; sf::ConvexShape panel;
 
 		public:
 			void create(Window &window);

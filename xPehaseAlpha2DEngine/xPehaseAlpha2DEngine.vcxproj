@@ -145,10 +145,12 @@
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="EngineLoop.cpp" />
     <ClCompile Include="ExitFrame.cpp" />
+    <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="Frame.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameFrame.cpp" />
     <ClCompile Include="GameFrameAction.cpp" />
+    <ClCompile Include="GameMenu.cpp" />
     <ClCompile Include="INI\ini.c" />
     <ClCompile Include="INI\INIReader.cpp" />
     <ClCompile Include="Launcher.cpp" />
@@ -160,6 +162,7 @@
     <ClCompile Include="render.cpp" />
     <ClCompile Include="Res_Sc_Load.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="ScreenMatrix.cpp" />
     <ClCompile Include="Settings.cpp" />
     <ClCompile Include="SettingsFrame.cpp" />
     <ClCompile Include="TextureManager.cpp" />

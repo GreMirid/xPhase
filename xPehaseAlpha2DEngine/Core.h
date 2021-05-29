@@ -44,6 +44,7 @@ namespace xphase
 
 		bool isDrawBorders()			{ return drawBordersInDebugFlag; }
 		void isDrawBorders(bool d)		{ drawBordersInDebugFlag = d; }
+		void isDrawCursor(bool d)		{ drawArea.setMouseCursorVisible(d); }
 
 		std::string getPathtoGame()		{ return pathTo; }
 		std::string getName()			{ return windowName; }
@@ -115,4 +116,26 @@ namespace xphase
  	};
 
 	extern TextureManager m_Textures;
+
+	//ALSO:
+	//Need to create some Font for Text Global Manager
+	typedef std::unordered_map<std::string, sf::Font*>::iterator FontIter;
+
+	class FontManager
+	{
+	private:
+		//emo
+		sf::Font *nullFont;
+
+	private:
+		//main mas
+		std::unordered_map<std::string, sf::Font*> g_Fonts;
+
+	public:
+		int create(Window &window);
+
+		sf::Font* loadFont(std::string &path_to);
+	};
+
+	extern FontManager m_Font;
 }

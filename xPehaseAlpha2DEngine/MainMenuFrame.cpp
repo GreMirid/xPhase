@@ -4,6 +4,8 @@ namespace xphase
 {
 	void Game::mainMenuFrame(double delta)
 	{
+		window.isDrawCursor(true);
+
 		setScene(MainMenuSequnce);
 
 		window.drawArea.clear();

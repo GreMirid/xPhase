@@ -84,7 +84,6 @@ namespace xphase
 
 	void Actor::calculatePointsForAtlas()
 	{
-
 		for (int direction = Idle; direction < DownRight + 1; direction++)
 		{
 			std::vector<vec2f> localPos;

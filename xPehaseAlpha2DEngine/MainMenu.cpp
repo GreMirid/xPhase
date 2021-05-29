@@ -72,7 +72,7 @@ namespace xphase
 
 		/// create buttons
 		/// set font
-		fontB.loadFromFile(window.getPathtoGame() + TO_RES + reader.GetString("Buttons", "buttons_font", ""));
+		std::string font_path = window.getPathtoGame() + TO_RES + reader.GetString("Buttons", "buttons_font", "");
 
 		colorB.r = reader.GetInteger("Buttons", "buttons_clr_t_r", 0);
 		colorB.g = reader.GetInteger("Buttons", "buttons_clr_t_g", 0);
@@ -132,7 +132,7 @@ namespace xphase
 			temp.setText
 			(
 				textB,
-				fontB,
+				*m_Font.loadFont(font_path),
 				colorB,
 				reader.GetInteger("Buttons", "buttons_f_size", 0)
 			);

@@ -10,8 +10,9 @@ namespace xphase
 
 		openWindow(filePath);
 
-		//Load Emo
+		//Load Standarts
 		m_Textures.create(window);
+		m_Font.create(window);
 
 		render();
 	}

@@ -8,6 +8,7 @@ namespace xphase
 
 		loadStatus = mM.create(window);
 		loadStatus = st.create(window);
+		loadStatus = igme.create(window);
 
 		return loadStatus;
 	}

@@ -8,11 +8,19 @@ namespace xphase
 		{
 		case true:
 			//Show borders of 
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::O))
+			if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::O))
 				window.isDrawBorders(true);
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::L))
+			if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::L))
 				window.isDrawBorders(false);
 			break;
+		}
+
+		if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape))
+		{
+			if (UI.igme.isGameMenuSequence())
+				UI.igme.isGameMenuSequence(false);
+			else
+				UI.igme.isGameMenuSequence(true);
 		}
 	}
 }

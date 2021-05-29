@@ -44,7 +44,7 @@ namespace xphase
 
 		void setPathToAtlas(std::string path)	{ pathToAtlas = path; }
 
-		void setSprite();
+		virtual void setSprite();
 
 		float getAngle()						{ return pseudoCameraAngle; }
 		float getSpeed()						{ return speedOfActor; }

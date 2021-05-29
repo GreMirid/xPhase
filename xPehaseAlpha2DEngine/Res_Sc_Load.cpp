@@ -4,9 +4,9 @@ namespace xphase
 {
 	void Game::LoadingResources::create(Window &window)
 	{
-		font.loadFromFile(window.getPathtoGame() + TO_RES + "fonts\\mainfont.ttf");
+		std::string font_path = window.getPathtoGame() + TO_RES + "fonts/mainfont.ttf";
 
-		loaingText.setFont(font);
+		loaingText.setFont(*m_Font.loadFont(font_path));
 
 		loaingText.setFillColor(sf::Color(255, 255, 255));
 		loaingText.setCharacterSize(20);

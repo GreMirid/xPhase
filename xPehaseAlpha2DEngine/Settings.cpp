@@ -7,7 +7,7 @@ namespace xphase
 		/// PLACEHOLDER BUTTON
 		INIReader reader(window.getPathtoGame() + TO_CFG + "mainmenu.ini");
 
-		font.loadFromFile(window.getPathtoGame() + TO_RES + reader.GetString("Buttons", "buttons_font", ""));
+		std::string path_to_font = window.getPathtoGame() + TO_RES + reader.GetString("Buttons", "buttons_font", "");
 
 		button.setColors
 		(
@@ -28,7 +28,7 @@ namespace xphase
 		colorB.g = reader.GetInteger("Buttons", "buttons_clr_t_g", 0);
 		colorB.b = reader.GetInteger("Buttons", "buttons_clr_t_b", 0);
 
-		button.setText(textB, font, colorB, reader.GetInteger("Buttons", "buttons_f_size", 0));
+		button.setText(textB, *m_Font.loadFont(path_to_font), colorB, reader.GetInteger("Buttons", "buttons_f_size", 0));
 
 		return EXIT_OK;
 	}

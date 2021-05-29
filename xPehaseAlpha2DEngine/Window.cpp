@@ -46,7 +46,8 @@ namespace xphase
 		camera.setCenter(res.x / 2,  res.y / 2);
 
 		drawArea.create(sf::VideoMode(res.x , res.y), isDebug() ? windowName + " Debug Mode" : windowName, windStyle);
-		setWindowFPS(65);
 		drawArea.setVerticalSyncEnabled(reader.GetBoolean("Game", "Vsync", true));
+		setWindowFPS(75);
+		isDrawCursor(false);
 	}
 }

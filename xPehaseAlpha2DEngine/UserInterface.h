@@ -57,7 +57,6 @@ namespace xphase
 			int mmsqsFlag = MainMenuSequnce;
 
 		private:
-			sf::Font fontB;
 			sf::Color colorB;
 			std::string buttonNum = "";
 			int role = DoNotExec;
@@ -77,7 +76,7 @@ namespace xphase
 			void isJustOnlyColor(bool boolean)		{ snglClrFlag = boolean; }
 
 			int isMainMenuSequence()				{ return mmsqsFlag; }
-			void isMainMenuSequence(int flag)	{ mmsqsFlag = flag; }
+			void isMainMenuSequence(int flag)		{ mmsqsFlag = flag; }
 
 		} mM;
 
@@ -86,7 +85,6 @@ namespace xphase
 		private:
 			int statFlag = SettingsSequence;
 			int from = 0;
-			sf::Font font;
 			Button button;
 
 		public:
@@ -100,17 +98,29 @@ namespace xphase
 		class GameMenu
 		{
 		private:
-			sf::Font font;
+			sf::ConvexShape menuDraw;
+			sf::Text text;
 			Button buttons[3];
+			
+			vec2f size,
+				needPoint,
+				nowPoint;
 
-			bool isGameMenuSequenceFlag = false;
+			bool isGameMenuSequenceFlag = false,
+				isNotEndAnimation = false;
 
 		public:
-			int create(Window &window) { return EXIT_OK; }
-			bool update(Window &window, Player &player) { return isGameMenuSequenceFlag; }
+			int create(Window &window);
+			bool update(Window &window, Player &player);
 
-			void draw(Window &window) {};
-		};
+			void draw(Window &window);
+
+			bool isGameMenuSequence()			{ return isGameMenuSequenceFlag; }
+			void isGameMenuSequence(bool var)	{ isGameMenuSequenceFlag = var; }
+
+		private:
+			void animation();
+		} igme;
 
 		int load(Window& window);
 	};
