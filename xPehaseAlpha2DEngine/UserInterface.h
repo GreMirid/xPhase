@@ -53,8 +53,11 @@ namespace xphase
 			sf::Color backgraundColor;
 			sf::Sprite backgraundSprite;
 			sf::Sprite gameLogo;
+			sf::String continueGame;
 
-			bool snglClrFlag = false;
+			bool snglClrFlag = false,
+				isAlreadyGame = false,
+				isChanged = false;
 			int mmsqsFlag = MainMenuSequnce;
 
 		private:
@@ -118,6 +121,8 @@ namespace xphase
 
 			bool isGameMenuSequence()			{ return isGameMenuSequenceFlag; }
 			void isGameMenuSequence(bool var)	{ isGameMenuSequenceFlag = var; }
+
+			int buttonsWasPressed();
 
 		private:
 			void animation(float delta);

@@ -18,11 +18,14 @@ namespace xphase
 			blockUpFlag = false,
 			blockDownFlag = false,
 			blockLeftFlag = false,
-			blockRightFlag = false;
+			blockRightFlag = false,
+			debug;
 
 	private:
-		sf::Font font;
 		sf::Text text;
+
+		sf::String doorText, triggerText, 
+			emptyText = "";
 
 	public:
 		int create(Window &window);
@@ -34,6 +37,9 @@ namespace xphase
 		//Getter
 		int getLocation()					{ return location; }
 		vec2f &getDub()						{ return dub; }
+		sf::String &isDoor()				{ return doorText; }
+		sf::String &isTrigger()				{ return triggerText; }
+		sf::String &cleanText()				{ return emptyText; }
 
 		//Setter
 		void setLocation(int loc)			{ location = loc; }

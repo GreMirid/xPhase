@@ -6,6 +6,9 @@ namespace xphase
 	{
 		window.isDrawCursor(true);
 
+		window.drawArea.setView(window.camera);
+		window.camera.setCenter(window.screenMatrix.getRealScreenSizeButHalf().x, window.screenMatrix.getRealScreenSizeButHalf().y);
+
 		setScene(MainMenuSequnce);
 
 		window.drawArea.clear();

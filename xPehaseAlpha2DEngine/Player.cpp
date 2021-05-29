@@ -4,6 +4,18 @@ namespace xphase
 {
 	int Player::create(Window &window)
 	{
+		debug = window.isDebug();
+
+		//TASK:
+		/// Load standart phrases from config.ini
+		INIReader rd(window.getPathtoGame() + TO_CFG + "config.ini");
+
+		doorText = rd.Get("Texts", "door", "");
+		doorText = sf::String::fromUtf8(doorText.begin(), doorText.end());
+
+		triggerText = rd.Get("Texts", "trigger", "");
+		triggerText = sf::String::fromUtf8(triggerText.begin(), triggerText.end());
+
 		//TASK:
 		/// Load from ini params and past it here
 		INIReader reader(window.getPathtoGame() + TO_CFG + "player.ini");
@@ -64,11 +76,9 @@ namespace xphase
 		);
 
 		/// TEXT
-		font.loadFromFile(window.getPathtoGame() + TO_RES + reader.Get("Text", "font_path", ""));
+		std::string font_path = window.getPathtoGame() + TO_RES + reader.Get("Text", "font_path", "");
 
 		sf::String txt = reader.GetString("Text", "text", "");
-
-		/// 
 		txt = sf::String::fromUtf8(txt.begin(), txt.end());
 
 		sf::Color textColor = sf::Color
@@ -81,7 +91,7 @@ namespace xphase
 		setTextData
 		(
 			txt,
-			font,
+			*m_Font.loadFont(font_path),
 			textColor,
 			reader.GetInteger("Text","character_size", 0) * ((window.screenMatrix.getMatrixScale().x + window.screenMatrix.getMatrixScale().y) / 2)
 		);
@@ -146,15 +156,8 @@ namespace xphase
 		//Move With Text
 		updateText();
 
-		sf::String text = "x:" + std::to_string(int(getPos().x)) + " y:" + std::to_string(int(getPos().y));
-
-		setText(text);
-
 		//Calculate collission
 		updateDub();
-
-		//Move Camera to Player
-		window.camera.setCenter(getPosCen().x, getPosCen().y);
 	}
 
 	void Player::draw(Window &window)
@@ -165,12 +168,16 @@ namespace xphase
 
 	void Player::setText(sf::String &intext)
 	{
-		text.setString(intext);
+		text.setString
+		(
+			(debug? "x:" + std::to_string(int(getPosCen().x)) + " y:" + std::to_string(int(getPosCen().y)) + (intext == ""? "": "\n"): "")
+			+ intext
+		);
 	}
 
 	void Player::updateText()
 	{
-		text.setPosition(( getPos().x + (getSize().x * getScale().x) / 2) - text.getLocalBounds().width / 2, getPos().y - (text.getCharacterSize() + 2));
+		text.setPosition(( getPos().x + (getSize().x * getScale().x) / 2) - text.getLocalBounds().width / 2, getPos().y - (text.getLocalBounds().height + 3));
 	}
 
 	void Player::updateDub()
@@ -183,7 +190,7 @@ namespace xphase
 	{
 		text.setString(intext);
 		text.setCharacterSize(characterSize);
-		text.setFont(font);
+		text.setFont(infont);
 		text.setFillColor(color);
 		text.setPosition(0, 0);
 	}

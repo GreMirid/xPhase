@@ -145,8 +145,8 @@ namespace xphase
 				break;
 
 			case false:
-				//buttons update
 
+				//buttons update
 				for (short unit = 0; unit < 3; unit++)
 				{
 					buttons[unit].isButtonUnderCursor
@@ -193,6 +193,29 @@ namespace xphase
 			}
 			break;
 		}
+	}
+
+	int UserInterface::GameMenu::buttonsWasPressed()
+	{
+		for (short unit = 0; unit < 3; unit++)
+		{
+			switch (buttons[unit].isButtonPressed())
+			{
+			case true:
+
+				switch (buttons[unit].getRole())
+				{
+				case toMainMenu: return MainMenuSequnce;
+				case Configure: return SettingsSequence;
+				case Quit: return ExitSequence;
+				default: break;
+				}
+				break;
+			default: break;
+			}
+		}
+
+		return GameSequnce;
 	}
 
 	void UserInterface::GameMenu::animation(float delta)

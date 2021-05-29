@@ -39,20 +39,25 @@ namespace xphase
 				)
 					&&
 				(
-					(player.getPosCen().y > getPos().y) && (player.getPosCen().y < getPos().y + getSize().y)
+					((player.getPos().y + (player.getSize().y * player.getScale().y) / 2) > getPos().y) &&
+					((player.getPos().y + (player.getSize().y * player.getScale().y) / 2) < getPos().y + getSize().y)
 				)
 			)
 		{
 		case true:
+			//set text, what is door
+			player.setText(player.isDoor());
 
 			switch ((sf::Keyboard::isKeyPressed(sf::Keyboard::E)))
 			{
-			case true: return { float(toDoor), float(toLocation) }; break;
+			case true:
+				//
+				delay(0.23);
+				return { float(toDoor), float(toLocation) };
+				break;
 			default: break;
 			}
-		
 			break;
-		default: break;
 		}
 		return { NoZero, 0 };
 	}

@@ -175,6 +175,10 @@ namespace xphase
 
 		gameLogo.setPosition(logoPos.x, logoPos.y);
 
+		///if is a game
+		continueGame = reader.Get("Main", "continue_game_text", "Continue Game");
+		continueGame = sf::String::fromUtf8(continueGame.begin(), continueGame.end());
+
 		return EXIT_OK;
 	}
 
@@ -208,12 +212,27 @@ namespace xphase
 			{
 				switch (buttons[unit].getRole())
 				{
-				case Play: isMainMenuSequence(GameSequnce); break;
+				case Play:
+					isMainMenuSequence(GameSequnce);
+					isAlreadyGame = true;
+					break;
 				case Configure: isMainMenuSequence(SettingsSequence); break;
 				case Quit: isMainMenuSequence(ExitSequence); break;
 				case Extra: /*isMainMenuSequence(777);*/ break;
 				}
 			}
+		}
+
+		if (isAlreadyGame && !isChanged)
+		{
+			for (size_t unit = 0; unit < buttons.size(); unit++)
+			{
+				if (buttons[unit].getRole() == Play)
+				{
+					buttons[unit].reSetText(continueGame);
+				}
+			}
+			isChanged = true;
 		}
 	}
 }

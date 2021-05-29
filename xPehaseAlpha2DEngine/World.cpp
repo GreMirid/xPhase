@@ -163,6 +163,7 @@ namespace xphase
 
 	void World::update(Window &window, double delta, Player &player)
 	{
+		player.setText(player.cleanText());
 		scenes[player.getLocation()].update(window, delta, player);
 		doorUpdate(player);
 	}

@@ -6,6 +6,8 @@ namespace xphase
 	{
 		setScene(GameSequnce);
 
+		//Move Camera to Player
+		window.camera.setCenter(player.getPosCen().x, player.getPosCen().y);
 		window.drawArea.setView(window.camera);
 
 		window.drawArea.clear();
@@ -14,6 +16,9 @@ namespace xphase
 
 		switch (notAGame)
 		{
+		case true:
+			setStatus(UI.igme.buttonsWasPressed());
+			break;
 		case false:
 			world.update(window, delta, player);
 			player.update(window, delta);
