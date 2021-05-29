@@ -35,12 +35,13 @@ namespace xphase
 		switch
 			(
 				(
-					(player.getPosCen().x + player.getSize().x > getPos().x) && (player.getPosCen().x + player.getSize().x < getPos().x + getSize().x)
+					((player.getPos().x + ((player.getSize().x * player.getScale().x) / 2)) > getPos().x) &&
+					((player.getPos().x + ((player.getSize().x * player.getScale().x) / 2)) < getPos().x + getSize().x)
 				)
 					&&
 				(
-					((player.getPos().y + (player.getSize().y * player.getScale().y) / 2) > getPos().y) &&
-					((player.getPos().y + (player.getSize().y * player.getScale().y) / 2) < getPos().y + getSize().y)
+					((player.getPos().y + ((player.getSize().y * player.getScale().y) / 2)) > getPos().y) &&
+					((player.getPos().y + ((player.getSize().y * player.getScale().y) / 2)) < getPos().y + getSize().y)
 				)
 			)
 		{
