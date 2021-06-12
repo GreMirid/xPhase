@@ -128,6 +128,33 @@ namespace xphase
 			void animation(float delta);
 		} igme;
 
+
+		class DialogInterface
+		{
+		private:
+			sf::ConvexShape dialogBar;
+			sf::Text dialogText;
+
+			bool isDialogFlag = false,
+				isButtonsShowFlag = false;
+
+			short buttonsToShowCount = 0;
+
+		public:
+			int create(Window &window);
+			void update(Window &window, Player &player);
+			void draw(Window &window);
+
+			void isDialog(bool var)			{ isDialogFlag = var; }
+			bool isDialog()					{ return isDialogFlag; }
+			void isButtonsShow(bool var)	{ isButtonsShowFlag = var; }
+			bool isButtonsShow()			{ return isButtonsShowFlag; }
+
+			void setButtons(std::vector<sf::String> buttonsText);
+
+		} dialogInterface;
+
+
 		int load(Window& window);
 	};
 }

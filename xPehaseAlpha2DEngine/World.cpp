@@ -145,7 +145,7 @@ namespace xphase
 							toFlFrmWS(tempRawMassive[3]) * window.screenMatrix.getMatrixScale().y
 						};
 
-						std::string path = toString(tempRawMassive[4]);
+						std::string path = window.getPathtoGame() + TO_RES + toString(tempRawMassive[4]);
 
 						tempScene.addLayer(pos, scale, path);
 					}
@@ -208,6 +208,11 @@ namespace xphase
 		window.drawArea.draw(sceneSprite);
 
 		scenes[player.getLocation()].draw(window);
+	}
+
+	void World::drawSceneLayers(Window &window, Player &player)
+	{
+		scenes[player.getLocation()].drawLayers(window);
 	}
 
 	void World::reSetScene(int player_location)

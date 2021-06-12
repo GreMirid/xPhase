@@ -14,12 +14,13 @@ namespace xphase
 		m_Textures.create(window);
 		m_Font.create(window);
 
+		m_gameLogic.create(this);
+
 		render();
 	}
 
 	void Game::loadModules()
 	{
-		scripts.load(window);
 		UI.load(window);
 		dialogScripts.load(window);
 	}

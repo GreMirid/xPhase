@@ -4,7 +4,6 @@
 #include "World.h"
 
 //
-#include "Scripts.h"
 #include "UserInterface.h"
 
 namespace xphase
@@ -50,7 +49,9 @@ namespace xphase
 
 		} ld;
 
-	private:
+
+	//to manupulate while plaing game
+	public:
 		//Modules
 		UserInterface UI;
 
@@ -58,4 +59,13 @@ namespace xphase
 		Player player;
 		World world;
 	};
+
+	class GameLogic
+	{
+	public:
+		void create(Game *game);
+		void update(Game *game);
+	};
+
+	extern GameLogic m_gameLogic;
 }

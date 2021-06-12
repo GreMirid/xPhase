@@ -66,11 +66,11 @@ namespace xphase
 		setActorPos(getPos());
 
 		//sprite chages machina
-		switch ((frameDelay == delayConst))
+		switch (frameDelay > delta / delayConst)
 		{
 		case true:
 			frameDelay = 0;
-			switch ((spriteStage == 2))
+			switch (spriteStage == 2)
 			{
 			case true: spriteStage = 0; break; case false: spriteStage++; break;
 			}

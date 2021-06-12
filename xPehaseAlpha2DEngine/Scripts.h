@@ -7,9 +7,11 @@ namespace xphase
 	//Code for Triggers
 	class Scripts : public Module
 	{
+	private:
+		std::vector<std::string> existedFilesIn;
 	public:
-		int load(Window &window);
-	};
+		int load(Window &window, std::string &path_to_file);
 
-	extern Scripts scripts;
+
+	};
 }

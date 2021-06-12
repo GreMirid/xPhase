@@ -26,5 +26,7 @@ namespace xphase
 		case SettingsSequence: settingsFrame(delta); break;
 		case ExitSequence: endingFrame(delta); break;
 		}
+
+		m_gameLogic.update(this);
 	}
 }

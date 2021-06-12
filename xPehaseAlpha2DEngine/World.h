@@ -124,6 +124,8 @@ namespace xphase
 
 		void draw(Window &window, Player &player);
 
+		void drawSceneLayers(Window &window, Player &player);
+
 	private:
 		sf::Sprite sceneSprite;
 

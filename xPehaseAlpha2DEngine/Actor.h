@@ -24,7 +24,7 @@ namespace xphase
 
 		short spriteStage = 0,
 			frameDelay = 0,
-			delayConst = 10;
+			delayConst = 5000;
 
 	public:
 		sf::Sprite actorSprite;

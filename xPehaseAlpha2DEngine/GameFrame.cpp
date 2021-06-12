@@ -12,7 +12,8 @@ namespace xphase
 
 		window.drawArea.clear();
 
-		bool notAGame = UI.igme.update(window, player, delta);
+		bool notAGame = 
+			UI.igme.update(window, player, delta);
 
 		switch (notAGame)
 		{
@@ -30,6 +31,8 @@ namespace xphase
 		world.draw(window, player);
 
 		player.draw(window);
+
+		world.drawSceneLayers(window, player);
 
 		UI.igme.draw(window);
 

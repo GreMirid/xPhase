@@ -143,6 +143,7 @@
     <ClCompile Include="Characters.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="ConteinerReader.cpp" />
+    <ClCompile Include="DialogInterface.cpp" />
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="EngineLoop.cpp" />
@@ -158,6 +159,7 @@
     <ClCompile Include="Launcher.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="LoadingFrame.cpp" />
+    <ClCompile Include="MainGameLogic.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="MainMenuFrame.cpp" />
     <ClCompile Include="Player.cpp" />

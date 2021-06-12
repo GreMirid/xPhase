@@ -51,6 +51,12 @@
     <Filter Include="Исходные файлы\World">
       <UniqueIdentifier>{2a6bad56-bd3f-4b12-8708-8e9e12896511}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\GameLogic">
+      <UniqueIdentifier>{960c8612-b303-4e08-ad7f-d43968cc7a06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GameLogic">
+      <UniqueIdentifier>{9c58db3b-599b-4c2b-b8b5-785030493bc4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Launcher.cpp">
@@ -166,6 +172,12 @@
     </ClCompile>
     <ClCompile Include="Characters.cpp">
       <Filter>Исходные файлы\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="DialogInterface.cpp">
+      <Filter>Исходные файлы\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGameLogic.cpp">
+      <Filter>Исходные файлы\GameLogic</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

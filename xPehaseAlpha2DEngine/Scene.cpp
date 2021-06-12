@@ -65,9 +65,7 @@ namespace xphase
 	void Scene::drawLayers(Window &window)
 	{
 		for (size_t unit = 0; unit < layers.size(); unit++)
-		{
 			layers[unit].draw(window);
-		}
 	}
 
 	void Scene::addDoor(vec2f &pos, int to_door, int to_location, float scale)
