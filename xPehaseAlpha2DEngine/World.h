@@ -20,10 +20,11 @@ namespace xphase
 	};
 
 	//TRIGGER FOR SCENE OBJECT CLASS
-	class Trigger : Object
+	class Trigger : public Object
 	{
 	public:
 		sf::ConvexShape visual;
+		sf::String triggerText;
 
 	public:
 		enum typeUse
@@ -38,6 +39,7 @@ namespace xphase
 	public:
 		int create(vec2f &pos, vec2f &size, int type);
 		void update(Player &player, float delta);
+		int getType();
 	};
 
 	//COLISIION FOR SCENE OBJECT CLASS
@@ -81,7 +83,6 @@ namespace xphase
 	{
 	public:
 		std::vector<Door> doors;
-	private:
 		std::vector<Trigger> triggers;
 		std::vector<Collision> collisions;
 		std::vector<Layer> layers;
@@ -112,18 +113,14 @@ namespace xphase
 	//MAIN WORLD CLASS
 	class World
 	{
-	private:
+	public:
 		std::vector<Scene> scenes;
 
 	public:
 		int create(Window &window);
-
 		void update(Window &window, double delta, Player &player);
-
 		void doorUpdate(Player &player);
-
 		void draw(Window &window, Player &player);
-
 		void drawSceneLayers(Window &window, Player &player);
 
 	private:

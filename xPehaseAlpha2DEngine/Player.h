@@ -8,7 +8,8 @@ namespace xphase
 	{
 	private:
 		int location = 0;
-		bool itMoveFlag = false;
+		bool itMoveFlag = false,
+			isOnTriggerFlag = false;
 
 		//pos + size coords
 		vec2f dub = {0, 0};
@@ -40,10 +41,12 @@ namespace xphase
 		sf::String &isDoor()				{ return doorText; }
 		sf::String &isTrigger()				{ return triggerText; }
 		sf::String &cleanText()				{ return emptyText; }
+		bool isOnTrigger()					{ return isOnTriggerFlag; }
 
 		//Setter
 		void setLocation(int loc)			{ location = loc; }
 		void setText(sf::String &intext);
+		void isOnTrigger(bool var)			{ isOnTriggerFlag = var; }
 
 	public:
 		void setBlockedUp(bool block)		{ blockUpFlag = block; }

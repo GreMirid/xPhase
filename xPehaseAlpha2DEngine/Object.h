@@ -18,7 +18,11 @@ namespace xphase
 		virtual vec2f getSize()						{ return size; }
 		virtual vec2f getPosCen()					{ return posCen; }
 		virtual vec2f getScale()					{ return scale; }
-		virtual bool isEnabled()					{ return enableFlag; }
+		virtual vec2f getScaledSize()
+		{
+			return { size.x * scale.x, size.y * scale.y };
+		}
+		virtual bool isEnabled() { return enableFlag; }
 
 		//Setter
 		virtual void isEnabled(bool en)				{ enableFlag = en; }
@@ -34,11 +38,11 @@ namespace xphase
 		}
 		
 	private:
-		bool enableFlag = true;
-
 		vec2f pos;
 		vec2f size;
 		vec2f posCen;
 		vec2f scale;
+
+		bool enableFlag = true;
 	};
 }

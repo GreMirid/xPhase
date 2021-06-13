@@ -43,6 +43,11 @@ namespace xphase
 			if (collisions[unit].isEnabled())
 				collisions[unit].update(player, delta);
 		}
+		for (size_t unit = 0; unit < triggers.size(); unit++)
+		{
+			if (triggers[unit].isEnabled())
+				triggers[unit].update(player, delta);
+		}
 	}
 
 	void Scene::draw(Window &window)

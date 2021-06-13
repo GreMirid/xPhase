@@ -12,28 +12,24 @@ namespace xphase
 
 		window.drawArea.clear();
 
-		bool notAGame = 
-			UI.igme.update(window, player, delta);
+		bool notAGame = player.isOnTrigger() || UI.igme.update(window, player, delta);
 
-		switch (notAGame)
+		if (notAGame)
 		{
-		case true:
-			setStatus(UI.igme.buttonsWasPressed());
-			break;
-		case false:
+			if (player.isOnTrigger()) UI.dialogInterface.update(window, player);
+			else setStatus(UI.igme.buttonsWasPressed());
+		}
+		else
+		{
 			world.update(window, delta, player);
 			player.update(window, delta);
-			break;
 		}
 
 		window.isDrawCursor(notAGame);
 
 		world.draw(window, player);
-
 		player.draw(window);
-
 		world.drawSceneLayers(window, player);
-
 		UI.igme.draw(window);
 
 		window.drawArea.display();

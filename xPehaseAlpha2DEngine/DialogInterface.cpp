@@ -9,7 +9,11 @@ namespace xphase
 
 	void UserInterface::DialogInterface::update(Window &window, Player &player)
 	{
-
+		// If it cannot need a dialog now
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+		{
+			player.isOnTrigger(false);
+		}
 	}
 
 	void UserInterface::DialogInterface::draw(Window &window)

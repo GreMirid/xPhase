@@ -51,10 +51,19 @@
     <Filter Include="Исходные файлы\World">
       <UniqueIdentifier>{2a6bad56-bd3f-4b12-8708-8e9e12896511}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\GameLogic">
+    <Filter Include="MathGameLogic">
+      <UniqueIdentifier>{d573bb7d-0f2e-41d9-82af-a4ae7453ab90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MathGameLogic\Source">
+      <UniqueIdentifier>{d2ae78c6-2ebc-42af-b51e-58a70b35dc05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MathGameLogic\Header">
+      <UniqueIdentifier>{e70af847-bfca-4f91-b12c-2d6006339a75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MathGameLogic\Source\GameLogic">
       <UniqueIdentifier>{960c8612-b303-4e08-ad7f-d43968cc7a06}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\GameLogic">
+    <Filter Include="MathGameLogic\Header\GameLogic">
       <UniqueIdentifier>{9c58db3b-599b-4c2b-b8b5-785030493bc4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -177,7 +186,7 @@
       <Filter>Исходные файлы\UI</Filter>
     </ClCompile>
     <ClCompile Include="MainGameLogic.cpp">
-      <Filter>Исходные файлы\GameLogic</Filter>
+      <Filter>MathGameLogic\Header\GameLogic</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
