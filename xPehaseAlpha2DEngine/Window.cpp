@@ -61,4 +61,6 @@ namespace xphase
 		setWindowFPS(75);
 		isDrawCursor(false);
 	}
+
+	Window *m_Window;
 }

@@ -132,29 +132,87 @@ namespace xphase
 		class DialogInterface
 		{
 		private:
-			sf::ConvexShape dialogBar;
-			sf::Text dialogText;
+			sf::ConvexShape
+				dialogBar,
+				nameBar;
+			sf::Text
+				dialogText,
+				nameText;
+
+			sf::String endDialogText,
+				buttonEndDialogText;
+
+			Button buttons[4];
 
 			bool isDialogFlag = false,
-				isButtonsShowFlag = false;
+				isButtonsShowFlag = false,
+				isEndOfDialogFlag = false,
+				itWillShowFlag = true;
 
-			short buttonsToShowCount = 0;
+			short buttonsToShowCount = 0,
+				answerNumber = 5;
 
 		public:
 			int create(Window &window);
 			void update(Window &window, Player &player);
 			void draw(Window &window);
 
-			void isDialog(bool var)			{ isDialogFlag = var; }
-			bool isDialog()					{ return isDialogFlag; }
-			void isButtonsShow(bool var)	{ isButtonsShowFlag = var; }
-			bool isButtonsShow()			{ return isButtonsShowFlag; }
+			void hide(Player &player);
 
-			void setButtons(std::vector<sf::String> buttonsText);
+			//set
+			void isDialog(bool var)			{ isDialogFlag = var; }
+			void isEndOfDialog(bool var)	{ isEndOfDialogFlag = var; }
+			void isButtonsShow(bool var)	{ isButtonsShowFlag = var; }
+
+			//get
+			bool isDialog()					{ return isDialogFlag; }
+			bool isButtonsShow()			{ return isButtonsShowFlag; }
+			bool isEndOfDialog()			{ return isEndOfDialogFlag; }
+			short buttonWasPressed()		{ return answerNumber; }
+
+			void setButtons(std::vector<sf::String> &buttonsText);
+			void setText(sf::String &text);
+			void setName(sf::String &text);
+
+		private:
+			void calculatePos(Window &window, const vec2f &nowZeroPos);
 
 		} dialogInterface;
 
+		class MiscIntarface
+		{
+		private:
+			sf::Text fpsCounter;
+		public:
+			int create(Window &window);
+			void update(Window &window, Player &player);
+			void draw(Window &window);
+		} misc;
+
+		class HelperObject
+		{
+		private:
+			sf::Sprite helper;
+
+			bool isShown = false;
+
+			std::string movementhelper,
+				actionHelper;
+
+		public:
+			int create(Window &window);
+			void update(Player &player);
+			void draw(Window &window);
+
+			//TASK:
+			///Just create this to children mode
+
+			bool isShow() { return isShown; }
+			void show() { isShown = true; }
+			void hide() { isShown = false; }
+		} helper;
 
 		int load(Window& window);
+		void draw(Window& window);
 	};
 }

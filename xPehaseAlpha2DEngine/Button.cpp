@@ -87,33 +87,34 @@ namespace xphase
 
 	void Button::isButtonUnderCursor(const sf::RenderWindow& window, const vec2f& nowZeroPosition)
 	{
-		switch
-		(
-			(
-				(sf::Mouse::getPosition(window).x + nowZeroPosition.x > buttonBody.getPosition().x)
-					&
-				(sf::Mouse::getPosition(window).x + nowZeroPosition.x < buttonBody.getPosition().x + size.x)
-			)
-			&
-			(
-				(sf::Mouse::getPosition(window).y + nowZeroPosition.y > buttonBody.getPosition().y)
-					&
-				(sf::Mouse::getPosition(window).y + nowZeroPosition.y < buttonBody.getPosition().y + size.y)
-			)
-		)
+		if (window.hasFocus())
 		{
-		case true:
-			switch (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+			switch
+				(
+					(
+						(sf::Mouse::getPosition(window).x + nowZeroPosition.x > buttonBody.getPosition().x)
+						&
+						(sf::Mouse::getPosition(window).x + nowZeroPosition.x < buttonBody.getPosition().x + size.x)
+					)
+					&
+					(
+						(sf::Mouse::getPosition(window).y + nowZeroPosition.y > buttonBody.getPosition().y)
+						&
+						(sf::Mouse::getPosition(window).y + nowZeroPosition.y < buttonBody.getPosition().y + size.y)
+					)
+				)
 			{
-			case true:  ButtonPressed(); break;
-			case false: buttonBody.setFillColor(selectedColor); break;
-			}
-			break;
+			case true:
+				if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+					ButtonPressed();
+				else
+					buttonBody.setFillColor(selectedColor);
+				break;
 
-		case false:
-			buttonBody.setFillColor(backgraundColor);
-			isButtonPressed(false);
-			break;
+			case false:
+				buttonBody.setFillColor(backgraundColor); isButtonPressed(false);
+				break;
+			}
 		}
 	}
 

@@ -12,6 +12,8 @@ namespace xphase
 
 		window.drawArea.clear();
 
+		UI.misc.update(window, player);
+
 		bool notAGame = player.isOnTrigger() || UI.igme.update(window, player, delta);
 
 		if (notAGame)
@@ -30,7 +32,7 @@ namespace xphase
 		world.draw(window, player);
 		player.draw(window);
 		world.drawSceneLayers(window, player);
-		UI.igme.draw(window);
+		UI.draw(window);
 
 		window.drawArea.display();
 	}

@@ -188,6 +188,12 @@
     <ClCompile Include="MainGameLogic.cpp">
       <Filter>MathGameLogic\Header\GameLogic</Filter>
     </ClCompile>
+    <ClCompile Include="MiscInterface.cpp">
+      <Filter>Исходные файлы\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="HelperObject.cpp">
+      <Filter>Исходные файлы\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">

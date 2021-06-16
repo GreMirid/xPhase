@@ -3,12 +3,13 @@
 
 namespace xphase
 {
-	int Trigger::create(vec2f &pos, vec2f &size, int t)
+	int Trigger::create(vec2f &pos, vec2f &size, int t, int n)
 	{
 		setSize(size);
 		setPos(pos);
 
 		type = t;
+		number = n;
 
 		//visual
 		visual.setPointCount(4);
@@ -47,6 +48,7 @@ namespace xphase
 			case CHARACTER:
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) player.isOnTrigger(true);
 				else player.setText(player.isTrigger());
+				player.isOnTriggerNumber(number);
 				break;
 			case EMPTY:
 			case ONCE:
@@ -56,6 +58,7 @@ namespace xphase
 		}
 	}
 
+	//simply simple
 	int Trigger::getType()
 	{
 		return type;

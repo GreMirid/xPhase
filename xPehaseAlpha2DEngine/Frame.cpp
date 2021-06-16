@@ -10,11 +10,14 @@ namespace xphase
 
 			//TASK:
 			/// bind some "e" and "escape" keys to eteract with world
-			switch (statusFlag)
+			if (window.drawArea.hasFocus())
 			{
-			case MainMenuSequnce: /* do staff */ break;
-			case GameSequnce: gameFrameAction(); break;
-			case SettingsSequence: /* do staff */ break;
+				switch (statusFlag)
+				{
+				case MainMenuSequnce: /* do staff */ break;
+				case GameSequnce: gameFrameAction(); break;
+				case SettingsSequence: /* do staff */ break;
+				}
 			}
 		}
 

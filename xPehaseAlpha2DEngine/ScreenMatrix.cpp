@@ -11,6 +11,11 @@ namespace xphase
 		matPoint tempPoint = { x * matScale.x, y * matScale.y }; matrix.emplace_back(tempPoint); } }*/
 	}
 
+	float ScreenMatrix::getTotalMatrixScale()
+	{
+		return ((matScale.x + matScale.y) / 2);
+	}
+
 	vec2f ScreenMatrix::getRealPoint(const vec2f& point)
 	{
 		return { point.x * matScale.x, point.y * matScale.y };

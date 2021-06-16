@@ -10,6 +10,8 @@ namespace xphase
 
 		openWindow(filePath);
 
+		m_Window = &window;
+
 		//Load Standarts
 		m_Textures.create(window);
 		m_Font.create(window);

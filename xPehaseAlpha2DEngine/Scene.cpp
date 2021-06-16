@@ -86,7 +86,7 @@ namespace xphase
 	{
 		Trigger tempt;
 
-		tempt.create(pos, size, type);
+		tempt.create(pos, size, type, triggers.size());
 
 		triggers.emplace_back(tempt);
 	}

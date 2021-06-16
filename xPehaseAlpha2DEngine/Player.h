@@ -7,7 +7,8 @@ namespace xphase
 	class Player : public Actor
 	{
 	private:
-		int location = 0;
+		int location = 0,
+			onTriggerNumber = 0;
 		bool itMoveFlag = false,
 			isOnTriggerFlag = false;
 
@@ -42,11 +43,13 @@ namespace xphase
 		sf::String &isTrigger()				{ return triggerText; }
 		sf::String &cleanText()				{ return emptyText; }
 		bool isOnTrigger()					{ return isOnTriggerFlag; }
+		int isOnTriggerNumber()				{ return onTriggerNumber; }
 
 		//Setter
 		void setLocation(int loc)			{ location = loc; }
 		void setText(sf::String &intext);
 		void isOnTrigger(bool var)			{ isOnTriggerFlag = var; }
+		void isOnTriggerNumber(int var)		{ onTriggerNumber = var; }
 
 	public:
 		void setBlockedUp(bool block)		{ blockUpFlag = block; }

@@ -58,6 +58,8 @@ namespace xphase
 		void open(const std::string& path);
 	};
 
+	extern Window *m_Window;
+
 	//
 	class EngineLoop
 	{

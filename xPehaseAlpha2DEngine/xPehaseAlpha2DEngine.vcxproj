@@ -154,6 +154,7 @@
     <ClCompile Include="GameFrame.cpp" />
     <ClCompile Include="GameFrameAction.cpp" />
     <ClCompile Include="GameMenu.cpp" />
+    <ClCompile Include="HelperObject.cpp" />
     <ClCompile Include="INI\ini.c" />
     <ClCompile Include="INI\INIReader.cpp" />
     <ClCompile Include="Launcher.cpp" />
@@ -162,6 +163,7 @@
     <ClCompile Include="MainGameLogic.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="MainMenuFrame.cpp" />
+    <ClCompile Include="MiscInterface.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="render.cpp" />
     <ClCompile Include="Res_Sc_Load.cpp" />

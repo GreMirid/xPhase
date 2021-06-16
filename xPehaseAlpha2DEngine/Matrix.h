@@ -22,6 +22,8 @@ namespace xphase
 		// " Point X + ( Matrix Size X * Point Y ) " - it's how to get a member of line massive by x and y
 		return matrix[ int( point.x + ( matSize.x * point.y ) ) ].screenPoint; }*/
 
+		float getTotalMatrixScale();
+
 		vec2f getRealPoint(const vec2f& point);
 
 		vec2f& getMatrixScale()		{ return matScale; }

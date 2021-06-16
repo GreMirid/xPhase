@@ -20,11 +20,11 @@ namespace xphase
 
 	private:
 		float pseudoCameraAngle = 0.0f,
-			speedOfActor = 0.002f;
+			speedOfActor = 0.002f,
+			delayConst = 0.2f,
+			frameDelay = 0;
 
-		short spriteStage = 0,
-			frameDelay = 0,
-			delayConst = 5000;
+		short spriteStage = 0;
 
 	public:
 		sf::Sprite actorSprite;
@@ -53,6 +53,7 @@ namespace xphase
 		sf::Sprite &getActorSprite();
 
 		virtual void move(int direction, float delta, float move);
+		virtual void animate(Window &window, int direction);
 
 	public:
 		void calculatePointsForAtlas();

@@ -65,8 +65,17 @@ namespace xphase
 
 		setActorPos(getPos());
 
+		animate(*m_Window, direction);
+	}
+
+	void Actor::animate(Window &window, int direction)
+	{
+		//fix animation:
+		/// to change normally get current frame PER SECOND and / to dalay needed.
+		///it works perfectly for all FPS
+
 		//sprite chages machina
-		switch (frameDelay > delta / delayConst)
+		switch (frameDelay > window.getCurrentFPS() * delayConst)
 		{
 		case true:
 			frameDelay = 0;
@@ -76,7 +85,9 @@ namespace xphase
 			}
 			break;
 
-		case false: frameDelay++; break;
+		case false:
+			frameDelay++;
+			break;
 		}
 
 		setActorRect(direction, spriteStage);

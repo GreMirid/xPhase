@@ -69,10 +69,7 @@ namespace xphase
 		/// 
 		setActorSpeed
 		(
-			reader.GetReal("Set", "speed", 0.0f) * 
-			(
-				(window.screenMatrix.getMatrixScale().x + window.screenMatrix.getMatrixScale().y) / 2
-			)
+			reader.GetReal("Set", "speed", 0.0f) * window.screenMatrix.getTotalMatrixScale()
 		);
 
 		/// TEXT
@@ -93,21 +90,25 @@ namespace xphase
 			txt,
 			*m_Font.loadFont(font_path),
 			textColor,
-			reader.GetInteger("Text","character_size", 0) * ((window.screenMatrix.getMatrixScale().x + window.screenMatrix.getMatrixScale().y) / 2)
+			reader.GetInteger("Text","character_size", 0) * window.screenMatrix.getTotalMatrixScale()
 		);
 		
 		/// 
-		setAngle(-((getSize().y * getScale().y) - reader.GetInteger("Main", "angle", 0)));
+		setAngle(-(((getSize().y * getScale().y) - reader.GetInteger("Main", "angle", 0)) * window.screenMatrix.getTotalMatrixScale()));
 
 		return EXIT_OK;
 	}
 
 	void Player::update(Window &window, float delta)
 	{
-		up = sf::Keyboard::isKeyPressed(sf::Keyboard::W) && !blockUpFlag;
-		down = sf::Keyboard::isKeyPressed(sf::Keyboard::S) && !blockDownFlag;
-		left = sf::Keyboard::isKeyPressed(sf::Keyboard::A) && !blockLeftFlag;
-		right = sf::Keyboard::isKeyPressed(sf::Keyboard::D) && !blockRightFlag;
+		if (window.drawArea.hasFocus())
+		{
+			up = sf::Keyboard::isKeyPressed(sf::Keyboard::W) && !blockUpFlag;
+			down = sf::Keyboard::isKeyPressed(sf::Keyboard::S) && !blockDownFlag;
+			left = sf::Keyboard::isKeyPressed(sf::Keyboard::A) && !blockLeftFlag;
+			right = sf::Keyboard::isKeyPressed(sf::Keyboard::D) && !blockRightFlag;
+		}
+		else up = down = left = right = false;
 
 		itMoveFlag = up || down || left || right;
 

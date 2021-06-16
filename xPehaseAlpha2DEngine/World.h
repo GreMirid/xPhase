@@ -34,10 +34,11 @@ namespace xphase
 			EMPTY
 		};
 	private:
-		int type = EMPTY;
+		int type = EMPTY,
+			number;
 
 	public:
-		int create(vec2f &pos, vec2f &size, int type);
+		int create(vec2f &pos, vec2f &size, int type, int number);
 		void update(Player &player, float delta);
 		int getType();
 	};
