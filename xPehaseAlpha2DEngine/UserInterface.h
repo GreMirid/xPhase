@@ -196,7 +196,14 @@ namespace xphase
 
 			bool isShown = false;
 
-			std::string movementhelper,
+			enum helpers
+			{
+				MovementHelper,
+				ActionHelper
+			};
+
+			std::string
+				movementhelper,
 				actionHelper;
 
 		public:
@@ -206,6 +213,8 @@ namespace xphase
 
 			//TASK:
 			///Just create this to children mode
+
+			void setCustomHelper(std::string &path);
 
 			bool isShow() { return isShown; }
 			void show() { isShown = true; }

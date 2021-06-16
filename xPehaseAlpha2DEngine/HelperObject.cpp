@@ -23,4 +23,9 @@ namespace xphase
 		if (isShow())
 			window.drawArea.draw(helper);
 	}
+
+	void UserInterface::HelperObject::setCustomHelper(std::string &path)
+	{
+		helper.setTexture(*m_Textures.loadTexture(path));
+	}
 }
