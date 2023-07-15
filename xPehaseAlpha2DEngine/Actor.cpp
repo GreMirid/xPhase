@@ -29,7 +29,6 @@ namespace xphase
 	void Actor::setActorScale(const vec2f &scale)
 	{
 		setScale(scale);
-
 		actorSprite.setScale(scale.x, scale.y);
 	}
 

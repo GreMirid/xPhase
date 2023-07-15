@@ -19,28 +19,27 @@ namespace xphase
 		std::string path_to_font = window.getPathtoGame() + TO_RES + reader.Get("Menu", "font", "");
 
 		// Get Colors
-		sf::Color panelColor;
-		panelColor.r = reader.GetInteger("Menu", "r", 0);
-		panelColor.g = reader.GetInteger("Menu", "g", 0);
-		panelColor.b = reader.GetInteger("Menu", "b", 0);
+		sf::Color *panelColor = new sf::Color(
+			reader.GetInteger("Menu", "r", 0),
+			reader.GetInteger("Menu", "g", 0),
+			reader.GetInteger("Menu", "b", 0));
 
-		sf::Color textPanelColor;
-		textPanelColor.r = reader.GetInteger("Menu Text", "r", 0);
-		textPanelColor.g = reader.GetInteger("Menu Text", "g", 0);
-		textPanelColor.b = reader.GetInteger("Menu Text", "b", 0);
+		sf::Color *textPanelColor = new sf::Color(
+			reader.GetInteger("Menu Text", "r", 0),
+			reader.GetInteger("Menu Text", "g", 0),
+			reader.GetInteger("Menu Text", "b", 0));
 
-		sf::Color buttonsColor;
-		buttonsColor.r = reader.GetInteger("Buttons", "r", 0);
-		buttonsColor.g = reader.GetInteger("Buttons", "g", 0);
-		buttonsColor.b = reader.GetInteger("Buttons", "b", 0);
+		sf::Color *buttonsColor = new sf::Color(
+			reader.GetInteger("Buttons", "r", 0),
+			reader.GetInteger("Buttons", "g", 0),
+			reader.GetInteger("Buttons", "b", 0));
 
-		sf::Color textButtonsColor;
-		textButtonsColor.r = reader.GetInteger("Buttons", "text_r", 0);
-		textButtonsColor.g = reader.GetInteger("Buttons", "text_g", 0);
-		textButtonsColor.b = reader.GetInteger("Buttons", "text_b", 0);
+		sf::Color *textButtonsColor = new sf::Color(
+			reader.GetInteger("Buttons", "text_r", 0),
+			reader.GetInteger("Buttons", "text_g", 0),
+			reader.GetInteger("Buttons", "text_b", 0));
 
 		// Get text
-
 		sf::String text_menu = reader.Get("Menu Text", "text", "Menu");
 		text_menu = sf::String::fromUtf8(text_menu.begin(), text_menu.end());
 
@@ -67,13 +66,13 @@ namespace xphase
 		menuDraw.setPoint(2, sf::Vector2f(size.x, size.y));
 		menuDraw.setPoint(3, sf::Vector2f(0, size.y));
 
-		menuDraw.setFillColor(panelColor);
+		menuDraw.setFillColor(*panelColor);
 
 		menuDraw.setPosition( pos.x, pos.y );
 
 		///Set text
 		text.setFont(*m_Font.loadFont(path_to_font));
-		text.setFillColor(textPanelColor);
+		text.setFillColor(*textPanelColor);
 		text.setString(text_menu);
 		text.setCharacterSize(reader.GetInteger("Menu Text", "character_size", 12) * ((mod.x + mod.y) / 2));
 
@@ -110,7 +109,7 @@ namespace xphase
 			else if (reader.Get(button_name, "role", "") == "exit") role = Quit;
 			else role = DoNotExec;
 
-			buttons[unit].setColors(buttonsColor, isLigt);
+			buttons[unit].setColors(*buttonsColor, isLigt);
 
 			buttons[unit].set
 			(
@@ -119,7 +118,7 @@ namespace xphase
 				role
 			);
 
-			buttons[unit].setText(text_button, *m_Font.loadFont(path_to_font), textButtonsColor, characterSize);
+			buttons[unit].setText(text_button, *m_Font.loadFont(path_to_font), *textButtonsColor, characterSize);
 		}
 
 		return EXIT_OK;
@@ -199,10 +198,8 @@ namespace xphase
 	{
 		for (short unit = 0; unit < 3; unit++)
 		{
-			switch (buttons[unit].isButtonPressed())
+			if (buttons[unit].isButtonPressed())
 			{
-			case true:
-
 				switch (buttons[unit].getRole())
 				{
 				case toMainMenu: return MainMenuSequnce;
@@ -211,7 +208,6 @@ namespace xphase
 				default: break;
 				}
 				break;
-			default: break;
 			}
 		}
 

@@ -14,7 +14,7 @@ GitHub: https://github.com/benhoyt/inih
 #include "ConteinerReader.h"
 
 //
-#include "SFML/Graphics.hpp"
+#include <SFML/Graphics.hpp>
 
 //
 namespace xphase

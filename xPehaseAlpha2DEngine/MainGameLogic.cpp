@@ -12,7 +12,7 @@ namespace xphase
 	{
 		//Task:
 		/// create own logic fo local game
-		sf::String question = L"Вопрос";
+		sf::String question = L"";
 		sf::String text = L"";
 
 		switch (game->player.getLocation())
@@ -25,7 +25,7 @@ namespace xphase
 
 				switch (game->player.isOnTriggerNumber())
 				{
-				case 0: text = L"Сколько из 40 апельсинов будет, если 15 из них были проданы?"; break;
+				case 0: text = L"?"; break;
 				}
 
 				game->UI.dialogInterface.setName(question);
