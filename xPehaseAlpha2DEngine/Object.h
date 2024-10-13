@@ -7,13 +7,16 @@ namespace xphase
 	class Object
 	{
 	public:
-		virtual int create()						{ return EXIT_NULL; }
+		//Object() { create(); }
+		//~Object() { destroy(); }
+
+		virtual int create() = 0;
 		virtual void destroy()						{ delete this; }
 
 		virtual void update(double delta)			{ };
 
 	public:
-		//Getter
+		// ...
 		virtual vec2f getPos()						{ return pos; }
 		virtual vec2f getSize()						{ return size; }
 		virtual vec2f getPosCen()					{ return posCen; }
@@ -24,7 +27,7 @@ namespace xphase
 		}
 		virtual bool isEnabled() { return enableFlag; }
 
-		//Setter
+		// ...
 		virtual void isEnabled(bool en)				{ enableFlag = en; }
 		virtual void setSize(const vec2f& sizE)		{ size = sizE; }
 		virtual void setScale(const vec2f& scalE)	{ scale = scalE; }

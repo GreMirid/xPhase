@@ -41,9 +41,9 @@ namespace xphase
 
 		vertical = 
 			(
-				((getPos().x < player.getPos().x) & (dub.x > player.getPos().x)) /// left point
+				((getPos().x < player.getPos().x) && (dub.x > player.getPos().x)) /// left point
 					||
-				((getPos().x < player.getDub().x) & (dub.x > player.getDub().x)) /// right point
+				((getPos().x < player.getDub().x) && (dub.x > player.getDub().x)) /// right point
 			);
 
 		horizontal = 

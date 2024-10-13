@@ -6,9 +6,7 @@ namespace xphase
 	int Door::create(vec2f &pos, int to_door, int to_location, float scale)
 	{
 		setSize({ 100 * scale, 100 * scale });
-
 		setScale({ scale, scale });
-
 		setPos(pos);
 
 		toDoor = to_door;
@@ -32,33 +30,22 @@ namespace xphase
 
 	vec2f Door::update(Player &player)
 	{
-		switch
-			(
-				(
-					((player.getPos().x + (player.getScaledSize().x / 2)) > getPos().x) &&
-					((player.getPos().x + (player.getScaledSize().x / 2)) < getPos().x + getSize().x)
-				)
-					&&
-				(
-					((player.getPos().y + (player.getScaledSize().y / 2)) > getPos().y) &&
-					((player.getPos().y + (player.getScaledSize().y / 2)) < getPos().y + getSize().y)
-				)
-			)
+		if ((((player.getPos().x + (player.getScaledSize().x / 2)) > getPos().x) &&
+			((player.getPos().x + (player.getScaledSize().x / 2)) < getPos().x + getSize().x))
+			&&
+			(((player.getPos().y + (player.getScaledSize().y / 2)) > getPos().y) &&
+			((player.getPos().y + (player.getScaledSize().y / 2)) < getPos().y + getSize().y)
+		))
 		{
-		case true:
 			//set text, what is door
 			player.setText(player.isDoor());
 
-			switch ((sf::Keyboard::isKeyPressed(sf::Keyboard::E)))
+			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::E)))
 			{
-			case true:
 				//
 				delay(0.23);
 				return { float(toDoor), float(toLocation) };
-				break;
-			default: break;
 			}
-			break;
 		}
 		return { NoZero, 0 };
 	}

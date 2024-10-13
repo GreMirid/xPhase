@@ -228,7 +228,6 @@ namespace xphase
 		{
 			//task:
 			/// set positions for objects
-
 			text.setPosition
 			(
 				menuDraw.getPosition().x + ((size.x / 2) - (text.getLocalBounds().width / 2)),

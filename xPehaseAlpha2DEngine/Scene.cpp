@@ -102,7 +102,7 @@ namespace xphase
 
 	void Scene::addLayer(vec2f &pos, vec2f &scale, std::string &path_to_texture)
 	{
-		Layer templ;
+		Layer templ();
 
 		templ.create(pos, scale, path_to_texture);
 
