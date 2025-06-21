@@ -10,7 +10,10 @@ namespace xphase
 
 		loaingText.setFillColor(sf::Color(255, 255, 255));
 		loaingText.setCharacterSize(20);
-		loaingText.setPosition((window.screenMatrix.getRealScreenSize().x / 2) - 33, (window.screenMatrix.getRealScreenSize().y / 2) - 13);
+		loaingText.setPosition(
+			(window.screenMatrix.getRealScreenSize().x / 2) - 33,
+			(window.screenMatrix.getRealScreenSize().y / 2) - 13
+		);
 
 		loaingText.setString(L"Loading");
 

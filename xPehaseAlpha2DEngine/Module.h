@@ -4,6 +4,7 @@
 
 namespace xphase
 {
+	// interface of engine modules
 	class Module
 	{
 	public:

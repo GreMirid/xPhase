@@ -4,11 +4,11 @@ namespace xphase
 {
 	int Scene::create(vec2f cenpos, vec2f scale, const std::string &path)
 	{
-		//TASK:
+		/// todo:
 		/// USE CONTEINER READER FOR LOAD FILE AND PAST ALL OBJECT IN CLASS SCENE
 		pathToTexture = path;
 
-		//FIX:
+		/// fix:
 		/// In std::vector, sf::Texture lost his memory adress and texture is not drawning
 		/// Solution: don't write and texture and sprite in Scene class
 		/// Write this in World class
@@ -25,10 +25,12 @@ namespace xphase
 	void Scene::update(Window &window, double delta, Player &player)
 	{
 		player.setBlockedUp(player.getPos().y < getPos().y + player.getAngle());
-		player.setBlockedDown(player.getPos().y > (getPos().y + getSize().y) - (player.getSize().y * player.getScale().y));
+		player.setBlockedDown(player.getPos().y > (getPos().y + getSize().y)
+			- (player.getSize().y * player.getScale().y));
 
 		player.setBlockedLeft(player.getPos().x < getPos().x);
-		player.setBlockedRight(player.getPos().x > (getPos().x + getSize().x) - (player.getSize().x * player.getScale().x));
+		player.setBlockedRight(player.getPos().x > (getPos().x + getSize().x)
+			- (player.getSize().x * player.getScale().x));
 
 		/*
 		COLISSIONS OF SCENE
@@ -52,9 +54,8 @@ namespace xphase
 
 	void Scene::draw(Window &window)
 	{
-		switch (window.isDrawBorders())
+		if (window.isDrawBorders())
 		{
-		case true:
 			for (size_t unit = 0; unit < doors.size(); unit++)
 				window.drawArea.draw(doors[unit].visual);
 
@@ -63,7 +64,6 @@ namespace xphase
 
 			for (size_t unit = 0; unit < collisions.size(); unit++)
 				window.drawArea.draw(collisions[unit].visual);
-			break;
 		}
 	}
 
@@ -102,7 +102,7 @@ namespace xphase
 
 	void Scene::addLayer(vec2f &pos, vec2f &scale, std::string &path_to_texture)
 	{
-		Layer templ();
+		Layer templ;
 
 		templ.create(pos, scale, path_to_texture);
 

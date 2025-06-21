@@ -2,7 +2,8 @@
 
 namespace xphase
 {
-	float fast_sqrt(float x);
+	float fast_sqrt(float x); // don't even uses right now
 
-	void delay(float seconds);
+	// makes thread dalay by cycle
+	void cycle_delay(float seconds);
 }

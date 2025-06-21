@@ -5,7 +5,7 @@ namespace xphase
 {
 	int Characters::create(Window &window)
 	{
-		//TASK
+		/// todo:
 		/// Create a algorithm to past all data from files to Objects
 
 		return EXIT_OK;

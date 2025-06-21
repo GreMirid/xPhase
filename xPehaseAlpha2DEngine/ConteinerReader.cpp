@@ -108,7 +108,7 @@ namespace xphase
 		return std::stoi(data);
 	}
 
-	float toFlFrmWS(const std::wstring& data)
+	float toFloatFromWideString(const std::wstring& data)
 	{
 		return std::atof(toString(data).c_str());
 	}

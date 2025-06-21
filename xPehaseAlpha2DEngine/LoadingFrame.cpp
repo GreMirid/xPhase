@@ -12,6 +12,6 @@ namespace xphase
 
 		start(); /// Create a game with Params.
 
-		setStatus(MainMenuSequnce); // TO MAIN MENU 
+		setStatus(MainMenuSequnce); // pass to main menu after loading
 	}
 }

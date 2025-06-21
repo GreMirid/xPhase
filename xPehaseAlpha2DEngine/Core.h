@@ -7,26 +7,38 @@ GitHub: https://github.com/benhoyt/inih
 */
 #include "INI/INIReader.h"
 
-//
 #include "VarTrash.h"
 #include "Matrix.h"
 #include "Returns.h"
 #include "ConteinerReader.h"
 
-//
 #include <SFML/Graphics.hpp>
 
-//
+/// Engine classes 
+
 namespace xphase
 {
-	//Functions and Classes for Game itself
-
-	//
 	class Window
 	{
 	public:
 		sf::RenderWindow drawArea;
 		ScreenMatrix screenMatrix;
+
+		std::map<std::string, vec2f> resolutions = {
+			{ "Dev", {1280, 720} }, //how developer uses
+			{ "640x360", {640, 360} }, //sd
+			{ "960x540", {960, 540} },
+			{ "1280x720", {1280, 720} }, // hd
+			{ "1280x1024", {1280, 1024} }, // hd 4:3
+			{ "1366x768", {1366, 768} }, // most old notebooks
+			{ "1600x900", {1600, 900} }, // weird cheap ones
+			{ "1920x1080", {1920, 1080} }, // full hd
+			{ "2048x1152", {2048, 1152} },
+			{ "2560x1440", {2560, 1440} }, //2k
+			{ "2880x1620", {2880, 1620} },
+			{ "3200x1800", {3200, 1800} },
+			{ "3840x2160", {3840, 2160} }  //4k
+		};
 
 	public:
 		sf::View camera;

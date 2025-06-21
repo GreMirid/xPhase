@@ -3,9 +3,11 @@
 #include "Player.h"
 #include "Characters.h"
 
+// todo: refact this
+
 namespace xphase
 {
-	//DOOR FOR SCENE OBJECT CLASS
+	// ------------------------------------
 	class Door : public Object
 	{
 	public:
@@ -19,7 +21,8 @@ namespace xphase
 		vec2f update(Player &player);
 	};
 
-	//TRIGGER FOR SCENE OBJECT CLASS
+	// ------------------------------------
+
 	class Trigger : public Object
 	{
 	public:
@@ -43,7 +46,8 @@ namespace xphase
 		int getType();
 	};
 
-	//COLISIION FOR SCENE OBJECT CLASS
+	// ------------------------------------
+
 	class Collision : public Object
 	{
 	public:
@@ -68,7 +72,8 @@ namespace xphase
 		void update(Player &player, float delta);
 	};
 
-	//LAYER FOR SCENE OBJECT CLASS
+	// ------------------------------------
+
 	class Layer : public Object
 	{
 	public:
@@ -79,7 +84,8 @@ namespace xphase
 		void draw(Window &window);
 	};
 
-	//SCENE OBJECT CLASS FOR WORLD CLASS
+	// ------------------------------------
+
 	class Scene : public Object
 	{
 	public:
@@ -111,7 +117,8 @@ namespace xphase
 		void clear();
 	};
 
-	//MAIN WORLD CLASS
+	// ------------------------------------
+
 	class World
 	{
 	public:
@@ -133,4 +140,5 @@ namespace xphase
 	public:
 		void reSetScene(int player_location);
 	};
+	// ------------------------------------
 }

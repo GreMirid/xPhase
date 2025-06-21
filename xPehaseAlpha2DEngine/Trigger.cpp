@@ -29,15 +29,15 @@ namespace xphase
 
 	void Trigger::update(Player &player, float delta)
 	{
-		//if player on trigger, sets Players in trigger
+		// checks on what player now - if on trigger, player can activate it
 		if
 		(
-			(
+			( //x
 				((player.getPos().x + (player.getScaledSize().x / 2)) > getPos().x) &&
 				((player.getPos().x + (player.getScaledSize().x / 2)) < getPos().x + getSize().x)
 			)
 			&&
-			(
+			( //y
 				((player.getPos().y + (player.getScaledSize().y / 2)) > getPos().y) &&
 				((player.getPos().y + (player.getScaledSize().y / 2)) < getPos().y + getSize().y)
 			)
@@ -52,13 +52,12 @@ namespace xphase
 				break;
 			case EMPTY:
 			case ONCE:
-				player.isOnTrigger(true); //Just setting what player is on trigger
+				player.isOnTrigger(true); // just execute trigger
 				break;
 			}
 		}
 	}
 
-	//simply simple
 	int Trigger::getType()
 	{
 		return type;

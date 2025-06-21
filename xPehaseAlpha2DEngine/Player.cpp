@@ -1,12 +1,16 @@
 #include "Player.h"
 
+/// <summary>
+///  Gre: Need to refact this file, separate config parsing and logic of player movement
+/// </summary>
+
 namespace xphase
 {
 	int Player::create(Window &window)
 	{
 		debug = window.isDebug();
 
-		//TASK:
+		/// todo:
 		/// Load standart phrases from config.ini
 		INIReader rd(window.getPathtoGame() + TO_CFG + "config.ini");
 
@@ -16,7 +20,7 @@ namespace xphase
 		triggerText = rd.Get("Texts", "trigger", "");
 		triggerText = sf::String::fromUtf8(triggerText.begin(), triggerText.end());
 
-		//TASK:
+		/// todo:
 		/// Load from ini params and past it here
 		INIReader reader(window.getPathtoGame() + TO_CFG + "player.ini");
 
@@ -112,46 +116,49 @@ namespace xphase
 
 		itMoveFlag = up || down || left || right;
 
-		switch (itMoveFlag)
+		/// todo:
+		/// refact this piece of ....
+		if (itMoveFlag)
 		{
-		case true:
-
 			//keys for using
-			if (left & up) move(LeftUp, delta, 1);
-			else if (up & right) move(UpRight, delta, 1);
-			else if (left & down) move(LeftDown, delta, 1);
-			else if (down & right) move(DownRight, delta, 1);
-			else if (left & right) resetToZeroFrame();
-			else if (up & down) resetToZeroFrame();
+			if (left && up) move(LeftUp, delta, 1);
+			else if (up && right) move(UpRight, delta, 1);
+			else if (left && down) move(LeftDown, delta, 1);
+			else if (down && right) move(DownRight, delta, 1);
+			else if (left && right) resetToZeroFrame();
+			else if (up && down) resetToZeroFrame();
 			else if (up) move(Up, delta, 1);
 			else if (down) move(Down, delta, 1);
 			else if (left) move(Left, delta, 1);
 			else if (right) move(Right, delta, 1);
-
-			break;
-
-		case false:
+		}
+		else
+		{
 			//if it in colission
-			switch ((blockUpFlag && blockDownFlag && blockLeftFlag && blockRightFlag))
+			if ((blockUpFlag && blockDownFlag && blockLeftFlag && blockRightFlag))
 			{
-			case true:
 				move(Down, delta, 1);
-				break;
-			case false:
+			}
+			else
+			{
 				//set idle frame (anti-cyclopus)
 				resetToZeroFrame();
 
-				for(int limmitter = 0; (blockUpFlag || blockDownFlag || blockLeftFlag || blockRightFlag) && (limmitter < 100); limmitter++)
+				for (int limmitter = 0;
+					(blockUpFlag || blockDownFlag || blockLeftFlag || blockRightFlag)
+					&& (limmitter < 100); limmitter++)
 				{
 					//if it in only in all, minwhile it not in all, where it will be do nothing
-					if ((blockRightFlag && blockUpFlag) || (blockUpFlag && blockLeftFlag)) move(Down, delta, 0.001);
-					if ((blockRightFlag && blockDownFlag) || (blockDownFlag && blockLeftFlag)) move(Up, delta, 0.001);
-					if ((blockDownFlag && blockRightFlag) || (blockRightFlag && blockUpFlag)) move(Left, delta, 0.001);
-					if ((blockDownFlag && blockLeftFlag) || (blockLeftFlag && blockUpFlag)) move(Right, delta, 0.001);
+					if ((blockRightFlag && blockUpFlag) ||
+						(blockUpFlag && blockLeftFlag)) move(Down, delta, 0.001);
+					if ((blockRightFlag && blockDownFlag) ||
+						(blockDownFlag && blockLeftFlag)) move(Up, delta, 0.001);
+					if ((blockDownFlag && blockRightFlag) ||
+						(blockRightFlag && blockUpFlag)) move(Left, delta, 0.001);
+					if ((blockDownFlag && blockLeftFlag) ||
+						(blockLeftFlag && blockUpFlag)) move(Right, delta, 0.001);
 				}
-				break;
 			}
-			break;
 		}
 
 		//Move With Text
@@ -171,14 +178,20 @@ namespace xphase
 	{
 		text.setString
 		(
-			(debug? "x:" + std::to_string(int(getPosCen().x)) + " y:" + std::to_string(int(getPosCen().y)) + (intext == ""? "": "\n"): "")
+			(debug? "x:" + std::to_string(int(getPosCen().x))
+				+ " y:" + std::to_string(int(getPosCen().y))
+				+ (intext == ""? "": "\n"): "")
 			+ intext
 		);
 	}
 
 	void Player::updateText()
 	{
-		text.setPosition(( getPos().x + (getSize().x * getScale().x) / 2) - text.getLocalBounds().width / 2, getPos().y - (text.getLocalBounds().height + 3));
+		text.setPosition(
+			( getPos().x + (getSize().x * getScale().x) / 2)
+			- text.getLocalBounds().width / 2,
+			getPos().y - (text.getLocalBounds().height + 3)
+		);
 	}
 
 	void Player::updateDub()

@@ -15,7 +15,7 @@ namespace xphase
 		return (x * r * (1.5f - 0.5f * x * r * r));
 	}
 
-	void delay(float seconds)
+	void cycle_delay(float seconds)
 	{
 		bool isNotEnd = true;
 		sf::Clock clock;

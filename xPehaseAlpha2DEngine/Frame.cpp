@@ -6,7 +6,8 @@ namespace xphase
 	{
 		while (window.drawArea.pollEvent(event))
 		{
-			if (event.type == sf::Event::Closed) window.drawArea.close();
+			if (event.type == sf::Event::Closed)
+				window.drawArea.close();
 
 			//TASK:
 			/// bind some "e" and "escape" keys to eteract with world

@@ -4,7 +4,7 @@ namespace xphase
 {
 	int UserInterface::Settings::create(Window &window)
 	{
-		/// PLACEHOLDER BUTTON
+		/// Setup placeholder button
 		INIReader reader(window.getPathtoGame() + TO_CFG + "mainmenu.ini");
 
 		std::string path_to_font = window.getPathtoGame() + TO_RES + reader.GetString("Buttons", "buttons_font", "");
@@ -42,10 +42,12 @@ namespace xphase
 
 	void UserInterface::Settings::update(int status, Window &window ,float delta)
 	{
-		from = status; statFlag = SettingsSequence;
+		from = status;
+		statFlag = SettingsSequence;
 
 		button.isButtonUnderCursor(window.drawArea, {0, 0});
 
-		if (button.isButtonPressed()) statFlag = from;
+		if (button.isButtonPressed())
+			statFlag = from;
 	}
 }

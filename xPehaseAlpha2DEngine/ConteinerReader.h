@@ -9,11 +9,11 @@
 
 #include <unordered_map>
 
-#define WSTRMAS std::vector<std::wstring>
-
 #define TO_CFG "\\cfg\\"
 #define TO_RES "\\res\\"
 #define TO_SCRIPTS "\\scripts\\"
+
+typedef std::vector<std::wstring> vecws;
 
 namespace xphase
 {
@@ -37,7 +37,7 @@ namespace xphase
 		const std::string textEnd = ".txt";
 		const std::string dataEnd = ".dat";
 
-		WSTRMAS moduleFiles;
+		vecws moduleFiles;
 
 	public:
 		ConteinerReader(const std::string &game, char type);
@@ -45,7 +45,7 @@ namespace xphase
 		std::wstring getLoadedFile(const size_t& index);
 		size_t getNumberFilesInConteiner();
 
-		WSTRMAS separateData(std::wstring data, wchar_t separator);
+		vecws separateData(std::wstring data, wchar_t separator);
 	};
 
 	//From std::wstring to std::string
@@ -58,5 +58,5 @@ namespace xphase
 	int toIFrmWS(const std::wstring& data);
 
 	//From std::wstring to Float
-	float toFlFrmWS(const std::wstring& data);
+	float toFloatFromWideString(const std::wstring& data);
 }

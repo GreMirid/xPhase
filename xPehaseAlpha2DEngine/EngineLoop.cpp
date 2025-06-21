@@ -9,21 +9,20 @@ namespace xphase
 		isWindowOpen = true;
 	}
 
-	//Placeholder Frame
+	// Placeholder Frame
 	void EngineLoop::frame(double delta)
 	{
-		while (window.drawArea.pollEvent(event))
-		{
+		while (window.drawArea.pollEvent(event)) {
 			if (event.type == sf::Event::Closed) window.drawArea.close();
 		}
 
 		window.drawArea.clear(sf::Color(color, color, color));
 
-		switch (itReverse)
-		{
-		case true: color--; if (color <= 0) itReverse = false; break;
-
-		case false: color++; if (color >= 255) itReverse = true; break;
+		if (itReverse) {
+			color--; if (color <= 0) itReverse = false;
+		}
+		else {
+			color++; if (color >= 255) itReverse = true;
 		}
 
 		window.drawArea.display();
@@ -52,10 +51,7 @@ namespace xphase
 		isWindowOpen = window.drawArea.isOpen();
 	}
 
-	void EngineLoop::set()
-	{
-		///
-	}
+	void EngineLoop::set() { }
 
 	void EngineLoop::setStatus(int status)
 	{

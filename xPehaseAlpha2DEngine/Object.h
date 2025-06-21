@@ -10,7 +10,7 @@ namespace xphase
 		//Object() { create(); }
 		//~Object() { destroy(); }
 
-		virtual int create() = 0;
+		virtual int create();
 		virtual void destroy()						{ delete this; }
 
 		virtual void update(double delta)			{ };

@@ -3,7 +3,7 @@
 namespace xphase
 {
 	//for functions
-	enum Returns
+	enum EngineReturnCodes
 	{
 		//Exit of function
 		EXIT_NULL,

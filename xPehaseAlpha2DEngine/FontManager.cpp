@@ -17,21 +17,21 @@ namespace xphase
 
 	sf::Font* FontManager::loadFont(std::string &path_to)
 	{
-		//Load Texture
+		// Load Texture
 		sf::Font* font = new sf::Font();
 
 		if (!font->loadFromFile(path_to)) return nullFont;
 
-		//Check on created file
+		// Check on created file
 		for (FontIter it = g_Fonts.begin(); it != g_Fonts.end(); it++)
 		{
 			if (it->first == path_to) return it->second;
 		}
 
-		//Insert in map
+		// Insert in map
 		g_Fonts[path_to] = font;
 
-		//REturn Adress
+		// Return Adress
 		return g_Fonts[path_to];
 	};
 

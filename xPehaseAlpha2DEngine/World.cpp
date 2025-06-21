@@ -4,8 +4,8 @@ namespace xphase
 {
 	int World::create(Window &window)
 	{
-		//TASK:
-		/// Get data from conteiner and write to RAM
+		/// todo:
+		/// Get data from conteiner and write to memory
 		/// Is data info about scenes and this objects
 
 		ConteinerReader reader(window.getPathtoGame(), ConteinerReader::SCENE);
@@ -17,7 +17,8 @@ namespace xphase
 
 		vec2f scaleScene, cenPos = { 0, 0 };
 
-		float scaleCubicObject = (window.screenMatrix.getMatrixScale().x + window.screenMatrix.getMatrixScale().y) / 2;
+		float scaleCubicObject = (window.screenMatrix.getMatrixScale().x
+			+ window.screenMatrix.getMatrixScale().y) / 2;
 
 		for (size_t f = 0; f < reader.getNumberFilesInConteiner(); f++)
 		{
@@ -47,8 +48,8 @@ namespace xphase
 
 						scaleScene =
 						{
-							toFlFrmWS(tempRawMassive[1]) * window.screenMatrix.getMatrixScale().x,
-							toFlFrmWS(tempRawMassive[2]) * window.screenMatrix.getMatrixScale().y
+							toFloatFromWideString(tempRawMassive[1]) * window.screenMatrix.getMatrixScale().x,
+							toFloatFromWideString(tempRawMassive[2]) * window.screenMatrix.getMatrixScale().y
 						};
 
 						cenPos =
@@ -71,12 +72,17 @@ namespace xphase
 						vec2f pos = window.screenMatrix.getRealPoint
 						(
 							{
-								toFlFrmWS(tempRawMassive[0]),
-								toFlFrmWS(tempRawMassive[1])
+								toFloatFromWideString(tempRawMassive[0]),
+								toFloatFromWideString(tempRawMassive[1])
 							}
 						);
 
-						tempScene.addDoor(pos, toIFrmWS(tempRawMassive[2]), toIFrmWS(tempRawMassive[3]), scaleCubicObject);
+						tempScene.addDoor(
+							pos,
+							toIFrmWS(tempRawMassive[2]),
+							toIFrmWS(tempRawMassive[3]),
+							scaleCubicObject
+						);
 					}
 
 					//ADD COLLISION FUNCTION
@@ -88,15 +94,15 @@ namespace xphase
 						vec2f pos = window.screenMatrix.getRealPoint
 						(
 							{
-								toFlFrmWS(tempRawMassive[0]),
-								toFlFrmWS(tempRawMassive[1])
+								toFloatFromWideString(tempRawMassive[0]),
+								toFloatFromWideString(tempRawMassive[1])
 							}
 						);
 
 						vec2f size =
 						{
-							toFlFrmWS(tempRawMassive[2]) * window.screenMatrix.getMatrixScale().x,
-							toFlFrmWS(tempRawMassive[3]) * window.screenMatrix.getMatrixScale().y
+							toFloatFromWideString(tempRawMassive[2]) * window.screenMatrix.getMatrixScale().x,
+							toFloatFromWideString(tempRawMassive[3]) * window.screenMatrix.getMatrixScale().y
 						};
 
 						tempScene.addCollision(pos, size);
@@ -111,15 +117,15 @@ namespace xphase
 						vec2f pos = window.screenMatrix.getRealPoint
 						(
 							{
-								toFlFrmWS(tempRawMassive[0]),
-								toFlFrmWS(tempRawMassive[1])
+								toFloatFromWideString(tempRawMassive[0]),
+								toFloatFromWideString(tempRawMassive[1])
 							}
 						);
 
 						vec2f size =
 						{
-							toFlFrmWS(tempRawMassive[2]) * window.screenMatrix.getMatrixScale().x,
-							toFlFrmWS(tempRawMassive[3]) * window.screenMatrix.getMatrixScale().y
+							toFloatFromWideString(tempRawMassive[2]) * window.screenMatrix.getMatrixScale().x,
+							toFloatFromWideString(tempRawMassive[3]) * window.screenMatrix.getMatrixScale().y
 						};
 
 						tempScene.addTrigger(pos, size, toIFrmWS(tempRawMassive[4]));
@@ -134,15 +140,15 @@ namespace xphase
 						vec2f pos = window.screenMatrix.getRealPoint
 						(
 							{
-								toFlFrmWS(tempRawMassive[0]),
-								toFlFrmWS(tempRawMassive[1])
+								toFloatFromWideString(tempRawMassive[0]),
+								toFloatFromWideString(tempRawMassive[1])
 							}
 						);
 
 						vec2f scale = 
 						{
-							toFlFrmWS(tempRawMassive[2]) * window.screenMatrix.getMatrixScale().x,
-							toFlFrmWS(tempRawMassive[3]) * window.screenMatrix.getMatrixScale().y
+							toFloatFromWideString(tempRawMassive[2]) * window.screenMatrix.getMatrixScale().x,
+							toFloatFromWideString(tempRawMassive[3]) * window.screenMatrix.getMatrixScale().y
 						};
 
 						std::string path = window.getPathtoGame() + TO_RES + toString(tempRawMassive[4]);
@@ -169,8 +175,8 @@ namespace xphase
 
 		doorUpdate(player);
 
-		//TASK:
-		///updatetable characters
+		/// todo:
+		/// update characters
 
 
 	}

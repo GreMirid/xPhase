@@ -4,7 +4,7 @@ namespace xphase
 {
 	int UserInterface::DialogInterface::create(Window &window)
 	{
-		//TASK:
+		/// todo:
 		/// Get data from .ini file
 		INIReader reader(window.getPathtoGame() + TO_CFG + "dialoginterface.ini");
 

@@ -14,12 +14,12 @@ namespace xphase
 
 		UI.misc.update(window, player);
 
-		bool notAGame = player.isOnTrigger() || UI.igme.update(window, player, delta);
+		bool notAGame = player.isOnTrigger() || UI.inGameMenu.update(window, player, delta);
 
 		if (notAGame)
 		{
 			if (player.isOnTrigger()) UI.dialogInterface.update(window, player);
-			else setStatus(UI.igme.buttonsWasPressed());
+			else setStatus(UI.inGameMenu.buttonsWasPressed());
 		}
 		else
 		{

@@ -4,14 +4,14 @@ namespace xphase
 {
 	int UserInterface::load(Window& window)
 	{
-		//task:
+		/// todo:
 		/// set to mas of Interface components
 		int loadStatus = EXIT_NULL;
 
 		/// to cycle
 		loadStatus = mM.create(window);
 		loadStatus = st.create(window);
-		loadStatus = igme.create(window);
+		loadStatus = inGameMenu.create(window);
 		loadStatus = dialogInterface.create(window);
 		loadStatus = misc.create(window);
 		loadStatus = helper.create(window);
@@ -22,7 +22,7 @@ namespace xphase
 	void UserInterface::draw(Window &window)
 	{
 		dialogInterface.draw(window);
-		igme.draw(window);
+		inGameMenu.draw(window);
 		helper.draw(window);
 		misc.draw(window);
 	}

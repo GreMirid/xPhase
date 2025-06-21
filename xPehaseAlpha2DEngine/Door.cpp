@@ -43,7 +43,7 @@ namespace xphase
 			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::E)))
 			{
 				//
-				delay(0.23);
+				cycle_delay(0.23);
 				return { float(toDoor), float(toLocation) };
 			}
 		}

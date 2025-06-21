@@ -74,19 +74,18 @@ namespace xphase
 		///it works perfectly for all FPS
 
 		//sprite chages machina
-		switch (frameDelay > window.getCurrentFPS() * delayConst)
+		if (frameDelay > window.getCurrentFPS() * delayConst)
 		{
-		case true:
 			frameDelay = 0;
-			switch (spriteStage == 2)
-			{
-			case true: spriteStage = 0; break; case false: spriteStage++; break;
+			if (spriteStage == 2) {
+				spriteStage = 0;
 			}
-			break;
-
-		case false:
+			else {
+				spriteStage++;
+			}
+		}
+		else {
 			frameDelay++;
-			break;
 		}
 
 		setActorRect(direction, spriteStage);

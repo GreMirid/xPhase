@@ -4,8 +4,8 @@ namespace xphase
 {
 	int Scenario::load(Window &window)
 	{
-		//TASK:
-		///Load all scripts by character
+		/// todo:
+		/// Load all scripts of characters
 
 		return EXIT_OK;
 	}

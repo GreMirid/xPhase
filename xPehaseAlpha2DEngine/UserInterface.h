@@ -30,7 +30,7 @@ namespace xphase
 
 		void isButtonUnderCursor(const sf::RenderWindow& window, const vec2f& nowZeroPosition);
 
-		//TASK:
+		/// todo:
 		/// Create getter
 		int getRole();
 		vec2f &getSize() { return size; }
@@ -45,7 +45,7 @@ namespace xphase
 	class UserInterface : public Module
 	{
 	public:
-		//TASK:
+		/// todo:
 		/// Create a main menu screen
 		class MainMenu
 		{
@@ -126,7 +126,7 @@ namespace xphase
 
 		private:
 			void animation(float delta);
-		} igme;
+		} inGameMenu;
 
 
 		class DialogInterface
@@ -211,8 +211,8 @@ namespace xphase
 			void update(Player &player);
 			void draw(Window &window);
 
-			//TASK:
-			///Just create this to children mode
+			/// todo:
+			/// Just create this on objects with flag helper
 
 			void setCustomHelper(std::string &path);
 

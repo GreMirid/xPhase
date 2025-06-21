@@ -126,25 +126,24 @@ namespace xphase
 
 	bool UserInterface::GameMenu::update(Window &window, Player &player, float delta)
 	{
-		//create an animation
-		switch (isGameMenuSequence())
+		// create an animation
+		if (isGameMenuSequence())
 		{
-		case true:
-			//set an animation
+			// set an animation
 			needPoint =
 			{
-				player.getPosCen().x + window.screenMatrix.getRealScreenSizeButHalf().x - (size.x + window.screenMatrix.getRealScreenSize().x / 16),
-				player.getPosCen().y - size.y / 2
+				player.getPosCen().x +
+				window.screenMatrix.getRealScreenSizeButHalf().x -
+				(size.x + window.screenMatrix.getRealScreenSize().x / 16), //x
+
+				player.getPosCen().y - size.y / 2 //y
 			};
 
-			switch (isNotEndAnimation)
-			{
-			case true:
+			if (isNotEndAnimation) {
 				animation(delta);
-				break;
-
-			case false:
-
+			}
+			else
+			{
 				//buttons update
 				for (short unit = 0; unit < 3; unit++)
 				{
@@ -157,11 +156,10 @@ namespace xphase
 						}
 					);
 				}
-
-				break;
 			}
-			break;
-		case false:
+		}
+		else
+		{
 			//set null position for menu
 			menuDraw.setPosition
 			(
@@ -169,7 +167,6 @@ namespace xphase
 				player.getPosCen().y - size.y / 2
 			);
 			isNotEndAnimation = true;
-			break;
 		}
 
 		return isGameMenuSequence();
@@ -177,20 +174,16 @@ namespace xphase
 
 	void UserInterface::GameMenu::draw(Window &window)
 	{
-		switch (isGameMenuSequence())
+		if (isGameMenuSequence())
 		{
-		case true:
 			window.drawArea.draw(menuDraw);
-			
-			switch (isNotEndAnimation)
+
+			if (isNotEndAnimation)
 			{
-			case false:
 				window.drawArea.draw(text);
 				for (short unit = 0; unit < 3; unit++)
 					buttons[unit].drawButton(window.drawArea);
-				break;
 			}
-			break;
 		}
 	}
 
